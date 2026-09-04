@@ -216,3 +216,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ---- dentmatmech ----
+# LinkML generated project artifacts (regenerate with `just gen-project`)
+project/*
+!project/README.md
+# generated schema docs (regenerate with `just gen-doc`)
+docs/elements/*
+!docs/elements/.gitkeep
+examples/output/
+tmp/
+# local OAK / validator scratch
+.oak/
+# merged schema written by `just gen-doc`; regenerated in CI
+docs/schema/

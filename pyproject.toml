@@ -1,0 +1,102 @@
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dentmatmech"
+description = "A Dental Materials Knowledge Base"
+authors = [
+  {name = "Harry Caufield", email = "jhc@lbl.gov"},
+]
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dynamic = ["version"]
+
+dependencies = [
+  "linkml-runtime >=1.9.4",
+  "linkml-term-validator>=0.4.4",
+  "linkml-reference-validator>=0.2.1",
+  "oaklib>=0.7.4",
+  "typer>=0.9.0",
+  "jinja2>=3.1",
+  "pyyaml>=6.0",
+  "markdown>=3.5",
+]
+
+[project.scripts]
+dentmatmech = "dentmatmech.cli:main"
+
+[dependency-groups]
+dev = [
+    "linkml>=1.9.3",
+    "pytest>=8.0",
+    "ruff>=0.11",
+    "mkdocs-material>=8.2.8",
+    "mkdocs-mermaid2-plugin>=1.1.1",
+    "mkdocs-pymdownx-material-extras>=2.5.6",
+    "jupyter>=1.0.0",
+    "mknotebooks>= 0.8.0",
+]
+
+# See https://hatch.pypa.io/latest/config/build/#file-selection for how to
+# explicitly include files other than default into the build distributions.
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+# Ref.: https://github.com/ninoseki/uv-dynamic-versioning/
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "pep440"
+fallback-version = "0.0.0"
+
+# Ref.: https://docs.pytest.org/en/stable/reference/reference.html#configuration-options
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+# https://docs.astral.sh/ruff/configuration/
+[tool.ruff]
+exclude = [
+    "src/dentmatmech/_version.py",
+    "src/dentmatmech/datamodel/dentmatmech.py",
+    "src/dentmatmech/datamodel/dentmatmech_pydantic.py",
+]
+# Set oldest supported Python version
+target-version = "py312"
+
+[tool.ruff.lint]
+ignore = [
+  "B008",   # function-call-in-default-argument: idiomatic Typer defaults
+]
+
+# Ref.: https://github.com/codespell-project/codespell
+[tool.codespell]
+skip = [
+  "LICENSE",
+  "pyproject.toml",
+  "uv.lock",
+  "project/*",
+  "src/dentmatmech/datamodel/dentmatmech_pydantic.py",
+  "src/dentmatmech/datamodel/dentmatmech.py",
+]
+
+# Reminder: words have to be lowercased for the ignore-words-list
+# amalgam-literature words codespell misreads
+ignore-words-list = "linke,ans"
+quiet-level = 3
+
+# Ref.: https://github.com/crate-ci/typos (spell checker)
+[tool.typos.default.extend-words]
+linke = "linke"
+
+[tool.typos.files]
+extend-exclude = [
+  "LICENSE",
+  "uv.lock",
+  "pyproject.toml",
+  "project/*",
+  "src/dentmatmech/datamodel/dentmatmech_pydantic.py",
+  "src/dentmatmech/datamodel/dentmatmech.py",
+]
