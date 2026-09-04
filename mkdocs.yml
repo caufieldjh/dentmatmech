@@ -64,6 +64,7 @@ nav:
   - Data model: data-model.md
   - Regulatory status: regulatory.md
   - Curation: curation.md
+  - Automation: workflows.md
   - Design decisions: explanation/design-decisions.md
   - Schema: elements/index.md
   - About: about.md

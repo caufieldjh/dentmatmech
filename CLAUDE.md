@@ -25,7 +25,23 @@ just render                      # pages/materials/*.html
 just export-browser              # app/data.js
 just gen-python                  # regenerate src/dentmatmech/datamodel after a schema edit
 uv run pytest -q
+
+# Deep research and references
+just research-material claude_code Amalgam   # report -> research/Amalgam-deep-research-claude_code.md
+just research-material falcon Amalgam        # needs EDISON_API_KEY; slow and thorough
+just research-status                         # which materials have reports
+just fetch-reference PMID:24683067           # cache an abstract; never hand-write references_cache/
 ```
+
+## Skills and commands
+
+- `.claude/skills/curate-material/SKILL.md`: the curation workflow, research first, regulatory verification, validation, PR. Follow it step by step.
+- `.claude/skills/dentmatmech-pr-review/SKILL.md`: review checklist for KB pull requests.
+- `/curate <File_Stem> [using <provider>]`: runs the curation skill end to end.
+
+## Automation
+
+Workflows in `.github/workflows/` run the curation loop: triage labels new issues, the scanner picks one `curation` issue or stalled PR every six hours and advances it, the review workflow approves or requests changes, and the pages workflow re-renders after merge. Details and required secrets are in `docs/workflows.md`. The deep research prompt is `templates/dental_material_research.md`.
 
 ## Curation rules
 
