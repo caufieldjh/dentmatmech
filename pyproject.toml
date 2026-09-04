@@ -33,6 +33,9 @@ dev = [
     "linkml>=1.9.3",
     "pytest>=8.0",
     "ruff>=0.11",
+    # Deep research providers behind `just research-material`; [validation]
+    # resolves a report's citations with linkml-reference-validator.
+    "deep-research-client[validation]>=0.2.10",
     "mkdocs-material>=8.2.8",
     "mkdocs-mermaid2-plugin>=1.1.1",
     "mkdocs-pymdownx-material-extras>=2.5.6",
