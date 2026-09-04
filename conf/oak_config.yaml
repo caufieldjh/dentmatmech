@@ -1,0 +1,36 @@
+# OAK adapter configuration for linkml-term-validator.
+# Maps ontology prefixes to OAK adapter strings. Only prefixes listed here
+# are validated; unlisted prefixes are skipped with a warning.
+#
+#   sqlite:obo:<name>  pre-built SQLite build, downloaded once and cached
+#   ols:<name>         EBI Ontology Lookup Service (no download, needs network)
+#   ""                 skip this prefix without a warning
+ontology_adapters:
+  # Oral Health and Disease Ontology: the anchor ontology. Small (~3 MB), so
+  # the local build is the right call.
+  OHD: sqlite:obo:ohd
+
+  # Chemistry for composition. CHEBI's local build is ~3.7 GB, so use OLS.
+  CHEBI: ols:chebi
+
+  # Anatomy for placement sites.
+  UBERON: ols:uberon
+
+  # Phenotype and disease for adverse effects.
+  HP: ols:hp
+  MONDO: ols:mondo
+
+  # Qualities for typed properties.
+  PATO: ols:pato
+
+  # Cross-reference targets that appear only in `mappings`, not in bound slots.
+  NCIT: ols:ncit
+
+  # Not ontology terms; skip silently.
+  linkml: ""
+  schema: ""
+  xsd: ""
+  rdf: ""
+  rdfs: ""
+  owl: ""
+  skos: ""
