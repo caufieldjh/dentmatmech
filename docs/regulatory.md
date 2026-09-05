@@ -69,7 +69,7 @@ Regulations verified against the CFR text and the FDA product classification dat
 |---|---|---|---|---|
 | 872.3060 | Noble metal alloy | II (special controls) | EJS, EJT | 510(k)-exempt subject to 872.9 |
 | 872.3070 | Dental amalgam, mercury, and amalgam alloy | II (special controls) | EJJ, ELY, OIV | Special controls guidance named in the regulation |
-| 872.3200 | Resin tooth bonding agent | II | | |
+| 872.3200 | Resin tooth bonding agent | II | KLE | |
 | 872.3250 | Calcium hydroxide cavity liner | II | | |
 | 872.3275 | Dental cement | I (zinc oxide-eugenol, EMB, 510(k)-exempt); II (others, EMA) | EMA, EMB | |
 | 872.3640 | Endosseous dental implant | II (special controls) | DZE, NRQ, OAT | Root-form and blade-form |
