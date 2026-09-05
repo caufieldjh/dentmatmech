@@ -232,11 +232,16 @@ properties:
     reference_title: 'Fluoride exchange by glass-ionomer dental cements and its clinical
       effects: a review.'
     supports: SUPPORT
-    evidence_source: SYSTEMATIC_REVIEW
+    evidence_source: OTHER
     snippet: Fluoride release has been shown to be a two-step process. In neutral solutions,
       the steps can be divided into early wash-out and long-term diffusion.
-    explanation: Establishes the release kinetics for the glass polyalkenoate members
-      only; the review is confined to glass-ionomer cements.
+    explanation: >-
+      Establishes the release kinetics for the glass polyalkenoate members only; the
+      review is confined to glass-ionomer cements. Narrative review rather than a
+      systematic review, so the source is recorded as OTHER. The abstract states that
+      papers were selected from an initial PubMed search and that other relevant papers
+      were cited where they added useful and relevant data, with no systematic protocol
+      and no pooling.
 clinical_uses:
 - name: Luting of cast and ceramic restorations
   use_context: LUTING
@@ -253,13 +258,18 @@ clinical_uses:
     reference_title: 'To what extent does the longevity of fixed dental prostheses depend
       on the function of the cement? Working Group 4 materials: cementation.'
     supports: SUPPORT
-    evidence_source: SYSTEMATIC_REVIEW
+    evidence_source: OTHER
     snippet: Water-based cements exhibited satisfying long-term clinical performance associated
       with cast metal (inlays, onlays, partial crowns) as well as single unit metal-ceramic
       FDPs and multiple unit FDPs with macroretentive preparation designs and adequate
       marginal fit.
-    explanation: Delimits the indications in which the class performs well, and ties that
-      to macroretentive preparation and marginal fit.
+    explanation: >-
+      Delimits the indications in which the class performs well, and ties that to
+      macroretentive preparation and marginal fit. Consensus working-group narrative
+      review rather than a systematic review, so the source is recorded as OTHER. The
+      abstract describes a PubMed search plus a manual search of non-indexed literature,
+      and states that recommendations had to be based on a lower evidence level in fields
+      lacking randomized prospective studies.
 - name: Base or liner under a restoration
   use_context: LINER_OR_BASE
   anatomical_site:
