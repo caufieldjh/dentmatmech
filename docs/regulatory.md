@@ -67,7 +67,7 @@ Regulations verified against the CFR text and the FDA product classification dat
 
 | Regulation | Device name | Class | Product codes | Notes |
 |---|---|---|---|---|
-| 872.3060 | Noble metal alloy | II (special controls) | EJS, EJT | 510(k)-exempt subject to 872.9 |
+| 872.3060 | Noble metal alloy | II (special controls) | EJS, EJT | 510(k)-exempt subject to 872.9. The database also returns EIT (applicator, rapid wax, dental) under this regulation; it is a laboratory accessory, not an alloy |
 | 872.3070 | Dental amalgam, mercury, and amalgam alloy | II (special controls) | EJJ, ELY, OIV | Special controls guidance named in the regulation |
 | 872.3200 | Resin tooth bonding agent | II | | |
 | 872.3250 | Calcium hydroxide cavity liner | II | | |
@@ -76,6 +76,8 @@ Regulations verified against the CFR text and the FDA product classification dat
 | 872.3690 | Tooth shade resin material | II | EBF, OFW | |
 | 872.3710 | Base metal alloy | II (special controls) | EJH | 510(k)-exempt subject to 872.9 |
 | 872.3920 | Porcelain tooth | II | ELL | |
+
+872.3060, 872.3070, and 872.3710 were re-verified from the same two primary sources on 2026-09-06 while curating `Metal`. The regulation titles, identification paragraphs, classes, and product codes were unchanged. Submission type in the classification database is `510(K) Exempt` for EJS, EJT, and EJH, and `510(k)` for EJJ, ELY, and OIV.
 
 ## Other regulators
 
