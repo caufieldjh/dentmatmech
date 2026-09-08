@@ -431,7 +431,56 @@ properties:
     evidence_source: OTHER
     snippet: nickel-casting alloys have low costs and favorable physical properties, but are corrosion-prone in the oral environment
     explanation: Narrative review. Shows the spread within the class; the nickel-containing family sits at the corrosion-prone end.
+  - reference: PMID:36363067
+    reference_title: Minimization of Adverse Effects Associated with Dental Alloys.
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: In the oral cavity, metal structures are exposed to various mechanical and chemical
+      factors. Consequently, metal ions are released into the oral fluid, which may negatively
+      affect the surrounding tissues and even internal organs.
+    explanation: Comprehensive literature review. States ion release as a general consequence of
+      corrosion for metallic oral appliances.
 clinical_performance:
+- name: Five-year survival of metal-ceramic tooth-supported fixed dental prostheses
+  measure_type: SURVIVAL_RATE
+  value: '94.4'
+  unit: '%'
+  follow_up_years: 5.0
+  population: 1796 metal-ceramic tooth-supported fixed dental prostheses across 40 included studies
+  comparator: All-ceramic fixed dental prostheses
+  description: >-
+    The tooth-supported multiple-unit counterpart to the single-crown row below. Survival of all
+    types of all-ceramic FDPs was lower, though only the glass-infiltrated alumina difference
+    reached significance.
+  evidence:
+  - reference: PMID:25935732
+    reference_title: 'All-ceramic or metal-ceramic tooth-supported fixed dental prostheses (FDPs)?
+      A systematic review of the survival and complication rates. Part II: Multiple-unit FDPs.'
+    supports: SUPPORT
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: 'Meta-analysis of the included studies indicated an estimated 5-year survival rate
+      of metal-ceramic FDPs of 94.4% (95% CI: 91.2-96.5%).'
+    explanation: Pooled five-year survival for the metal-ceramic arm.
+- name: Five-year framework fracture rate of metal-ceramic tooth-supported fixed dental prostheses
+  measure_type: COMPLICATION_RATE
+  value: '0.6'
+  unit: '%'
+  follow_up_years: 5.0
+  population: 1796 metal-ceramic tooth-supported fixed dental prostheses across 40 included studies
+  comparator: Reinforced glass ceramic, glass-infiltrated alumina, and densely sintered zirconia FDPs
+  description: >-
+    The clearest class-level argument for a metal framework: metal-ceramic FDPs fractured at the
+    framework an order of magnitude less often than the glass ceramic alternatives.
+  evidence:
+  - reference: PMID:25935732
+    reference_title: 'All-ceramic or metal-ceramic tooth-supported fixed dental prostheses (FDPs)?
+      A systematic review of the survival and complication rates. Part II: Multiple-unit FDPs.'
+    supports: SUPPORT
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: Significantly more framework fractures were reported for reinforced glass ceramic
+      FDPs (8.0%) and glass-infiltrated alumina FDPs (12.9%) compared to metal-ceramic FDPs
+      (0.6%) and densely sintered zirconia FDPs (1.9%) in 5 years in function.
+    explanation: Gives the metal-ceramic framework fracture rate against its ceramic comparators.
 - name: Five-year survival of metal-ceramic tooth-supported single crowns
   measure_type: SURVIVAL_RATE
   value: '97.1'
@@ -561,6 +610,14 @@ adverse_effects:
     evidence_source: OTHER
     snippet: Little evidence supports concerns of casting alloys causing systemic toxicity.
     explanation: Bounds the claim, since the systemic arm is not supported by evidence.
+  - reference: PMID:10668036
+    reference_title: 'Biocompatibility of dental casting alloys: a review.'
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: Despite these facts, carcinogenic effects from dental casting alloys have not been
+      demonstrated.
+    explanation: Bounds the carcinogenicity arm the same way. Certain elements are known mutagens
+      or carcinogens, but no clinical effect from dental alloys has been shown.
 - name: Galvanic current between contacting dissimilar metallic restorations
   effect_category: OTHER
   description: Two dissimilar metallic restorations in contact can generate a current that the patient feels as pain. Reported as generally short-lived.
@@ -602,9 +659,20 @@ notes: >-
   because the evidence base is amalgam-specific and belongs on the Amalgam entry. EU MDR, Health Canada,
   and other regulators, because none were verified against a primary source.
 
-  Provider. The required deep research step could not run. The claude_code provider reports UNREACHABLE
-  (not logged in) and the EDISON, FUTUREHOUSE, and OPENAI keys are present in the environment but empty,
-  so no provider is callable. References were found by direct PubMed search instead and every snippet is
-  quoted from a cached abstract, as was done for Acid-base cement in #4.
+  Second pass, 2026-09-08. A later scanner run re-verified this entry independently before it was
+  opened as a pull request. All three regulations, their classes, identification paragraphs, and
+  product codes were fetched again from law.cornell.edu and the FDA product classification
+  database and matched what is recorded, including the EIT anomaly under 872.3060; the ISO 22674
+  recognition record (4-300, third edition 2022-08) was confirmed. That pass added the two
+  tooth-supported multiple-unit FDP rows, the ion-release evidence on the corrosion property, and the
+  carcinogenicity bound on the element-release row. The reference validator was also run against a
+  deliberately corrupted quote to confirm that a report of zero total checks means every snippet
+  was checked and passed, not that nothing was checked.
+
+  Provider. The required deep research step could not run. The claude_code provider reports
+  UNREACHABLE (not logged in) and the EDISON, FUTUREHOUSE, and OPENAI keys are present in the
+  environment but empty, so no provider is callable. References were found by direct PubMed search
+  instead and every snippet is quoted from a cached abstract, as was done for Acid-base cement in
+  #4.
 see_also:
 - https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44253
