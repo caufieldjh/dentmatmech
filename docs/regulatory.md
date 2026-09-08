@@ -79,6 +79,24 @@ Regulations verified against the CFR text and the FDA product classification dat
 
 872.3060, 872.3070, and 872.3710 were re-verified from the same two primary sources on 2026-09-06 while curating `Metal`. The regulation titles, identification paragraphs, classes, and product codes were unchanged. Submission type in the classification database is `510(K) Exempt` for EJS, EJT, and EJH, and `510(k)` for EJJ, ELY, and OIV.
 
+## A note on `872.9` exemptions
+
+Some device types are class II *and* 510(k)-exempt — `872.3060` and `872.3710` both are. That combination is easy to misread: the exemption is granted in the classification paragraph itself and is bounded by `872.9`, which withdraws it when a device has a new intended use or operates on a different fundamental scientific technology. Record such a device type as `status: EXEMPT` with `pathways: [EXEMPT_510K]`, not as `CLEARED`. `872.3070` sits next to them as the counterexample: same class, same special-controls pattern, no exemption.
+
+## Standards recognition
+
+FDA's [Recognized Consensus Standards database](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/search.cfm) is where to verify a standard's current edition before recording it. Its per-standard page also lists the regulations and product codes the standard applies to, which makes it a useful independent check on a product code you have already looked up in the classification database. The search form posts to `results.cfm`; the citable per-standard URL is `detail.cfm?standard__identification_no=NNNNN`.
+
+Recognitions verified on 2026-09-08 while curating `Metal`:
+
+| Standard | Edition | Recognition number | Extent | Applies to |
+|---|---|---|---|---|
+| ISO 22674 | Third edition 2022-08 | 4-300 | Complete | 872.3060 (EJS, EJT), 872.3710 (EJH) |
+| ISO 9693 | Third edition 2019-10 | 4-263 | Complete | 872.3060, 872.3710, 872.3920, 872.6660 |
+| ISO 24234 | Third edition 2021-08 | 4-315 | Complete | 872.3070 (EJJ, ELY) |
+
+ISO 22674 excludes amalgam alloys by its own scope, which is why a metal entry needs ISO 24234 alongside it.
+
 ## Other regulators
 
 `agency` also accepts EU MDR, Health Canada, MHRA, TGA, PMDA, NMPA, and ANVISA, with `device_class` values for the EU scheme (IIa, IIb). Nothing beyond FDA is curated yet; the slots exist so the model does not have to change when that happens.
