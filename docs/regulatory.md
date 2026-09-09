@@ -72,12 +72,13 @@ Regulations verified against the CFR text and the FDA product classification dat
 | 872.3200 | Resin tooth bonding agent | II | | |
 | 872.3250 | Calcium hydroxide cavity liner | II | | |
 | 872.3275 | Dental cement | I (zinc oxide-eugenol, EMB, 510(k)-exempt); II (others, EMA) | EMA, EMB | |
+| 872.3330 | Preformed crown | I | ELZ | 510(k)-exempt subject to 872.9. Covers plastic and austenitic (stainless steel) preformed crowns, so it is not a metal-only device type |
 | 872.3640 | Endosseous dental implant | II (special controls) | DZE, NRQ, OAT | Root-form and blade-form |
 | 872.3690 | Tooth shade resin material | II | EBF, OFW | |
 | 872.3710 | Base metal alloy | II (special controls) | EJH | 510(k)-exempt subject to 872.9 |
 | 872.3920 | Porcelain tooth | II | ELL | |
 
-872.3060, 872.3070, and 872.3710 were re-verified from the same two primary sources on 2026-09-06 while curating `Metal`. The regulation titles, identification paragraphs, classes, and product codes were unchanged. Submission type in the classification database is `510(K) Exempt` for EJS, EJT, and EJH, and `510(k)` for EJJ, ELY, and OIV.
+872.3060, 872.3070, and 872.3710 were re-verified from the same two primary sources on 2026-09-06 while curating `Metal`. `872.3330` was verified from the same two sources on 2026-09-09, also while curating `Metal`; it is the route by which preformed stainless steel crowns reach the market. The regulation titles, identification paragraphs, classes, and product codes were unchanged. Submission type in the classification database is `510(K) Exempt` for EJS, EJT, and EJH, and `510(k)` for EJJ, ELY, and OIV.
 
 ## A note on `872.9` exemptions
 
@@ -94,8 +95,10 @@ Recognitions verified on 2026-09-08 while curating `Metal`:
 | ISO 22674 | Third edition 2022-08 | 4-300 | Complete | 872.3060 (EJS, EJT), 872.3710 (EJH) |
 | ISO 9693 | Third edition 2019-10 | 4-263 | Complete | 872.3060, 872.3710, 872.3920, 872.6660 |
 | ISO 24234 | Third edition 2021-08 | 4-315 | Complete | 872.3070 (EJJ, ELY) |
+| ISO 10271 | Third edition 2020-08 | 4-265 | Complete | 872.3060 (EJS, EJT), 872.3710 (EJH) |
+| ISO 7405 | Third edition 2018-10 Corrected version 2018-12 | 4-261 | Complete | 872.3060, 872.3070, 872.3710 and others |
 
-ISO 22674 excludes amalgam alloys by its own scope, which is why a metal entry needs ISO 24234 alongside it.
+ISO 22674 excludes amalgam alloys by its own scope, which is why a metal entry needs ISO 24234 alongside it. ISO 10271 and ISO 7405 were verified on 2026-09-09; ISO 7405 is the one of the five recognised across the amalgam codes as well as the cast-alloy codes.
 
 ## Other regulators
 

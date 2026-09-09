@@ -305,6 +305,26 @@ clinical_uses:
     evidence_source: STANDARD
     snippet: Dentistry - Metallic materials for fixed and removable restorations and appliances
     explanation: The title of the standard FDA recognizes for this class names removable restorations and appliances alongside fixed ones.
+- name: Preformed crowns as functional restorations
+  use_context: TEMPORARY
+  procedure:
+    preferred_term: stainless steel crown
+    term:
+      id: OHD:0000163
+      label: stainless steel crown restoration procedure
+  description: How the class reaches the primary dentition. The regulation frames the device as interim;
+    clinically a preformed metal crown on a primary molar is often definitive for the life of the tooth,
+    so the use_context follows the regulation rather than practice.
+  indications:
+  - Functional restoration until a permanent crown is constructed
+  - Functional restoration for a badly decayed deciduous tooth until the adult tooth erupts
+  evidence:
+  - reference: url:https://www.law.cornell.edu/cfr/text/21/872.3330
+    reference_title: 21 CFR 872.3330 Preformed crown
+    supports: SUPPORT
+    evidence_source: REGULATORY_DOCUMENT
+    snippet: It is intended for use as a functional restoration until a permanent crown is constructed.
+    explanation: The intended use stated for the preformed crown device type.
 regulatory_status:
 - agency: FDA
   status: EXEMPT
@@ -333,12 +353,20 @@ regulatory_status:
     evidence_source: REGULATORY_DOCUMENT
     snippet: The devices are exempt from the premarket notification procedures in subpart E of part 807 of this chapter subject to the limitations in § 872.9.
     explanation: Class II with special controls, 510(k)-exempt subject to 872.9.
-  - reference: url:https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&regulationnumber=872.3060
-    reference_title: FDA Product Classification Database, regulation 872.3060
+  - reference: url:https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&productcode=EJS
+    reference_title: FDA Product Classification Database, product code EJS
     supports: SUPPORT
     evidence_source: REGULATORY_DOCUMENT
-    snippet: EJS alloy, other noble metal; EJT alloy, gold-based noble metal
-    explanation: Product codes and device names listed under the regulation on 2026-09-06.
+    snippet: alloy, other noble metal
+    explanation: Device name for EJS, class 2, regulation 872.3060, submission type 510(K) Exempt, re-verified
+      on 2026-09-09.
+  - reference: url:https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&productcode=EJT
+    reference_title: FDA Product Classification Database, product code EJT
+    supports: SUPPORT
+    evidence_source: REGULATORY_DOCUMENT
+    snippet: alloy, gold-based noble metal
+    explanation: Device name for EJT, class 2, regulation 872.3060, submission type 510(K) Exempt, re-verified
+      on 2026-09-09.
 - agency: FDA
   status: CLEARED
   regulation_number: '872.3070'
@@ -370,12 +398,69 @@ regulatory_status:
     evidence_source: REGULATORY_DOCUMENT
     snippet: Class II (special controls).
     explanation: Classification paragraph. The paragraph names a special controls guidance document and states no premarket notification exemption.
-  - reference: url:https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&regulationnumber=872.3070
-    reference_title: FDA Product Classification Database, regulation 872.3070
+  - reference: url:https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&productcode=EJJ
+    reference_title: FDA Product Classification Database, product code EJJ
     supports: SUPPORT
     evidence_source: REGULATORY_DOCUMENT
-    snippet: EJJ alloy, amalgam; ELY mercury; OIV dental amalgam
-    explanation: Product codes and device names listed under the regulation on 2026-09-06.
+    snippet: alloy, amalgam
+    explanation: Device name for EJJ, class 2, regulation 872.3070, submission type 510(k), re-verified
+      on 2026-09-09.
+  - reference: url:https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&productcode=ELY
+    reference_title: FDA Product Classification Database, product code ELY
+    supports: SUPPORT
+    evidence_source: REGULATORY_DOCUMENT
+    snippet: mercury
+    explanation: Device name for ELY, class 2, regulation 872.3070, submission type 510(k), re-verified
+      on 2026-09-09.
+  - reference: url:https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&productcode=OIV
+    reference_title: FDA Product Classification Database, product code OIV
+    supports: SUPPORT
+    evidence_source: REGULATORY_DOCUMENT
+    snippet: dental amalgam
+    explanation: Device name for OIV, class 2, regulation 872.3070, submission type 510(k), re-verified
+      on 2026-09-09.
+- agency: FDA
+  status: EXEMPT
+  regulation_number: '872.3330'
+  regulation_title: Preformed crown
+  device_class: CLASS_I
+  product_codes:
+  - ELZ
+  pathways:
+  - EXEMPT_510K
+  special_controls: []
+  identification: A preformed crown is a prefabricated device made of plastic or austenitic alloys or
+    alloys containing 75 percent or greater gold and metals of the platinum group intended to be affixed
+    temporarily to a tooth after removal of, or breakage of, the natural crown (that portion of the tooth
+    that normally protrudes above the gums). It is intended for use as a functional restoration until
+    a permanent crown is constructed. The device also may be intended for use as a functional restoration
+    for a badly decayed deciduous (baby) tooth until the adult tooth erupts.
+  approved_uses:
+  - name: Functional restoration until a permanent crown is constructed
+    use_context: TEMPORARY
+  - name: Functional restoration for a badly decayed deciduous tooth until the adult tooth erupts
+    use_context: TEMPORARY
+  source_url: https://www.ecfr.gov/current/title-21/section-872.3330
+  notes: The route by which the stainless steel child reaches the market, since austenitic alloys are
+    the stainless steels. The only class I device type of the four, and the only one that is not confined
+    to metals - the identification also covers plastic preformed crowns - so it is recorded as a device
+    type the class spans rather than a device type of the class. ELZ is the only product code under the
+    regulation.
+  evidence:
+  - reference: url:https://www.law.cornell.edu/cfr/text/21/872.3330
+    reference_title: 21 CFR 872.3330 Preformed crown
+    supports: SUPPORT
+    evidence_source: REGULATORY_DOCUMENT
+    snippet: Class I (general controls). The device is exempt from the premarket notification procedures
+      in subpart E of part 807 of this chapter subject to the limitations in § 872.9.
+    explanation: Classification paragraph. Class I and 510(k)-exempt subject to 872.9.
+  - reference: url:https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&productcode=ELZ
+    reference_title: FDA Product Classification Database, product code ELZ
+    supports: SUPPORT
+    evidence_source: REGULATORY_DOCUMENT
+    snippet: crown, preformed
+    explanation: Device name for ELZ, class 1, regulation 872.3330, submission type 510(K) Exempt, on
+      2026-09-09.
 - agency: FDA
   status: EXEMPT
   regulation_number: '872.3710'
@@ -722,6 +807,14 @@ standards:
   title: Dentistry - Dental amalgam
   organization: ISO
   url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44911
+- identifier: ISO 10271
+  title: Dentistry - Corrosion test methods for metallic materials
+  organization: ISO
+  url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=41969
+- identifier: ISO 7405
+  title: Dentistry - Evaluation of biocompatibility of medical devices used in dentistry
+  organization: ISO
+  url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=40211
 notes: >-
   Abstract parent class. Every claim here is meant to hold for metallic restorative materials as a group;
   family-specific numbers belong on the children (Amalgam, Gold foil, Noble metal, High noble metal,
@@ -784,5 +877,25 @@ notes: >-
   environment but empty, so no provider is callable. References were found by direct PubMed search
   instead and every snippet is quoted from a cached abstract, as was done for Acid-base cement in
   #4.
+
+  Fourth pass, 2026-09-09. A later scanner run reached this material from issue #5 and again did
+  not see this branch, for the same reason recorded above: the duplicate preflight searches pull
+  requests and issues, and this branch still had neither. That pass curated the entry from scratch,
+  found the overlap on push, and was merged into this one additively rather than replacing it. It
+  contributed one thing the earlier passes had missed: a fourth device type. 21 CFR 872.3330,
+  preformed crown, class I, product code ELZ, 510(k)-exempt subject to 872.9, is how the stainless
+  steel member reaches the market, because its identification covers austenitic alloys. It is the
+  only class I device type of the four and the only one not confined to metals, since the same
+  identification covers plastic preformed crowns. The regulation text and the ELZ record were
+  verified at law.cornell.edu and in the FDA product classification database on 2026-09-09, and the
+  row was added to docs/regulatory.md. That pass also added ISO 10271 (corrosion test methods,
+  recognition 4-265, third edition 2020-08) and ISO 7405 (biocompatibility, recognition 4-261, third
+  edition 2018-10 corrected version 2018-12), both recognised for the noble and base metal product
+  codes and both verified in the Recognized Consensus Standards database on the same date. It
+  otherwise re-derived the three existing regulations, their classes and their product codes
+  independently and reached the same values, including the EIT anomaly under 872.3060. One fix:
+  the product-code evidence on 872.3060 and 872.3070 quoted a semicolon-joined reconstruction of
+  several table rows, which is not a contiguous quote from the page. Each code now cites its own
+  classification record, matching the style already used for EJH.
 see_also:
 - https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44253
