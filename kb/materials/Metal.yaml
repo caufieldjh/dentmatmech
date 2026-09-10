@@ -47,7 +47,7 @@ composition:
     preferred_term: palladium
     term:
       id: CHEBI:33363
-      label: palladium
+      label: palladium atom
   evidence:
   - reference: url:https://www.law.cornell.edu/cfr/text/21/872.3060
     reference_title: 21 CFR 872.3060 Noble metal alloy
@@ -62,7 +62,7 @@ composition:
     preferred_term: platinum
     term:
       id: CHEBI:33364
-      label: platinum
+      label: platinum atom
   evidence:
   - reference: url:https://www.law.cornell.edu/cfr/text/21/872.3060
     reference_title: 21 CFR 872.3060 Noble metal alloy
@@ -493,6 +493,46 @@ regulatory_status:
     evidence_source: REGULATORY_DOCUMENT
     snippet: alloy, metal, base
     explanation: Device name for EJH, class 2, regulation 872.3710, submission type 510(K) Exempt, on 2026-09-06.
+- agency: FDA
+  status: EXEMPT
+  regulation_number: '872.3350'
+  regulation_title: Gold or stainless steel cusp
+  device_class: CLASS_I
+  product_codes:
+  - ELO
+  pathways:
+  - EXEMPT_510K
+  special_controls: []
+  identification: A gold or stainless steel cusp is a prefabricated device made of austenitic alloys or
+    alloys containing 75 percent or greater gold and metals of the platinum group or stainless steel
+    intended to provide a permanent cusp (a projection on the chewing surface of a tooth) to achieve
+    occlusal harmony (a proper bite) between the teeth and a removable denture.
+  approved_uses:
+  - name: Provision of a permanent cusp to achieve occlusal harmony between the teeth and a removable
+      denture
+    use_context: PROSTHODONTIC
+  source_url: https://www.ecfr.gov/current/title-21/section-872.3350
+  notes: The only device type in subpart D whose identification names both gold and stainless steel, the
+    two prefabricated metal members of this class, and the second of the two class I device types the
+    class spans. Unlike 872.3330 it is confined to metals. Its indication is prosthodontic rather than
+    restorative - occlusal harmony against a removable denture - and it is a permanent cusp, where the
+    preformed crown is explicitly temporary. ELO is the only product code under the regulation.
+  evidence:
+  - reference: url:https://www.law.cornell.edu/cfr/text/21/872.3350
+    reference_title: 21 CFR 872.3350 Gold or stainless steel cusp
+    supports: SUPPORT
+    evidence_source: REGULATORY_DOCUMENT
+    snippet: Class I (general controls). The device is exempt from the premarket notification procedures
+      in subpart E of part 807 of this chapter subject to the limitations in § 872.9.
+    explanation: Classification paragraph. Class I and 510(k)-exempt subject to 872.9.
+  - reference: url:https://api.fda.gov/device/classification.json?search=product_code:%22ELO%22
+    reference_title: FDA Product Classification Database via openFDA, product code ELO
+    supports: SUPPORT
+    evidence_source: REGULATORY_DOCUMENT
+    snippet: Cusp, Gold And Stainless Steel
+    explanation: Device name for ELO, class 1, regulation 872.3350, submission type 4 (510(k) exempt),
+      medical specialty Dental, on 2026-09-10. Cited through the openFDA endpoint because the
+      classification.cfm HTML form was rate-limiting requests during this run; it is the same database.
 properties:
 - name: Corrosion in the oral environment
   property_type: CORROSION_RESISTANCE
@@ -820,7 +860,8 @@ notes: >-
   family-specific numbers belong on the children (Amalgam, Gold foil, Noble metal, High noble metal,
   Predominantly base metal, Stainless steel, Titanium and its subclasses).
 
-  Regulatory. The class does not map to one regulation. Three device types in 21 CFR 872 subpart D span it,
+  Regulatory. The class does not map to one regulation. Five device types in 21 CFR 872 subpart D span it
+  (872.3060, 872.3070, 872.3330, 872.3350 and 872.3710),
   and they differ in a way worth keeping straight: 872.3060 and 872.3710 are class II special controls and
   510(k)-exempt subject to 872.9, while 872.3070 is class II special controls and not exempt. All three
   regulation numbers, titles, identification paragraphs, classes, and product codes were re-verified against
@@ -828,14 +869,15 @@ notes: >-
   carried over from docs/regulatory.md or from memory. No regulation in subpart D names titanium as a crown
   and bridge material, so titanium restorations are not covered by a fourth row here.
 
-  Standards. Three are recorded, each as FDA recognizes it, and all three were verified in the Recognized
+  Standards. Five are recorded, each as FDA recognizes it, and all were verified in the Recognized
   Consensus Standards database. ISO 22674, Third edition 2022-08, recognition number 4-300, extent Complete,
   date of entry 05/29/2023, identically adopted as ANSI ADA Standard No. 134-2023. ISO 9693, Third edition
   2019-10, recognition number 4-263, extent Complete, identically adopted as ANSI ADA Standard No. 38-2020,
   which covers the metal-ceramic use this entry records. ISO 24234, Third edition 2021-08, recognition number
   4-315, extent Complete, which covers the amalgam member. Three are needed rather than one because ISO 22674
   states that it "does not apply to alloys for dental amalgam (see ISO 24234)", so no single standard spans
-  the class. The Standard class has no slot for edition or recognition number, so they are recorded here.
+  the class. ISO 10271 and ISO 7405, added in the fourth pass, cover the corrosion and biocompatibility
+  test methods respectively. The Standard class has no slot for edition or recognition number, so they are recorded here.
 
   Properties. Deliberately no numbers. Strength, hardness, elastic modulus, melting range, and density are
   all real for a given alloy but vary by more than an order of magnitude across the families, so a
@@ -871,6 +913,21 @@ notes: >-
   fabrication route property rows; and the IVDK patch-test cohort as a frequency bound on the metal allergy
   row, which previously had none. The independently written version was otherwise discarded in favour of
   this one.
+
+  Fifth pass, 2026-09-10. Another scanner run reached this material from issue #5 and again did not
+  see this branch, for the third time and for the same reason: the duplicate preflight in the curation
+  skill searches pull requests and issues, and this branch had neither. That pass curated the entry
+  from scratch, found the overlap on push, preserved this branch rather than overwriting it, and was
+  merged into it additively. It contributed two things. First, a fix: the palladium and platinum
+  components carried the ChEBI labels "palladium" and "platinum", but the canonical labels of
+  CHEBI:33363 and CHEBI:33364 are "palladium atom" and "platinum atom", so `just validate` was failing
+  on this branch with two label mismatches. Second, a fifth device type that none of the four earlier
+  passes found: 21 CFR 872.3350, gold or stainless steel cusp, class I, product code ELO, 510(k)-exempt
+  subject to 872.9, verified at law.cornell.edu and in the FDA product classification database on
+  2026-09-10 and added to docs/regulatory.md. It is the only device type in subpart D that names both
+  gold and stainless steel. That pass also re-derived all four existing regulations, their classes,
+  identification paragraphs and product codes from the CFR independently, and reached the same values
+  recorded here, including the EIT anomaly under 872.3060 and the non-exempt status of 872.3070.
 
   Provider. The required deep research step could not run. The claude_code provider reports
   UNREACHABLE (not logged in) and the EDISON, FUTUREHOUSE, and OPENAI keys are present in the
