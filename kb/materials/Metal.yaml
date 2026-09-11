@@ -963,8 +963,15 @@ notes: >-
   regulation number and submission type for each, plus the completeness of every product-code list and
   the EIT anomaly under 872.3060. Everything matched. It fixed two stale counts left by the earlier
   passes - the regulatory note still said "All three" regulations and "a fourth row" when there are five -
-  and opened the pull request, which none of the five earlier passes had done. The recurring duplicate
-  work recorded above is a preflight gap, not a curation problem, and is reported on the pull request.
+  and attempted to open the pull request, which none of the five earlier passes had managed. That
+  attempt was refused: GitHub Actions is not permitted to create or approve pull requests on this
+  repository, so no pull request exists yet and the work is still only on this branch. The recurring
+  duplicate work recorded above is a preflight gap, not a curation problem.
+  Seventh pass, 2026-09-11 21:00 UTC. A scanner run found this branch before starting and curated
+  nothing from scratch. It corrected the preceding paragraph, which claimed a pull request had been
+  opened when creation had in fact been refused, and re-confirmed that the branch is current with main
+  and conflict-free, that schema, ontology term, reference and parent-link validation and the 79 tests
+  all pass on this head, and that pull request creation is still refused with the same 403.
 
 see_also:
 - https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44253
