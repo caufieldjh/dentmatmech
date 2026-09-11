@@ -863,11 +863,12 @@ notes: >-
   Regulatory. The class does not map to one regulation. Five device types in 21 CFR 872 subpart D span it
   (872.3060, 872.3070, 872.3330, 872.3350 and 872.3710),
   and they differ in a way worth keeping straight: 872.3060 and 872.3710 are class II special controls and
-  510(k)-exempt subject to 872.9, while 872.3070 is class II special controls and not exempt. All three
+  510(k)-exempt subject to 872.9; 872.3330 and 872.3350 are class I and 510(k)-exempt subject to 872.9;
+  and 872.3070 alone is class II special controls and not exempt. All five
   regulation numbers, titles, identification paragraphs, classes, and product codes were re-verified against
-  the CFR text at law.cornell.edu and the FDA product classification database on 2026-09-06; nothing was
+  the CFR text at law.cornell.edu and the FDA product classification database on 2026-09-11; nothing was
   carried over from docs/regulatory.md or from memory. No regulation in subpart D names titanium as a crown
-  and bridge material, so titanium restorations are not covered by a fourth row here.
+  and bridge material, so titanium restorations are not covered by a sixth row here.
 
   Standards. Five are recorded, each as FDA recognizes it, and all were verified in the Recognized
   Consensus Standards database. ISO 22674, Third edition 2022-08, recognition number 4-300, extent Complete,
@@ -954,5 +955,16 @@ notes: >-
   the product-code evidence on 872.3060 and 872.3070 quoted a semicolon-joined reconstruction of
   several table rows, which is not a contiguous quote from the page. Each code now cites its own
   classification record, matching the style already used for EJH.
+  Sixth pass, 2026-09-11. A scanner run reached this material from issue #5, found this branch before
+  starting (by listing remote branches, which the duplicate preflight in the curation skill does not do),
+  and so curated nothing from scratch. It re-verified all five regulations end to end from primary
+  sources: the five section titles and identification paragraphs against the CFR text at law.cornell.edu,
+  and all eight product codes against the FDA device classification API, confirming device name, class,
+  regulation number and submission type for each, plus the completeness of every product-code list and
+  the EIT anomaly under 872.3060. Everything matched. It fixed two stale counts left by the earlier
+  passes - the regulatory note still said "All three" regulations and "a fourth row" when there are five -
+  and opened the pull request, which none of the five earlier passes had done. The recurring duplicate
+  work recorded above is a preflight gap, not a curation problem, and is reported on the pull request.
+
 see_also:
 - https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44253
