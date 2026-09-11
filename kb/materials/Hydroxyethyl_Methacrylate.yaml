@@ -380,6 +380,14 @@ properties:
     reference_title: Water Absorption and HEMA Release of Resin-Modified Glass-Ionomers.
     supports: SUPPORT
     evidence_source: IN_VITRO
+    snippet: 'At all time intervals Vitremer showed highest HEMA release ( 10 min: 54.2
+      ppm; 1 h: 86.8 ppm; 24 h: 93.4 ppm) (P=0.0001).'
+    explanation: Per-interval values for the highest-releasing of the three cements tested;
+      the source of the 93.4 ppm figure recorded above.
+  - reference: PMID:19826597
+    reference_title: Water Absorption and HEMA Release of Resin-Modified Glass-Ionomers.
+    supports: SUPPORT
+    evidence_source: IN_VITRO
     snippet: Vitremer showed the highest HEMA release and water absorption values and Protec-Cem showed the lowest values.
     explanation: Comparison of three commercial RMGICs.
   - reference: PMID:26916063
