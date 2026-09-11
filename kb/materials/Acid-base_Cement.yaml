@@ -152,9 +152,12 @@ properties:
       Performance Based Pathway (September 2024)'
     supports: SUPPORT
     evidence_source: REGULATORY_DOCUMENT
-    snippet: '· Zinc phosphate: ≥50 MPa · Zinc polycarboxylate: ≥50 MPa'
+    snippet: '· Zinc phosphate: ≥50 MPa · Zinc polycarboxylate: ≥50 MPa · Glass polyalkenoate:
+      ≥50 MPa for luting and base/lining applications'
     explanation: Compressive strength performance criteria, applicable to powder/liquid
-      acid-base cements only.
+      acid-base cements only. All three compositional families carry the same ≥50 MPa
+      minimum; for glass polyalkenoate it is stated for the luting and base/lining
+      applications.
   - reference: PMID:11641841
     reference_title: Laboratory strength of glass ionomer and zinc phosphate cements.
     supports: PARTIAL
