@@ -901,6 +901,12 @@ notes: >-
   because the evidence base is amalgam-specific and belongs on the Amalgam entry. EU MDR, Health Canada,
   and other regulators, because none were verified against a primary source.
 
+  Provider. The required deep research step could not run. The claude_code provider reports
+  UNREACHABLE (not logged in) and the EDISON, FUTUREHOUSE, and OPENAI keys are present in the
+  environment but empty, so no provider is callable. References were found by direct PubMed search
+  instead and every snippet is quoted from a cached abstract, as was done for Acid-base cement in
+  #4.
+
   Second pass, 2026-09-08. A later scanner run re-verified this entry independently before it was
   opened as a pull request. All three regulations, their classes, identification paragraphs, and
   product codes were fetched again from law.cornell.edu and the FDA product classification
@@ -924,27 +930,6 @@ notes: >-
   row, which previously had none. The independently written version was otherwise discarded in favour of
   this one.
 
-  Fifth pass, 2026-09-10. Another scanner run reached this material from issue #5 and again did not
-  see this branch, for the third time and for the same reason: the duplicate preflight in the curation
-  skill searches pull requests and issues, and this branch had neither. That pass curated the entry
-  from scratch, found the overlap on push, preserved this branch rather than overwriting it, and was
-  merged into it additively. It contributed two things. First, a fix: the palladium and platinum
-  components carried the ChEBI labels "palladium" and "platinum", but the canonical labels of
-  CHEBI:33363 and CHEBI:33364 are "palladium atom" and "platinum atom", so `just validate` was failing
-  on this branch with two label mismatches. Second, a fifth device type that none of the four earlier
-  passes found: 21 CFR 872.3350, gold or stainless steel cusp, class I, product code ELO, 510(k)-exempt
-  subject to 872.9, verified at law.cornell.edu and in the FDA product classification database on
-  2026-09-10 and added to docs/regulatory.md. It is the only device type in subpart D that names both
-  gold and stainless steel. That pass also re-derived all four existing regulations, their classes,
-  identification paragraphs and product codes from the CFR independently, and reached the same values
-  recorded here, including the EIT anomaly under 872.3060 and the non-exempt status of 872.3070.
-
-  Provider. The required deep research step could not run. The claude_code provider reports
-  UNREACHABLE (not logged in) and the EDISON, FUTUREHOUSE, and OPENAI keys are present in the
-  environment but empty, so no provider is callable. References were found by direct PubMed search
-  instead and every snippet is quoted from a cached abstract, as was done for Acid-base cement in
-  #4.
-
   Fourth pass, 2026-09-09. A later scanner run reached this material from issue #5 and again did
   not see this branch, for the same reason recorded above: the duplicate preflight searches pull
   requests and issues, and this branch still had neither. That pass curated the entry from scratch,
@@ -964,6 +949,22 @@ notes: >-
   the product-code evidence on 872.3060 and 872.3070 quoted a semicolon-joined reconstruction of
   several table rows, which is not a contiguous quote from the page. Each code now cites its own
   classification record, matching the style already used for EJH.
+
+  Fifth pass, 2026-09-10. Another scanner run reached this material from issue #5 and again did not
+  see this branch, for the third time and for the same reason: the duplicate preflight in the curation
+  skill searches pull requests and issues, and this branch had neither. That pass curated the entry
+  from scratch, found the overlap on push, preserved this branch rather than overwriting it, and was
+  merged into it additively. It contributed two things. First, a fix: the palladium and platinum
+  components carried the ChEBI labels "palladium" and "platinum", but the canonical labels of
+  CHEBI:33363 and CHEBI:33364 are "palladium atom" and "platinum atom", so `just validate` was failing
+  on this branch with two label mismatches. Second, a fifth device type that none of the four earlier
+  passes found: 21 CFR 872.3350, gold or stainless steel cusp, class I, product code ELO, 510(k)-exempt
+  subject to 872.9, verified at law.cornell.edu and in the FDA product classification database on
+  2026-09-10 and added to docs/regulatory.md. It is the only device type in subpart D that names both
+  gold and stainless steel. That pass also re-derived all four existing regulations, their classes,
+  identification paragraphs and product codes from the CFR independently, and reached the same values
+  recorded here, including the EIT anomaly under 872.3060 and the non-exempt status of 872.3070.
+
   Sixth pass, 2026-09-11. A scanner run reached this material from issue #5, found this branch before
   starting (by listing remote branches, which the duplicate preflight in the curation skill does not do),
   and so curated nothing from scratch. It re-verified all five regulations end to end from primary
@@ -976,11 +977,11 @@ notes: >-
   attempt was refused: GitHub Actions is not permitted to create or approve pull requests on this
   repository, so no pull request exists yet and the work is still only on this branch. The recurring
   duplicate work recorded above is a preflight gap, not a curation problem.
+
   Seventh pass, 2026-09-11 21:00 UTC. A scanner run found this branch before starting and curated
   nothing from scratch. It corrected the preceding paragraph, which claimed a pull request had been
   opened when creation had in fact been refused, and re-confirmed that the branch is current with main
   and conflict-free, that schema, ontology term, reference and parent-link validation and the 79 tests
   all pass on this head, and that pull request creation is still refused with the same 403.
-
 see_also:
 - https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44253
