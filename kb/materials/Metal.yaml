@@ -711,7 +711,7 @@ clinical_performance:
   value: '92.6'
   unit: '%'
   follow_up_years: 14.9
-  population: 164 posterior (pre-)molar cast gold partial crowns placed by supervised undergraduate students
+  population: 163 posterior (pre-)molar cast gold partial crowns placed by supervised undergraduate students, the Kaplan-Meier survival analysis set
   comparator: Ceramic inlays and onlays (Empress I)
   description: >-
     The only row here for a non-veneered cast metal restoration, and the longest follow-up in this
@@ -767,6 +767,15 @@ adverse_effects:
     evidence_source: SYSTEMATIC_REVIEW
     snippet: Assessing the true prevalence of DMA is difficult because of high heterogeneity across the studies and inconsistent clinical relevance.
     explanation: Why the frequency slot records no point estimate.
+  - reference: PMID:42106203
+    reference_title: 'Prevalence of metal allergy in patients treated with intraoral prostheses and restorations: A systematic review and meta-analysis.'
+    supports: SUPPORT
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: A high heterogeneity between studies (I²=97.1%, τ²=0.0575, Q-test P<.001), a wide
+      95% prediction interval (3% to 91%), and a lack of clinically relevant data made it difficult
+      to estimate the prevalence of DMA.
+    explanation: Carries the 3% to 91% prediction interval quoted in the frequency slot, and the
+      heterogeneity that is the reason no point estimate is recorded.
   - reference: PMID:38123140
     reference_title: Contact allergies to dental materials in patients.
     supports: PARTIAL
