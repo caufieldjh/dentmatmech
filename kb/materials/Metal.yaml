@@ -809,6 +809,33 @@ adverse_effects:
     evidence_source: OTHER
     snippet: Several elements such as nickel and cobalt have relatively high potential to cause allergy, but the true risk of using alloys containing these elements remains undefined.
     explanation: Names nickel and cobalt as the high-potential allergens while stating that the true risk is undefined.
+- name: Oral lichenoid contact lesions
+  effect_category: ALLERGIC_OR_HYPERSENSITIVITY
+  effect_term:
+    preferred_term: oral lichenoid lesion
+    term:
+      id: HP:0031453
+      label: Oral lichenoid lesion
+  description: >-
+    The mucosal presentation of dental metal allergy, in the tissue contacting the restoration.
+    Recorded at class level rather than on Amalgam because the patch-test positives in this series
+    were led by palladium and gold rather than by amalgam constituents, and because the lesions
+    usually improve once the responsible metal is removed.
+  evidence:
+  - reference: PMID:35784139
+    reference_title: Oral lichenoid contact lesions related to dental metal allergy may resolve after allergen removal.
+    supports: SUPPORT
+    evidence_source: HUMAN_CLINICAL
+    snippet: Palladium and gold were the most common patch test-positive metals observed in the oral cavity of patients with OLCLs.
+    explanation: Shows the reaction is not confined to one family; noble elements lead the patch-test positives here.
+  - reference: PMID:35784139
+    reference_title: Oral lichenoid contact lesions related to dental metal allergy may resolve after allergen removal.
+    supports: SUPPORT
+    evidence_source: HUMAN_CLINICAL
+    snippet: Twenty-three of 24 (95.8%) patients with OLCLs showed a complete or partial improvement after the removal of dental metal.
+    explanation: >-
+      Retrospective series of 30 patients, so the proportion is indicative rather than an incidence
+      estimate. It is the reason the row carries no frequency.
 - name: Element release through corrosion
   effect_category: TOXICITY
   description: Local and systemic effects follow from elements released as the restoration corrodes. Local exposure is the higher risk because concentrations adjacent to the restoration are much higher.
@@ -898,7 +925,9 @@ notes: >-
   number recorded on the children.
 
   Left out. Products, because brands belong on the children. Amalgam-associated oral lichenoid lesions,
-  because the evidence base is amalgam-specific and belongs on the Amalgam entry. EU MDR, Health Canada,
+  because that evidence base is amalgam-specific and belongs on the Amalgam entry; the class-level
+  lichenoid row added in the eighth pass rests on a series in which the patch-test positives were led by
+  palladium and gold rather than by amalgam, which is what makes it class-level. EU MDR, Health Canada,
   and other regulators, because none were verified against a primary source.
 
   Provider. The required deep research step could not run. The claude_code provider reports
@@ -983,5 +1012,22 @@ notes: >-
   opened when creation had in fact been refused, and re-confirmed that the branch is current with main
   and conflict-free, that schema, ontology term, reference and parent-link validation and the 79 tests
   all pass on this head, and that pull request creation is still refused with the same 403.
+  Eighth pass, 2026-09-13. A scanner run reached this material from issue #5 and, like the third,
+  fourth and fifth passes, did not see this branch beforehand: the duplicate preflight in the curation
+  skill searches pull requests and issues, and this branch still has neither. It curated the entry from
+  scratch, found the overlap on push, and preserved this branch rather than overwriting it, because this
+  one is the fuller entry. That independent pass is again a cross-check, and this time it was a complete
+  one: starting from the CFR rather than from this file, it re-derived all five regulation numbers,
+  titles, identification paragraphs, classes, pathways and all eight product codes from law.cornell.edu
+  and the FDA product classification database on 2026-09-13, and reached exactly the values recorded
+  here, including the EIT anomaly under 872.3060, the non-exempt status of 872.3070 and the ISO 22674,
+  ISO 10271 and ISO 9693 recognition records. It contributed one row this entry did not have: oral
+  lichenoid contact lesions, with the phenotype term the other allergy rows lack. It also confirmed that
+  every one of the 62 snippets then in the entry is verbatim in its cached source, with one nuance worth
+  recording: the two PMID:38702521 quotes differ from the source in whitespace alone, because that
+  abstract writes "14.9 years" and "n = 155" with a non-breaking and a thin space. The reference
+  validator normalises whitespace and passes them. They were left as they are, since reproducing
+  invisible characters in the file would cost more than it buys.
+
 see_also:
 - https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44253
