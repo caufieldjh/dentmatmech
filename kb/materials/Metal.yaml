@@ -870,6 +870,35 @@ adverse_effects:
     evidence_source: OTHER
     snippet: Galvanic currents can occur and cause pain, but this is generally shortlived and should not influence the dentist's choice of an appropriate restorative material.
     explanation: Clinical technique article. Confirms the effect occurs and bounds its clinical weight.
+- name: Metal artifacts degrading cone-beam CT image quality
+  effect_category: OTHER
+  description: >-
+    Metallic restorations scatter and attenuate the beam, producing streak and shadow artifacts
+    that reduce the diagnostic accuracy of cone-beam CT. Class-level because it follows from the
+    material being metallic rather than from any formulation, but graded across the families in
+    the same way corrosion is - amalgam is the worst offender and cobalt-chromium the most
+    variable. The per-family figures belong on the children. Recorded as OTHER because the
+    category enum has no diagnostic-imaging value, and with no effect_term because the effect is
+    a property of the radiograph rather than a phenotype of the patient.
+  evidence:
+  - reference: PMID:42203681
+    reference_title: 'Artificial intelligence for reducing metal artifacts in dental CBCT images: a systematic review.'
+    supports: SUPPORT
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: The presence of metallic restorations introduces severe artifacts that compromise diagnostic accuracy of cone beam computed tomography (CBCT) images.
+    explanation: Stated of metallic restorations as a group, which is what makes the effect class-level rather than a property of one family.
+  - reference: PMID:42267249
+    reference_title: 'What Drives Metal Artifacts in CBCT? A Comparative Study of Detector Types and Metallic Object Configurations.'
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Detector type, metal composition, and the number and position of metallic objects within the FOV significantly influence artifact formation in CBCT images.
+    explanation: In vitro comparison across four CBCT systems. Establishes that the metal itself is one of the drivers, alongside scanner and geometry factors that are not properties of the material.
+  - reference: PMID:42267249
+    reference_title: 'What Drives Metal Artifacts in CBCT? A Comparative Study of Detector Types and Metallic Object Configurations.'
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: 'Amalgam produced the most severe artifacts, reflected by the lowest MGVs, while cobalt-chromium yielded the highest variability (SD) (p < 0.005).'
+    explanation: Shows the spread within the class. Supports the effect being class-level while locating the extremes on particular children, so no single severity is asserted here.
 standards:
 - identifier: ISO 22674
   title: Dentistry - Metallic materials for fixed and removable restorations and appliances
