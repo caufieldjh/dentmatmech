@@ -899,6 +899,64 @@ adverse_effects:
     evidence_source: IN_VITRO
     snippet: 'Amalgam produced the most severe artifacts, reflected by the lowest MGVs, while cobalt-chromium yielded the highest variability (SD) (p < 0.005).'
     explanation: Shows the spread within the class. Supports the effect being class-level while locating the extremes on particular children, so no single severity is asserted here.
+- name: Palladium cross-sensitization in nickel-allergic patients
+  effect_category: ALLERGIC_OR_HYPERSENSITIVITY
+  effect_term:
+    preferred_term: allergic contact dermatitis
+    term:
+      id: MONDO:0006525
+      label: allergic contact dermatitis
+  frequency: 34% to 65.5% of nickel-allergic patients are also allergic to palladium
+  description: >-
+    Bears on alloy substitution: moving a nickel-allergic patient to a
+    palladium-containing alloy does not reliably avoid the problem, because the
+    two sensitivities travel together.
+  evidence:
+  - reference: PMID:12097239
+    reference_title: Biocompatibility of dental casting alloys.
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: "Interestingly, from 34% to 65.5% of the patients who are allergic to Ni are also allergic to Pd."
+    explanation: The reported co-sensitization range. Narrative review.
+  - reference: PMID:12097239
+    reference_title: Biocompatibility of dental casting alloys.
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: "Further, Pd allergy always occurrs with Ni sensitivity."
+    explanation: States the direction of the association. Quoted with the typographical error that is in the source abstract.
+- name: Wear debris
+  effect_category: TOXICITY
+  description: >-
+    A second release route alongside dissolution: particles abraded from the
+    restoration, rather than ions given up by corrosion.
+  evidence:
+  - reference: PMID:12097239
+    reference_title: Biocompatibility of dental casting alloys.
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: "Further, microparticles are abraded from metallic restorations due to wear."
+    explanation: Documents abrasion of microparticles as distinct from corrosion. Narrative review.
+- name: Periodontal and mucosal inflammation adjacent to the restoration
+  effect_category: PERIODONTAL_RESPONSE
+  description: >-
+    Released ions and abraded particles can inflame the tissues next to the
+    restoration, though the same review states the role of these ions in
+    gingivitis and periodontitis is unknown. No HP or MONDO term matches
+    "inflammation of the adjacent periodontal tissues and the oral mucosa"
+    closely enough to bind, so none is recorded.
+  evidence:
+  - reference: PMID:12097239
+    reference_title: Biocompatibility of dental casting alloys.
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: "In sufficient quantities, released metal ions-particularly Cu, Ni, Be, and abraded microparticles-can also induce inflammation of the adjacent periodontal tissues and the oral mucosa."
+    explanation: Names the local inflammatory effect and the ions implicated. Narrative review.
+  - reference: PMID:12097239
+    reference_title: Biocompatibility of dental casting alloys.
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: "While there is also some in vitro evidence that the immune response can be altered by various metal ions, the role of these ions in oral inflammatory diseases such as gingivitis and periodontitis is unknown."
+    explanation: Bounds the claim; the same source declines to attribute gingivitis or periodontitis to these ions.
 standards:
 - identifier: ISO 22674
   title: Dentistry - Metallic materials for fixed and removable restorations and appliances
@@ -1057,6 +1115,21 @@ notes: >-
   abstract writes "14.9 years" and "n = 155" with a non-breaking and a thin space. The reference
   validator normalises whitespace and passes them. They were left as they are, since reproducing
   invisible characters in the file would cost more than it buys.
+
+  Ninth pass, 2026-09-15. A scanner run reached this material from issue #5 and, like most earlier
+  passes, did not see this branch beforehand: the duplicate preflight searches pull requests and
+  issues, and this branch still has neither. It curated the entry from scratch, found the overlap on
+  push, and preserved this branch rather than overwriting it. As a cross-check it re-derived
+  872.3060, 872.3070 and 872.3710 - their titles, identification paragraphs, classes, pathways and
+  product codes - from law.cornell.edu and the FDA product classification database on 2026-09-15, and
+  independently confirmed 872.3330 and 872.3350 as class I and 510(k)-exempt from the CFR text, plus
+  the ISO 22674, ISO 10271 and ISO 9693 recognition records (4-300, 4-265, 4-263). Everything matched,
+  including the EIT anomaly under 872.3060. It contributed three safety rows from a standard reference
+  none of the eight earlier passes had cited, Geurtsen 2002 (PMID:12097239): palladium
+  cross-sensitization in nickel-allergic patients, which bears directly on alloy substitution and gives
+  that row the frequency the general allergy row could not; wear debris, a release route distinct from
+  corrosion; and periodontal and mucosal inflammation, recorded with the same review's statement that
+  the role of these ions in gingivitis and periodontitis is unknown, so the row does not overclaim.
 
 see_also:
 - https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44253
