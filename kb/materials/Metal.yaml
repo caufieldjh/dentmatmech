@@ -722,7 +722,7 @@ clinical_performance:
     reference_title: Long-term performance of ceramic in/-onlays vs. cast gold partial crowns - a retrospective clinical study.
     supports: SUPPORT
     evidence_source: HUMAN_CLINICAL
-    snippet: The cumulative survival rates of CGPCs were 92.6% after a mean service time of 14.9 years and 91.8% after 23.5 years.
+    snippet: The cumulative survival rates of CGPCs were 92.6% after a mean service time of 14.9 years and 91.8% after 23.5 years.
     explanation: Kaplan-Meier cumulative survival for the cast metal arm, out to 23.5 years.
 - name: Annual failure rate of cast gold partial crowns
   measure_type: ANNUAL_FAILURE_RATE
@@ -736,7 +736,7 @@ clinical_performance:
     reference_title: Long-term performance of ceramic in/-onlays vs. cast gold partial crowns - a retrospective clinical study.
     supports: SUPPORT
     evidence_source: HUMAN_CLINICAL
-    snippet: The annual failure rates of total service times were 0.5% in teeth restored with CIO (n = 155) and 0.7% in teeth restored with CGPC (n = 163).
+    snippet: The annual failure rates of total service times were 0.5% in teeth restored with CIO (n = 155) and 0.7% in teeth restored with CGPC (n = 163).
     explanation: Annual failure rate for the cast metal arm over the full service time, against the ceramic comparator in the same cohort.
 adverse_effects:
 - name: Dental metal allergy
