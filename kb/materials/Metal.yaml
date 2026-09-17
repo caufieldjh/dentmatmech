@@ -565,6 +565,16 @@ properties:
       affect the surrounding tissues and even internal organs.
     explanation: Comprehensive literature review. States ion release as a general consequence of
       corrosion for metallic oral appliances.
+  - reference: PMID:12175579
+    reference_title: Biological interactions of dental cast alloys with oral tissues.
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: All dental cast alloys release metal ions into the oral environment which have the
+      potential to interact with the oral tissues. Amount and type of metal elements released are
+      varying and not directly related to the composition of the alloy.
+    explanation: Literature survey. Establishes ion release as universal across the cast members,
+      and states the reason this entry records no class-level release figure - release does not
+      track composition, so a number measured on one alloy would not generalise to the class.
 - name: Plastic deformation rather than brittle fracture
   property_type: OTHER
   description: >-
@@ -957,6 +967,31 @@ adverse_effects:
     evidence_source: OTHER
     snippet: "While there is also some in vitro evidence that the immune response can be altered by various metal ions, the role of these ions in oral inflammatory diseases such as gingivitis and periodontitis is unknown."
     explanation: Bounds the claim; the same source declines to attribute gingivitis or periodontitis to these ions.
+- name: Attribution of oral symptoms to metallic restorations
+  effect_category: OTHER
+  description: >-
+    A caution about the rows above rather than an effect of the material. Patients relate oral
+    symptoms to their metallic restorations more often than a material cause can be established,
+    and the review evidence asks for a dental and general medical work-up to exclude non-material
+    causes before any restoration is replaced. Recorded so that the safety rows in this entry are
+    not read as licence to replace restorations on suspicion.
+  evidence:
+  - reference: PMID:12175579
+    reference_title: Biological interactions of dental cast alloys with oral tissues.
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: However, the number of cases, where such a relation can be safely diagnosed, is small.
+    explanation: Literature survey. Few reported cases survive a careful causal work-up, which is
+      the basis for the caution.
+  - reference: PMID:12175579
+    reference_title: Biological interactions of dental cast alloys with oral tissues.
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Patients relating oral symptoms to metal restorations should be subjected to a
+      thorough dental and general medical examination in order to exclude non-material related
+      diseases being the cause for their complaints/symptoms.
+    explanation: Literature survey. The recommended work-up before attributing symptoms to the
+      restoration.
 standards:
 - identifier: ISO 22674
   title: Dentistry - Metallic materials for fixed and removable restorations and appliances
@@ -1130,6 +1165,26 @@ notes: >-
   that row the frequency the general allergy row could not; wear debris, a release route distinct from
   corrosion; and periodontal and mucosal inflammation, recorded with the same review's statement that
   the role of these ions in gingivitis and periodontitis is unknown, so the row does not overclaim.
+  Tenth pass, 2026-09-17. A scanner run reached this material from issue #5 and, like the third,
+  fourth, fifth, eighth and ninth passes, did not see this branch beforehand: the duplicate preflight
+  in the curation skill searches pull requests and issues, and this branch still has neither. It
+  curated the entry from scratch, found the overlap on push, and preserved this branch rather than
+  overwriting it, because this one is the fuller entry. As a cross-check it re-derived 872.3060,
+  872.3070, 872.3330 and 872.3710 - their titles, identification paragraphs, classes, pathways and
+  product codes - from law.cornell.edu and the FDA product classification database on 2026-09-17,
+  and reached exactly the values recorded here, including the EIT anomaly under 872.3060 and the
+  non-exempt status of 872.3070. It did not find 872.3350 independently, which remains the fifth
+  pass's contribution. It also re-confirmed the ISO 22674, ISO 10271 and ISO 9693 recognition records
+  (4-300, 4-265, 4-263). It contributed two things from a review none of the nine earlier passes had
+  cited, Schmalz and Garhammer 2002 (PMID:12175579): the statement that ion release is not directly
+  related to alloy composition, which is the citation this entry's no-class-level-numbers policy
+  previously asserted without one; and a caution row recording that oral symptoms are attributed to
+  metallic restorations more often than a material cause can be established, which bounds the nine
+  safety rows above it. Pull request creation was attempted again, for the third time, and refused
+  again with the same 403. The recurring duplicate work is a preflight gap in
+  .claude/skills/curate-material/SKILL.md Step 1, which lists pull requests and issues but not remote
+  branches; five of the ten passes have now been spent re-deriving this entry from scratch, and a
+  `git ls-remote --heads origin 'curate/*'` check in that step would end it.
 
 see_also:
 - https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44253
