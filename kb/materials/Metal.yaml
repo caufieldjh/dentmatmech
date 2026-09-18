@@ -596,6 +596,34 @@ properties:
     evidence_source: OTHER
     snippet: That is why the fracture of an alloy can be almost excluded as a complication of clinical relevance.
     explanation: The clinical consequence the authors draw, and one their own results bear out - fracture of the metal does not appear among the recorded complications of the cast gold partial crowns.
+  - reference: PMID:32490402
+    reference_title: Ion release from three different dental alloys - effect of dynamic loading and
+      toxicity of released elements.
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: 'According to the threshold defined in ISO 22674, only low concentrations of released
+      elements were observed for both corrosion tests.'
+    explanation: The counterweight the row otherwise lacks. One Pd-Ag and two Co-Cr alloys, so the
+      result spans the noble and base families, and both stayed under the standard's threshold under
+      static and dynamic loading. Recorded as PARTIAL because three alloys cannot bound the class.
+- name: ISO 22674 mechanical type classification
+  property_type: OTHER
+  test_method: ISO 22674
+  description: >-
+    Why this entry records no class-level strength or modulus, stated positively. The governing
+    standard does not set one requirement for metallic restorative materials; it sorts them into
+    six types by measured mechanical performance, and an alloy is indicated for a given restoration
+    design only if it meets the requirement for that type. The type an alloy falls into, and its
+    measured values, belong on the children.
+  evidence:
+  - reference: PMID:34204569
+    reference_title: Mechanical Properties of Dental Alloys According to Manufacturing Process.
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The international standard categorizes dental metal materials into six types based on
+      0.2% permanent set yield strength, elongation, and modulus of elasticity
+    explanation: States the classification scheme ISO 22674 applies across the class. Restated by an
+      in vitro study rather than quoted from the standard itself, which is not open access.
 - name: Dependence of mechanical properties on fabrication route
   property_type: OTHER
   test_method: Tensile, 3-point bend, and microhardness testing
@@ -798,6 +826,24 @@ adverse_effects:
     evidence_source: HUMAN_CLINICAL
     snippet: Patch testing should not only focus on metals such as nickel, palladium, amalgam and gold, but also (meth)acrylates and the natural substances propolis and 'balsam of Peru'.
     explanation: Names the metals that carry the sensitization signal in this cohort, which agrees with the offending-metal list above.
+  - reference: PMID:30738702
+    reference_title: Current status of dental metal allergy in Japan.
+    supports: SUPPORT
+    evidence_source: HUMAN_CLINICAL
+    snippet: 'The positivity rates were as follows: nickel (22.5%); palladium (14.8%); and zinc
+      (11.5%).'
+    explanation: Patch-test positivity by element in 925 patients at one centre. Not a prevalence
+      estimate - the meta-analysis above explains why none is recorded - but it ranks the sensitizers
+      of the class consistently with the two sources above.
+  - reference: PMID:30738702
+    reference_title: Current status of dental metal allergy in Japan.
+    supports: PARTIAL
+    evidence_source: HUMAN_CLINICAL
+    snippet: One-half (55.6%) of the patients who underwent treatment to remove the metal
+      experienced improvement in symptoms.
+    explanation: Bounds this row's own statement that removal of the restoration is the treatment.
+      Only about half improved, so a positive patch test does not establish that the restoration
+      caused the symptoms.
 - name: Nickel contact allergy from nickel-containing alloys
   effect_category: ALLERGIC_OR_HYPERSENSITIVITY
   effect_term:
@@ -880,6 +926,25 @@ adverse_effects:
     evidence_source: OTHER
     snippet: Galvanic currents can occur and cause pain, but this is generally shortlived and should not influence the dentist's choice of an appropriate restorative material.
     explanation: Clinical technique article. Confirms the effect occurs and bounds its clinical weight.
+  - reference: PMID:25932317
+    reference_title: Evaluation of effect of galvanic corrosion between nickel-chromium metal and
+      titanium on ion release and cell toxicity.
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The amount of metal ions released by galvanic corrosion due to contact between the base
+      metal alloy and titanium was increased in all of the specimens.
+    explanation: A second consequence of the same coupling, distinct from the current the patient
+      feels - it raises ion release above what either alloy gives alone, in every specimen tested.
+  - reference: PMID:25932317
+    reference_title: Evaluation of effect of galvanic corrosion between nickel-chromium metal and
+      titanium on ion release and cell toxicity.
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: The release of metal ions was increased by galvanic corrosion due to contact between
+      base metal and titanium, and it can cause adverse effects on the tissue around the implant by
+      inducing cytotoxicity.
+    explanation: Links the raised release to cytotoxicity. In vitro only, and the tissue effect is
+      the authors' inference rather than an observed clinical outcome, so this is recorded as PARTIAL.
 - name: Metal artifacts degrading cone-beam CT image quality
   effect_category: OTHER
   description: >-
@@ -1184,7 +1249,26 @@ notes: >-
   again with the same 403. The recurring duplicate work is a preflight gap in
   .claude/skills/curate-material/SKILL.md Step 1, which lists pull requests and issues but not remote
   branches; five of the ten passes have now been spent re-deriving this entry from scratch, and a
-  `git ls-remote --heads origin 'curate/*'` check in that step would end it.
+  `git ls-remote --heads origin 'curate/*'` check in that step would end it. Eleventh pass, 2026-09-18. A scanner run reached this material from issue #5 and, like five
+  passes before it, did not see this branch during preflight; it too curated the entry from
+  scratch, found the overlap on push, and preserved this branch rather than overwriting it. As a
+  cross-check it re-derived 872.3060, 872.3070 and 872.3710 - their identification and
+  classification paragraphs, classes, product codes and exemption status - from law.cornell.edu
+  and the FDA product classification database on 2026-09-18, and reached exactly the values
+  recorded here, including the EIT anomaly under 872.3060 and the non-exempt status of 872.3070;
+  it also re-confirmed the ISO 22674 recognition record (4-300, third edition 2022-08). It
+  contributed four things this branch lacked. A property row for the ISO 22674 six-type
+  classification, which is the positive statement of why this entry records no class-level
+  strength or modulus - a policy nine passes had asserted without citing the standard's own
+  scheme. A measured counterweight on the corrosion row (PMID:32490402), which previously
+  carried only statements that alloys corrode and release ions with no bound; one Pd-Ag and two
+  Co-Cr alloys stayed under the ISO 22674 threshold under both static and dynamic loading. Two
+  rows of concrete patch-test data on the allergy row (PMID:30738702), which ranks the
+  sensitizers by positivity rate and records that only 55.6% of patients improved after the
+  metal was removed, bounding that row's own claim that removal is the treatment. And a second
+  mechanism on the galvanic row (PMID:25932317), which until now rested on a single 1996 article
+  about short-lived pain; the same coupling also raises ion release above what either alloy
+  gives alone. Pull request creation was attempted again, for the fourth time.
 
 see_also:
 - https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44253
