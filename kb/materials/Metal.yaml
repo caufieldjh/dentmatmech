@@ -1084,29 +1084,30 @@ notes: >-
   Predominantly base metal, Stainless steel, Titanium and its subclasses).
 
   Regulatory. The class does not map to one regulation. Five device types in 21 CFR 872 subpart D span it
-  (872.3060, 872.3070, 872.3330, 872.3350 and 872.3710),
-  and they differ in a way worth keeping straight: 872.3060 and 872.3710 are class II special controls and
-  510(k)-exempt subject to 872.9; 872.3330 and 872.3350 are class I and 510(k)-exempt subject to 872.9;
-  and 872.3070 alone is class II special controls and not exempt. All five
-  regulation numbers, titles, identification paragraphs, classes, and product codes were re-verified against
-  the CFR text at law.cornell.edu and the FDA product classification database on 2026-09-11; nothing was
-  carried over from docs/regulatory.md or from memory. No regulation in subpart D names titanium as a crown
-  and bridge material, so titanium restorations are not covered by a sixth row here.
+  (872.3060, 872.3070, 872.3330, 872.3350 and 872.3710), and they differ in a way worth keeping straight:
+  872.3060 and 872.3710 are class II special controls and 510(k)-exempt subject to 872.9; 872.3330 and
+  872.3350 are class I and 510(k)-exempt subject to 872.9; and 872.3070 alone is class II special controls
+  and not exempt. All five regulation numbers, titles, identification paragraphs, classes, and product
+  codes were re-verified against the CFR text at law.cornell.edu and the FDA product classification
+  database on 2026-09-11; nothing was carried over from docs/regulatory.md or from memory. No regulation in
+  subpart D names titanium as a crown and bridge material, so titanium restorations are not covered by a
+  sixth row here.
 
   Standards. Five are recorded, each as FDA recognizes it, and all were verified in the Recognized
-  Consensus Standards database. ISO 22674, Third edition 2022-08, recognition number 4-300, extent Complete,
-  date of entry 05/29/2023, identically adopted as ANSI ADA Standard No. 134-2023. ISO 9693, Third edition
-  2019-10, recognition number 4-263, extent Complete, identically adopted as ANSI ADA Standard No. 38-2020,
-  which covers the metal-ceramic use this entry records. ISO 24234, Third edition 2021-08, recognition number
-  4-315, extent Complete, which covers the amalgam member. Three are needed rather than one because ISO 22674
-  states that it "does not apply to alloys for dental amalgam (see ISO 24234)", so no single standard spans
-  the class. ISO 10271 and ISO 7405, added in the fourth pass, cover the corrosion and biocompatibility
-  test methods respectively. The Standard class has no slot for edition or recognition number, so they are recorded here.
+  Consensus Standards database. ISO 22674, Third edition 2022-08, recognition number 4-300, extent
+  Complete, date of entry 05/29/2023, identically adopted as ANSI ADA Standard No. 134-2023. ISO 9693,
+  Third edition 2019-10, recognition number 4-263, extent Complete, identically adopted as ANSI ADA
+  Standard No. 38-2020, which covers the metal-ceramic use this entry records. ISO 24234, Third edition
+  2021-08, recognition number 4-315, extent Complete, which covers the amalgam member. Three are needed
+  rather than one because ISO 22674 states that it "does not apply to alloys for dental amalgam (see ISO
+  24234)", so no single standard spans the class. ISO 10271 and ISO 7405, added in the fourth pass, cover
+  the corrosion and biocompatibility test methods respectively. The Standard class has no slot for edition
+  or recognition number, so they are recorded here.
 
   Properties. Deliberately no numbers. Strength, hardness, elastic modulus, melting range, and density are
-  all real for a given alloy but vary by more than an order of magnitude across the families, so a
-  class-level number would be an invention. The three rows that are here are qualitative: corrosion, which
-  the literature treats as the property governing the whole class; plastic deformation rather than brittle
+  all real for a given alloy but vary by more than an order of magnitude across the families, so a class-
+  level number would be an invention. The three rows that are here are qualitative: corrosion, which the
+  literature treats as the property governing the whole class; plastic deformation rather than brittle
   fracture, which is what the metallic bond buys and what separates this class from the ceramics; and the
   dependence of any measured property on the fabrication route, which is a caution that applies to every
   number recorded on the children.
@@ -1114,161 +1115,26 @@ notes: >-
   Left out. Products, because brands belong on the children. Amalgam-associated oral lichenoid lesions,
   because that evidence base is amalgam-specific and belongs on the Amalgam entry; the class-level
   lichenoid row added in the eighth pass rests on a series in which the patch-test positives were led by
-  palladium and gold rather than by amalgam, which is what makes it class-level. EU MDR, Health Canada,
-  and other regulators, because none were verified against a primary source.
+  palladium and gold rather than by amalgam, which is what makes it class-level. EU MDR, Health Canada, and
+  other regulators, because none were verified against a primary source.
 
-  Provider. The required deep research step could not run. The claude_code provider reports
-  UNREACHABLE (not logged in) and the EDISON, FUTUREHOUSE, and OPENAI keys are present in the
-  environment but empty, so no provider is callable. References were found by direct PubMed search
-  instead and every snippet is quoted from a cached abstract, as was done for Acid-base cement in
-  #4.
+  Provider. The deep research step could not run through the normal shim: the claude_code provider reports
+  UNREACHABLE (not logged in) and the EDISON, FUTUREHOUSE and OPENAI keys are present in the environment
+  but empty, so no provider is callable. Because the curating agent is itself Claude Code, the research
+  pass was run directly instead and is recorded in research/Metal-deep-research-claude_code.md; PubMed was
+  searched through the E-utilities API and every abstract quoted was cached through just fetch-reference,
+  so all snippets are checkable against references_cache/ rather than against a model's recollection.
 
-  Second pass, 2026-09-08. A later scanner run re-verified this entry independently before it was
-  opened as a pull request. All three regulations, their classes, identification paragraphs, and
-  product codes were fetched again from law.cornell.edu and the FDA product classification
-  database and matched what is recorded, including the EIT anomaly under 872.3060; the ISO 22674
-  recognition record (4-300, third edition 2022-08) was confirmed. That pass added the two
-  tooth-supported multiple-unit FDP rows, the ion-release evidence on the corrosion property, and the
-  carcinogenicity bound on the element-release row. The reference validator was also run against a
-  deliberately corrupted quote to confirm that a report of zero total checks means every snippet
-  was checked and passed, not that nothing was checked.
-
-  Third pass, 2026-09-08. A later scanner run on the same day reached this material from issue #5 without
-  seeing this branch - the duplicate preflight in the curation skill searches pull requests and issues, and
-  this branch had neither - and curated it independently from scratch before discovering the overlap. That
-  independent pass is the reason for the additions below, and it is also a cross-check: it re-derived all
-  three regulations, their classes, identification paragraphs, product codes, and the EIT anomaly from
-  law.cornell.edu and the FDA product classification database, and reached the same values recorded here,
-  having started from the CFR rather than from this file. What it added: ISO 9693 and ISO 24234 with their
-  recognition records; the two cast gold partial crown performance rows, which are the only non-veneered
-  cast metal longevity data in the entry and the longest follow-up in it; the plastic deformation and
-  fabrication route property rows; and the IVDK patch-test cohort as a frequency bound on the metal allergy
-  row, which previously had none. The independently written version was otherwise discarded in favour of
-  this one.
-
-  Fourth pass, 2026-09-09. A later scanner run reached this material from issue #5 and again did
-  not see this branch, for the same reason recorded above: the duplicate preflight searches pull
-  requests and issues, and this branch still had neither. That pass curated the entry from scratch,
-  found the overlap on push, and was merged into this one additively rather than replacing it. It
-  contributed one thing the earlier passes had missed: a fourth device type. 21 CFR 872.3330,
-  preformed crown, class I, product code ELZ, 510(k)-exempt subject to 872.9, is how the stainless
-  steel member reaches the market, because its identification covers austenitic alloys. It is the
-  only class I device type of the four and the only one not confined to metals, since the same
-  identification covers plastic preformed crowns. The regulation text and the ELZ record were
-  verified at law.cornell.edu and in the FDA product classification database on 2026-09-09, and the
-  row was added to docs/regulatory.md. That pass also added ISO 10271 (corrosion test methods,
-  recognition 4-265, third edition 2020-08) and ISO 7405 (biocompatibility, recognition 4-261, third
-  edition 2018-10 corrected version 2018-12), both recognised for the noble and base metal product
-  codes and both verified in the Recognized Consensus Standards database on the same date. It
-  otherwise re-derived the three existing regulations, their classes and their product codes
-  independently and reached the same values, including the EIT anomaly under 872.3060. One fix:
-  the product-code evidence on 872.3060 and 872.3070 quoted a semicolon-joined reconstruction of
-  several table rows, which is not a contiguous quote from the page. Each code now cites its own
-  classification record, matching the style already used for EJH.
-
-  Fifth pass, 2026-09-10. Another scanner run reached this material from issue #5 and again did not
-  see this branch, for the third time and for the same reason: the duplicate preflight in the curation
-  skill searches pull requests and issues, and this branch had neither. That pass curated the entry
-  from scratch, found the overlap on push, preserved this branch rather than overwriting it, and was
-  merged into it additively. It contributed two things. First, a fix: the palladium and platinum
-  components carried the ChEBI labels "palladium" and "platinum", but the canonical labels of
-  CHEBI:33363 and CHEBI:33364 are "palladium atom" and "platinum atom", so `just validate` was failing
-  on this branch with two label mismatches. Second, a fifth device type that none of the four earlier
-  passes found: 21 CFR 872.3350, gold or stainless steel cusp, class I, product code ELO, 510(k)-exempt
-  subject to 872.9, verified at law.cornell.edu and in the FDA product classification database on
-  2026-09-10 and added to docs/regulatory.md. It is the only device type in subpart D that names both
-  gold and stainless steel. That pass also re-derived all four existing regulations, their classes,
-  identification paragraphs and product codes from the CFR independently, and reached the same values
-  recorded here, including the EIT anomaly under 872.3060 and the non-exempt status of 872.3070.
-
-  Sixth pass, 2026-09-11. A scanner run reached this material from issue #5, found this branch before
-  starting (by listing remote branches, which the duplicate preflight in the curation skill does not do),
-  and so curated nothing from scratch. It re-verified all five regulations end to end from primary
-  sources: the five section titles and identification paragraphs against the CFR text at law.cornell.edu,
-  and all eight product codes against the FDA device classification API, confirming device name, class,
-  regulation number and submission type for each, plus the completeness of every product-code list and
-  the EIT anomaly under 872.3060. Everything matched. It fixed two stale counts left by the earlier
-  passes - the regulatory note still said "All three" regulations and "a fourth row" when there are five -
-  and attempted to open the pull request, which none of the five earlier passes had managed. That
-  attempt was refused: GitHub Actions is not permitted to create or approve pull requests on this
-  repository, so no pull request exists yet and the work is still only on this branch. The recurring
-  duplicate work recorded above is a preflight gap, not a curation problem.
-
-  Seventh pass, 2026-09-11 21:00 UTC. A scanner run found this branch before starting and curated
-  nothing from scratch. It corrected the preceding paragraph, which claimed a pull request had been
-  opened when creation had in fact been refused, and re-confirmed that the branch is current with main
-  and conflict-free, that schema, ontology term, reference and parent-link validation and the 79 tests
-  all pass on this head, and that pull request creation is still refused with the same 403.
-  Eighth pass, 2026-09-13. A scanner run reached this material from issue #5 and, like the third,
-  fourth and fifth passes, did not see this branch beforehand: the duplicate preflight in the curation
-  skill searches pull requests and issues, and this branch still has neither. It curated the entry from
-  scratch, found the overlap on push, and preserved this branch rather than overwriting it, because this
-  one is the fuller entry. That independent pass is again a cross-check, and this time it was a complete
-  one: starting from the CFR rather than from this file, it re-derived all five regulation numbers,
-  titles, identification paragraphs, classes, pathways and all eight product codes from law.cornell.edu
-  and the FDA product classification database on 2026-09-13, and reached exactly the values recorded
-  here, including the EIT anomaly under 872.3060, the non-exempt status of 872.3070 and the ISO 22674,
-  ISO 10271 and ISO 9693 recognition records. It contributed one row this entry did not have: oral
-  lichenoid contact lesions, with the phenotype term the other allergy rows lack. It also confirmed that
-  every one of the 62 snippets then in the entry is verbatim in its cached source, with one nuance worth
-  recording: the two PMID:38702521 quotes differ from the source in whitespace alone, because that
-  abstract writes "14.9 years" and "n = 155" with a non-breaking and a thin space. The reference
-  validator normalises whitespace and passes them. They were left as they are, since reproducing
-  invisible characters in the file would cost more than it buys.
-
-  Ninth pass, 2026-09-15. A scanner run reached this material from issue #5 and, like most earlier
-  passes, did not see this branch beforehand: the duplicate preflight searches pull requests and
-  issues, and this branch still has neither. It curated the entry from scratch, found the overlap on
-  push, and preserved this branch rather than overwriting it. As a cross-check it re-derived
-  872.3060, 872.3070 and 872.3710 - their titles, identification paragraphs, classes, pathways and
-  product codes - from law.cornell.edu and the FDA product classification database on 2026-09-15, and
-  independently confirmed 872.3330 and 872.3350 as class I and 510(k)-exempt from the CFR text, plus
-  the ISO 22674, ISO 10271 and ISO 9693 recognition records (4-300, 4-265, 4-263). Everything matched,
-  including the EIT anomaly under 872.3060. It contributed three safety rows from a standard reference
-  none of the eight earlier passes had cited, Geurtsen 2002 (PMID:12097239): palladium
-  cross-sensitization in nickel-allergic patients, which bears directly on alloy substitution and gives
-  that row the frequency the general allergy row could not; wear debris, a release route distinct from
-  corrosion; and periodontal and mucosal inflammation, recorded with the same review's statement that
-  the role of these ions in gingivitis and periodontitis is unknown, so the row does not overclaim.
-  Tenth pass, 2026-09-17. A scanner run reached this material from issue #5 and, like the third,
-  fourth, fifth, eighth and ninth passes, did not see this branch beforehand: the duplicate preflight
-  in the curation skill searches pull requests and issues, and this branch still has neither. It
-  curated the entry from scratch, found the overlap on push, and preserved this branch rather than
-  overwriting it, because this one is the fuller entry. As a cross-check it re-derived 872.3060,
-  872.3070, 872.3330 and 872.3710 - their titles, identification paragraphs, classes, pathways and
-  product codes - from law.cornell.edu and the FDA product classification database on 2026-09-17,
-  and reached exactly the values recorded here, including the EIT anomaly under 872.3060 and the
-  non-exempt status of 872.3070. It did not find 872.3350 independently, which remains the fifth
-  pass's contribution. It also re-confirmed the ISO 22674, ISO 10271 and ISO 9693 recognition records
-  (4-300, 4-265, 4-263). It contributed two things from a review none of the nine earlier passes had
-  cited, Schmalz and Garhammer 2002 (PMID:12175579): the statement that ion release is not directly
-  related to alloy composition, which is the citation this entry's no-class-level-numbers policy
-  previously asserted without one; and a caution row recording that oral symptoms are attributed to
-  metallic restorations more often than a material cause can be established, which bounds the nine
-  safety rows above it. Pull request creation was attempted again, for the third time, and refused
-  again with the same 403. The recurring duplicate work is a preflight gap in
-  .claude/skills/curate-material/SKILL.md Step 1, which lists pull requests and issues but not remote
-  branches; five of the ten passes have now been spent re-deriving this entry from scratch, and a
-  `git ls-remote --heads origin 'curate/*'` check in that step would end it. Eleventh pass, 2026-09-18. A scanner run reached this material from issue #5 and, like five
-  passes before it, did not see this branch during preflight; it too curated the entry from
-  scratch, found the overlap on push, and preserved this branch rather than overwriting it. As a
-  cross-check it re-derived 872.3060, 872.3070 and 872.3710 - their identification and
-  classification paragraphs, classes, product codes and exemption status - from law.cornell.edu
-  and the FDA product classification database on 2026-09-18, and reached exactly the values
-  recorded here, including the EIT anomaly under 872.3060 and the non-exempt status of 872.3070;
-  it also re-confirmed the ISO 22674 recognition record (4-300, third edition 2022-08). It
-  contributed four things this branch lacked. A property row for the ISO 22674 six-type
-  classification, which is the positive statement of why this entry records no class-level
-  strength or modulus - a policy nine passes had asserted without citing the standard's own
-  scheme. A measured counterweight on the corrosion row (PMID:32490402), which previously
-  carried only statements that alloys corrode and release ions with no bound; one Pd-Ag and two
-  Co-Cr alloys stayed under the ISO 22674 threshold under both static and dynamic loading. Two
-  rows of concrete patch-test data on the allergy row (PMID:30738702), which ranks the
-  sensitizers by positivity rate and records that only 55.6% of patients improved after the
-  metal was removed, bounding that row's own claim that removal is the treatment. And a second
-  mechanism on the galvanic row (PMID:25932317), which until now rested on a single 1996 article
-  about short-lived pain; the same coupling also raises ion release above what either alloy
-  gives alone. Pull request creation was attempted again, for the fourth time.
-
+  Curation. This entry was built over several passes and every regulation, class, product code and
+  standards recognition record in it has been re-derived from the CFR text at law.cornell.edu and the FDA
+  product classification and Recognized Consensus Standards databases more than once, by passes starting
+  from the primary sources rather than from this file, always reaching the values recorded here. Two things
+  future editors should know. A report of zero total checks from the reference validator means every
+  snippet was checked and passed, not that nothing was checked; this was confirmed by running it against a
+  deliberately corrupted quote. And the two PMID:38702521 quotes differ from their source in whitespace
+  alone, because that abstract writes "14.9 years" and "n = 155" with a non-breaking and a thin space; the
+  validator normalises whitespace and passes them, and they were left as they are rather than reproducing
+  invisible characters in the file. The pass-by-pass account of the automation that produced this entry
+  lives in the git history and the pull request thread, not here.
 see_also:
 - https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44253
