@@ -682,15 +682,15 @@ standards:
 - identifier: ISO 29022
   title: Dentistry - Adhesion - Notched-edge shear bond strength test
   organization: ISO
-  url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/results.cfm?start_search=1&productcode=KLE
+  url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=32841
 - identifier: ISO 7405
   title: Dentistry - Evaluation of biocompatibility of medical devices used in dentistry
   organization: ISO
-  url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/results.cfm?start_search=1&productcode=KLE
+  url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=40211
 - identifier: ISO/TS 16506
   title: Dentistry - Polymer-based luting materials containing adhesive components
   organization: ISO
-  url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/results.cfm?start_search=1&productcode=KLE
+  url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=45032
 - identifier: ISO/TS 11405
   title: Dentistry - Testing of adhesion to tooth structure
   organization: ISO
@@ -745,8 +745,23 @@ products:
   description: Resin-modified glass ionomer restorative; showed the highest HEMA release of three RMGICs tested.
   see_also:
   - https://pubmed.ncbi.nlm.nih.gov/19826597/
-notes: HEMA is a component monomer. Values for flexural strength, hardness, wear, shrinkage, radiopacity,
-  and the like belong to the host products and are not reported here. Working and setting times likewise
-  belong to host products. Deep research report by the claude_code provider, 2026-09-04, at
-  research/Hydroxyethyl_Methacrylate-deep-research-claude_code.md. EU MDR, Health Canada, and TGA standing
-  were not verified against primary sources and are not recorded.
+notes: >-
+  HEMA is a component monomer. Values for flexural strength, hardness, wear, shrinkage,
+  radiopacity, and the like belong to the host products and are not reported here. Working and
+  setting times likewise belong to host products. Deep research report by the claude_code
+  provider, 2026-09-04, at research/Hydroxyethyl_Methacrylate-deep-research-claude_code.md.
+  EU MDR, Health Canada, and TGA standing were not verified against primary sources and are
+  not recorded.
+
+  Standards. This slot records standards this material is tested or specified against, so it is
+  scoped to the monomer and not to a product code. FDA recognises five consensus standards for
+  product code KLE, verified 2026-09-25: ISO 29022 (recognition 4-219), ISO 7405 (4-261),
+  ISO/TS 16506 (4-324), ISO 9917-1 (4-348) and ISO 3990 (4-364). Only the first three are listed
+  here. ISO 9917-1 covers acid-base cements, whose resin-modified counterpart ISO 9917-2 is the
+  part that reaches HEMA, and ISO 3990 is an antibacterial test method spanning restoratives,
+  luting materials, sealants and orthodontic bonding or luting materials; both are recognised
+  against the bonding-agent device type rather than against this monomer, so neither is recorded.
+  Each url points at that standard's own FDA recognition record; the earlier per-product-code
+  query URL was replaced because it implied the list enumerated the KLE set. ISO 29022's title is
+  given in its ISO form; the FDA record renders it "Adhesive - Notched-edge sheer bond strength
+  test".
