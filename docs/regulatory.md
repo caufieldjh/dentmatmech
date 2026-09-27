@@ -63,7 +63,8 @@ The product example above is illustrative; check the record before curating it.
 
 The two systems cut the world differently. OHD classifies by *what the material is*; FDA classifies by *what the device is for*. So one OHD material can fall under several regulations (a resin composite used as a core build-up, a luting cement, or a pit and fissure sealant), and one regulation can cover several OHD materials (`872.3275` dental cement spans glass ionomer, zinc phosphate, zinc polycarboxylate, and resin cements). Record one `regulatory_status` entry per applicable regulation, and use `approved_uses` to say which use each one governs.
 
-Regulations verified against the CFR text and the FDA product classification database on 2026-09-04:
+Regulations verified against the CFR text and the FDA product classification database on
+2026-09-04, except `872.6660` and the `872.3920` note, verified on 2026-09-27:
 
 | Regulation | Device name | Class | Product codes | Notes |
 |---|---|---|---|---|
@@ -75,7 +76,8 @@ Regulations verified against the CFR text and the FDA product classification dat
 | 872.3640 | Endosseous dental implant | II (special controls) | DZE, NRQ, OAT | Root-form and blade-form |
 | 872.3690 | Tooth shade resin material | II | EBF, OFW | |
 | 872.3710 | Base metal alloy | II (special controls) | EJH | 510(k)-exempt subject to 872.9 |
-| 872.3920 | Porcelain tooth | II | ELL | |
+| 872.3920 | Porcelain tooth | II | ELL | Prefabricated device the regulation defines as made of the 872.6660 material |
+| 872.6660 | Porcelain powder for clinical use | II | EIH | Subpart G. The material-level device type for dental ceramics; modern lithium disilicate and zirconia blanks clear under EIH |
 
 ## Other regulators
 
