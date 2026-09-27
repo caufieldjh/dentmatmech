@@ -225,7 +225,7 @@ regulatory_status:
 - agency: FDA
   status: CLEARED
   regulation_number: '872.3275'
-  regulation_title: Dental cement
+  regulation_title: Dental cement other than zinc oxide-eugenol
   device_class: CLASS_II
   product_codes:
   - EMA
