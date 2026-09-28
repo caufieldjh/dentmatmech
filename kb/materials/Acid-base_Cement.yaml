@@ -445,7 +445,7 @@ regulatory_status:
   jurisdiction: US
   status: EXEMPT
   regulation_number: '872.3275'
-  regulation_title: Dental cement, zinc oxide-eugenol
+  regulation_title: Zinc oxide-eugenol
   device_class: CLASS_I
   product_codes:
   - EMB
@@ -470,6 +470,13 @@ regulatory_status:
     class, which sits under Zinc oxide cement in this knowledge base. The class split
     within 872.3275 is the reason two entries are recorded for one regulation number.
   evidence:
+  - reference: url:https://www.law.cornell.edu/cfr/text/21/872.3275
+    reference_title: 21 CFR 872.3275 Dental cement
+    supports: SUPPORT
+    evidence_source: REGULATORY_DOCUMENT
+    snippet: (a) Zinc oxide-eugenol —(1) Identification . Zinc oxide-eugenol is a device
+      composed of zinc oxide-eugenol intended to serve as a temporary tooth filling
+    explanation: Identification paragraph of the zinc oxide-eugenol branch, verified 2026-09-28.
   - reference: url:https://www.law.cornell.edu/cfr/text/21/872.3275
     reference_title: 21 CFR 872.3275 Dental cement
     supports: SUPPORT
