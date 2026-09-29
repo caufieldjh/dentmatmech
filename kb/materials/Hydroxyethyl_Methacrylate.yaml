@@ -285,6 +285,18 @@ properties:
     evidence_source: IN_VITRO
     snippet: Even though Exp-36 was the only adhesive formulation that did not exhibit phase separation on a glass plate, it yielded the lowest bond strength.
     explanation: Too much HEMA lowers bond strength even as it removes phase separation.
+  - reference: PMID:18433860
+    reference_title: The role of HEMA in one-step self-etch adhesives.
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Regarding bond strength, Exp-10 performed best.
+    explanation: Of the four formulations (Exp-0, Exp-10, Exp-19, Exp-36) the 10% HEMA one gave the highest bond strength.
+  - reference: PMID:18433860
+    reference_title: The role of HEMA in one-step self-etch adhesives.
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A small amount of HEMA (10%) improved the bond strength of a one-step self-etch adhesive.
+    explanation: Authors' conclusion, stating the 10% figure the value field reports.
 - name: Effect of dentin moisture on bonding of HEMA-containing universal adhesives
   property_type: BOND_STRENGTH
   value: higher on dry than on wet bur-cut dentin
@@ -330,6 +342,7 @@ properties:
 - name: Ultimate tensile strength of adhesive resin versus HEMA content and water storage
   property_type: TENSILE_STRENGTH
   value: lower at 30 and 50 wt% HEMA than at 0 and 15 wt%; falls with water storage in HEMA-containing adhesives
+  conditions: Experimental bis-GMA, bis-EMA, TEGDMA blend with 0, 15, 30, or 50 wt% HEMA; separately, three HEMA-containing commercial one-step self-etch adhesives over 360 days of water storage
   evidence:
   - reference: PMID:21594225
     reference_title: Influence of 2-hydroxyethyl methacrylate concentration on polymer network of adhesive resin.
@@ -343,6 +356,18 @@ properties:
     evidence_source: IN_VITRO
     snippet: Higher HEMA content increases dental adhesive resin degradation.
     explanation: Authors' conclusion.
+  - reference: PMID:21594225
+    reference_title: Influence of 2-hydroxyethyl methacrylate concentration on polymer network of adhesive resin.
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The effect of HEMA content (0, 15, 30, and 50%wt - control, G15, G30, and G50 groups, respectively) was tested in an experimental comonomer blend of bis-GMA, bis-EMA, TEG-DMA, and HEMA.
+    explanation: Maps the group labels the other snippets use onto the wt% figures the value field reports.
+  - reference: PMID:21575671
+    reference_title: "Long-term evaluation of water sorption and ultimate tensile strength of HEMA-containing/-free one-step self-etch adhesives."
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For the HEMA-containing adhesives, Wsp increased and UTS decreased over time.
+    explanation: Source for the water-storage half of the value; UTS is this row's property.
 - name: Diffusion through dentin to the pulp chamber
   property_type: OTHER
   value: 0.5 to 13.3 recovered per cavity, depending on bonding system and remaining dentin thickness
@@ -445,8 +470,8 @@ clinical_performance:
     reference_title: Do HEMA-free adhesive systems have better clinical performance than HEMA-containing systems in noncarious cervical lesions? A systematic review and meta-analysis.
     supports: SUPPORT
     evidence_source: SYSTEMATIC_REVIEW
-    snippet: no significant statistical difference was found between the clinical performances of HEMA-free and HEMA-containing adhesive systems for all parameters analyzed
-    explanation: Pooled estimates; the risk differences and p values are in the value field.
+    snippet: "no significant statistical difference was found between the clinical performances of HEMA-free and HEMA-containing adhesive systems for all parameters analyzed: retention risk difference (RD) 0.03"
+    explanation: Quotes the pooled retention point estimate itself. The quote stops at 0.03 because the validator strips bracketed text from snippets, so the confidence interval that follows it in the abstract cannot be carried through a snippet; the interval and p value stay in the value field.
 - name: Retention, HEMA-free versus HEMA-containing adhesives in direct composite restorations, trials with at least 2 years follow-up
   measure_type: RETENTION_RATE
   value: no significant difference in the majority of included trials
