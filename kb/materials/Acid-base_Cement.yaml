@@ -182,6 +182,14 @@ properties:
       to 11.5 +/- 2.2 MPa for Chelon Silver.
     explanation: Tensile strength is an order of magnitude below compressive strength,
       which is why the class is confined to compressive-load applications.
+  - reference: PMID:11641841
+    reference_title: Laboratory strength of glass ionomer and zinc phosphate cements.
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Properties were measured using a universal testing machine at 15 minutes,
+      1 hour, and 24 hours after first mixing.
+    explanation: Methods sentence giving the times after mixing that the conditions field
+      reports.
 - name: Acid erosion
   property_type: SOLUBILITY
   value: <=0.17-0.40
@@ -328,8 +336,27 @@ clinical_performance:
     supports: SUPPORT
     evidence_source: HUMAN_CLINICAL
     snippet: During that time no restoration was lost, no recementation became necessary.
-    explanation: A member of the class matched a resin cement for retention over a mean
-      3.16 years.
+    explanation: Zero losses and zero recementations across both arms, so the zinc phosphate
+      arm retained every restoration. The 100% in value is derived from this sentence;
+      the authors never state the percentage themselves.
+  - reference: PMID:19100611
+    reference_title: 'Self-adhesive resin cement versus zinc phosphate luting material:
+      a prospective clinical trial begun 2003.'
+    supports: SUPPORT
+    evidence_source: HUMAN_CLINICAL
+    snippet: Forty-nine patients (mean age 54+/-13 years) received 49 metal-based fixed
+      partial dentures randomly luted using zinc phosphate (Richter & Hoffmann, Berlin,
+      Germany) or self-adhesive resin cement (RelyX Unicem Aplicap, 3M ESPE, Germany)
+      at the University Medical Center Regensburg.
+    explanation: Gives the denominator and the randomisation that the population field
+      reports.
+  - reference: PMID:19100611
+    reference_title: 'Self-adhesive resin cement versus zinc phosphate luting material:
+      a prospective clinical trial begun 2003.'
+    supports: SUPPORT
+    evidence_source: HUMAN_CLINICAL
+    snippet: 'The mean observation time was 3.16+/-0.6 years (min: 2.0; max: 4.5 years).'
+    explanation: Source of the follow_up_years figure.
 - name: Long-term clinical success of conventional luting
   measure_type: OTHER
   description: The long service record of the class in conventional luting of metal-based
