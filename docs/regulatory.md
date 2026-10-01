@@ -79,7 +79,7 @@ Regulations verified against the CFR text and the FDA product classification dat
 | 872.3710 | Base metal alloy | II (special controls) | EJH | 510(k)-exempt subject to 872.9 |
 | 872.3920 | Porcelain tooth | II | ELL | |
 
-872.3060, 872.3070, and 872.3710 were re-verified from the same two primary sources on 2026-09-06 while curating `Metal`. `872.3330` was verified from the same two sources on 2026-09-09, also while curating `Metal`; it is the route by which preformed stainless steel crowns reach the market. `872.3350` was verified from the same two sources on 2026-09-10, also while curating `Metal`. The regulation titles, identification paragraphs, classes, and product codes were unchanged. Submission type in the classification database is `510(K) Exempt` for EJS, EJT, and EJH, and `510(k)` for EJJ, ELY, and OIV.
+872.3060, 872.3070, and 872.3710 were re-verified from the same two primary sources on 2026-09-06 while curating `Metal`. `872.3330` was verified from the same two sources on 2026-09-09, also while curating `Metal`; it is the route by which preformed stainless steel crowns reach the market. `872.3350` was verified from the same two sources on 2026-09-10, also while curating `Metal`. The regulation titles, identification paragraphs, classes, and product codes were unchanged. All five regulations, all eight product codes, and all five identification paragraphs were re-verified from the same two primary sources on 2026-10-01, again while curating `Metal`; nothing had changed. Submission type in the classification database is `510(K) Exempt` for EJS, EJT, EJH, ELZ, and ELO, and `510(k)` for EJJ, ELY, and OIV.
 
 ## A note on `872.9` exemptions
 
