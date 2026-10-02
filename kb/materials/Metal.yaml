@@ -1106,11 +1106,13 @@ notes: >-
 
   Properties. Deliberately no numbers. Strength, hardness, elastic modulus, melting range, and density are
   all real for a given alloy but vary by more than an order of magnitude across the families, so a class-
-  level number would be an invention. The three rows that are here are qualitative: corrosion, which the
+  level number would be an invention. The four rows that are here carry no value: corrosion, which the
   literature treats as the property governing the whole class; plastic deformation rather than brittle
-  fracture, which is what the metallic bond buys and what separates this class from the ceramics; and the
+  fracture, which is what the metallic bond buys and what separates this class from the ceramics; the
   dependence of any measured property on the fabrication route, which is a caution that applies to every
-  number recorded on the children.
+  number recorded on the children; and the ISO 22674 type classification, which states the same point
+  positively - the governing standard sorts metallic restoratives into six types by measured performance
+  rather than setting one class-level requirement.
 
   Left out. Products, because brands belong on the children. Amalgam-associated oral lichenoid lesions,
   because that evidence base is amalgam-specific and belongs on the Amalgam entry; the class-level
