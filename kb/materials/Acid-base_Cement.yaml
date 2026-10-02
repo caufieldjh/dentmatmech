@@ -452,9 +452,11 @@ regulatory_status:
     evidence_source: REGULATORY_DOCUMENT
     snippet: (b) Dental cement other than zinc oxide-eugenol —(1) Identification . Dental
       cement other than zinc oxide-eugenol is a device composed of various materials other
-      than zinc oxide-eugenol
-    explanation: Identification paragraph of the non-zinc-oxide-eugenol branch, verified
-      2026-09-05.
+      than zinc oxide-eugenol intended to serve as a temporary tooth filling or as a base
+      cement to affix a temporary tooth filling, to affix dental devices such as crowns or
+      bridges, or to be applied to a tooth to protect the tooth pulp.
+    explanation: Identification paragraph (b)(1), quoted in full; it is the text recorded in
+      identification and the source of all four approved_uses on this row. Verified 2026-10-02.
   - reference: url:https://www.law.cornell.edu/cfr/text/21/872.3275
     reference_title: 21 CFR 872.3275 Dental cement
     supports: SUPPORT
@@ -502,8 +504,11 @@ regulatory_status:
     supports: SUPPORT
     evidence_source: REGULATORY_DOCUMENT
     snippet: (a) Zinc oxide-eugenol —(1) Identification . Zinc oxide-eugenol is a device
-      composed of zinc oxide-eugenol intended to serve as a temporary tooth filling
-    explanation: Identification paragraph of the zinc oxide-eugenol branch, verified 2026-09-28.
+      composed of zinc oxide-eugenol intended to serve as a temporary tooth filling or as a
+      base cement to affix a temporary tooth filling, to affix dental devices such as crowns
+      or bridges, or to be applied to a tooth to protect the tooth pulp.
+    explanation: Identification paragraph (a)(1), quoted in full; it is the text recorded in
+      identification and the source of all four approved_uses on this row. Verified 2026-10-02.
   - reference: url:https://www.law.cornell.edu/cfr/text/21/872.3275
     reference_title: 21 CFR 872.3275 Dental cement
     supports: SUPPORT
