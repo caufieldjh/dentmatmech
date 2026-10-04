@@ -4,8 +4,10 @@ curation_status: IN_PROGRESS
 description: A dental restoration material that sets by the neutralisation of an acidic
   liquid by a basic, acid-reactive powder, in water, to give a salt matrix binding the
   unreacted powder core. The class covers zinc phosphate, zinc polycarboxylate, zinc
-  oxide and glass polyalkenoate (glass ionomer) cements, and is distinguished from the
-  resin cements, which set by polymerisation rather than by an acid-base reaction.
+  oxide and glass polyalkenoate (glass ionomer) cements, and also the resin-modified
+  members, in which a polymerisation reaction accompanies the acid-base set; OHD places
+  resin-modified glass ionomer directly under this class. It is distinguished from the
+  resin cements, which set by polymerisation alone rather than by an acid-base reaction.
 material_term:
   preferred_term: Acid-base cement
   term:
@@ -544,10 +546,14 @@ notes: >-
   recognition number 4-348 (recognised 12/22/2025, extent Complete); the second edition,
   2007-10-01, was recognised as 4-153 under the older title "Powder/liquid acid-base
   cements". ISO 9917-2 (third edition 2017-09, FDA recognition 4-311) covers the
-  resin-modified cements and marks the boundary of this class; the FDA guidance cited
-  throughout draws its performance criteria from both parts. Editions and titles were
-  verified against the FDA Recognized Consensus Standards database on 2026-09-05, not
-  against the ISO catalogue, which blocks automated retrieval.
+  resin-modified cements, which sit inside this class rather than outside it: OHD:0001026
+  resin-modified glass ionomer is a direct is_a child of OHD:0001021. The two parts
+  therefore divide the class by setting chemistry; they do not bound it, and the FDA
+  guidance cited throughout is explicit that "The performance criteria in this guidance
+  are applicable to dental cements as defined in the FDA-recognized consensus standards"
+  of both parts. Editions and titles were verified against the FDA Recognized Consensus
+  Standards database on 2026-09-05, not against the ISO catalogue, which blocks automated
+  retrieval.
 
   Regulatory. Both branches of 21 CFR 872.3275 were re-verified against the CFR text and
   the FDA product classification database on 2026-09-05 and agree with docs/regulatory.md.
@@ -557,9 +563,13 @@ notes: >-
   class as a whole is not a tooth shade resin material.
 
   Not filled. No products are listed: this is an abstract class, so branded products and
-  their 510(k) records belong on the child entries. Working time is not recorded, because
-  the FDA performance criterion for it applies to resin-modified cements under ISO 9917-2
-  and so falls outside this class.
+  their 510(k) records belong on the child entries. Working time and flexural strength are
+  not recorded: the FDA guidance marks both "(as applicable, resin-modified cements only)"
+  and draws them from ISO 9917-2, so they are criteria for the resin-modified members of
+  the class and not class-wide values. They belong on the Resin-modified glass ionomer
+  entry. For the same reason setting_mechanisms records only ACID_BASE_REACTION, the
+  reaction that defines the class; the polymerisation of the resin-modified members is a
+  property of those members, not of the class.
 
   Provenance. The deep research step of the curate-material skill could not be run: the
   claude_code provider was unauthenticated in this environment and no other provider key
