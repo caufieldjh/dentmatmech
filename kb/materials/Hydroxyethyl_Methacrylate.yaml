@@ -181,9 +181,13 @@ clinical_uses:
   - reference: PMID:15634299
     reference_title: In vitro dentine permeability evaluation of HEMA-based (desensitizing) products using split-chamber model following in vivo application in the dog.
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: OTHER
     snippet: The Gluma Desensitizing agent provide the more lasting tubule-occluding effect than the other material tested in this model.
-    explanation: Animal model of tubule occlusion by a HEMA-based desensitizer.
+    explanation: Animal study, so not IN_VITRO under this schema. The agents were applied in vivo to the
+      canines of nine dogs for 1 week, 1 month and 3 months (MeSH Animals, Dogs, Disease Models, Animal);
+      dentine discs were then measured ex vivo for hydraulic conductance in a split-chamber. The quoted
+      3-month durability result comes from the in vivo arm, not from bench testing of the material, and
+      EvidenceSourceEnum has no ANIMAL_STUDY value.
 regulatory_status:
 - agency: FDA
   status: CLEARED
