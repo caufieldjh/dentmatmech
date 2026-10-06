@@ -487,7 +487,17 @@ clinical_performance:
     supports: SUPPORT
     evidence_source: SYSTEMATIC_REVIEW
     snippet: "no significant statistical difference was found between the clinical performances of HEMA-free and HEMA-containing adhesive systems for all parameters analyzed: retention risk difference (RD) 0.03"
-    explanation: Quotes the pooled retention point estimate itself. The quote stops at 0.03 because the validator strips bracketed text from snippets, so the confidence interval that follows it in the abstract cannot be carried through a snippet; the interval and p value stay in the value field.
+    explanation: Quotes the pooled retention point estimate itself. The quote stops at 0.03 because
+      the validator strips bracketed text from snippets, so the confidence interval that follows it
+      in the abstract cannot be carried across in one quote; the interval alone stays in the value field.
+  - reference: PMID:29649505
+    reference_title: Do HEMA-free adhesive systems have better clinical performance than HEMA-containing systems in noncarious cervical lesions? A systematic review and meta-analysis.
+    supports: SUPPORT
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: "(p = 0.13); marginal discoloration RD 0.02"
+    explanation: Resumes the same sentence after the bracketed interval, carrying the p value the
+      value field reports. Both spaces around the equals sign are U+202F narrow no-break spaces, as
+      in the source abstract; replacing them with ordinary spaces breaks the verbatim match.
 - name: Retention, HEMA-free versus HEMA-containing adhesives in direct composite restorations, trials with at least 2 years follow-up
   measure_type: RETENTION_RATE
   value: no significant difference in the majority of included trials
