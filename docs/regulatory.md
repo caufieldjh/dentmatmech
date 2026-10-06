@@ -81,7 +81,35 @@ Regulations verified against the CFR text and the FDA product classification dat
 
 FDA's final guidance *Dental Cements - Performance Criteria for Safety and Performance Based Pathway* (September 2024, docket FDA-2024-D-4171) gives performance criteria that a 510(k) may use in place of a direct predicate comparison. It applies to class II dental cements under `872.3275` (EMA), `872.3200` (KLE) and `872.3750` (DYH), and explicitly excludes `872.3275` EMB and MZW, `872.3690` (EBF, OFW) and `872.3250` (EJK). Its criteria are drawn from ISO 9917-1 and ISO 9917-2, so it is a convenient, citable source for class-level values (film thickness, net setting time, compressive strength, acid erosion) when the ISO text itself is not to hand.
 
+The guidance scopes each test item separately, and **not all items have the same scope**, so a class-level entry cannot apply one blanket caveat to all of them. Verified against the guidance PDF on 2026-10-06:
+
+| Test item | Scope as the guidance marks it | Reaches resin-modified members? |
+|---|---|---|
+| 3. Film thickness | "as applicable, luting cements only" | Yes — scoped by application, cites both parts |
+| 4. Net setting time | *no restriction* | Yes — Table 2 has a fourth, resin-modified row |
+| 5. Compressive strength | "as applicable, powder/liquid acid-base cements only" | No |
+| 6. Acid erosion | "as applicable, powder/liquid acid-base cements only" | No |
+| 7. Working time | "as applicable, resin-modified cements only" | Resin-modified only |
+| 8. Flexural strength | "as applicable, resin-modified cements only" | Resin-modified only |
+
+Items 3 and 4 name "ISO 9917-1 **or** ISO 9917-2" as methodology, so their `test_method` should name both parts. Table 2's resin-modified row reads `tsetting ≤ 8 min` / `tsetting ≤ 6 min` — an upper bound with no lower bound, unlike the three powder/liquid rows. Quote Table 2 complete; a range such as `1.5-8 min` is the envelope of the stated limits, and its lower end is not a class-wide minimum.
+
 Editions of a standard should be checked against FDA's [Recognized Consensus Standards database](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/search.cfm), which is fetchable; the ISO catalogue blocks automated retrieval.
+
+### Fetching the primary sources
+
+All three forms below were confirmed working on 2026-10-06. Every one needs a desktop `User-Agent`.
+
+- **CFR section text.** The eCFR versioner API returns the authoritative XML and **does not block automated fetches**, contrary to the note in `CLAUDE.md`; it only requires that you accept compression, and fails with `supportCode 11` if you do not:
+
+  ```bash
+  curl -sL --compressed -A "$UA" \
+    "https://www.ecfr.gov/api/versioner/v1/full/<YYYY-MM-DD>/title-21.xml?section=872.NNNN&part=872"
+  ```
+
+  Prefer it over the law.cornell.edu mirror when quoting verbatim. The mirror's `<I>` tags render as stray spaces in most HTML-to-text converters, which silently corrupts a snippet into `eugenol —(1) Identification .` where the regulation reads `eugenol—(1) Identification.`
+- **Product codes.** Use `classification.cfm?id=<CODE>`, which returns one record reliably. The `start_search=1&regulationnumber=` form that `CLAUDE.md` recommends is throttled and fails by serving an `Accessdata Error` page that reads like *no such regulation* rather than like rate limiting.
+- **Guidance PDFs.** `fda.gov/media/<id>/download` is behind Akamai abuse detection and may return `302` to `/apology_objects/abuse-detection-apology.html` for `curl`. The `WebFetch` tool retrieves it; extract text with `pypdf` rather than trusting a summary. Note that the running footer `Contains Nonbinding Recommendations` and a bare page number interleave with the body text across page breaks, so strip those before matching a quote.
 
 ## Other regulators
 
