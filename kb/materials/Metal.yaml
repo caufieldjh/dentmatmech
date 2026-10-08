@@ -960,7 +960,7 @@ adverse_effects:
     reference_title: 'Artificial intelligence for reducing metal artifacts in dental CBCT images: a systematic review.'
     supports: SUPPORT
     evidence_source: SYSTEMATIC_REVIEW
-    snippet: The presence of metallic restorations introduces severe artifacts that compromise diagnostic accuracy of cone beam computed tomography (CBCT) images.
+    snippet: The presence of metallic restorations introduces severe artifacts that compromise the diagnostic accuracy of cone beam computed tomography (CBCT) images.
     explanation: Stated of metallic restorations as a group, which is what makes the effect class-level rather than a property of one family.
   - reference: PMID:42267249
     reference_title: 'What Drives Metal Artifacts in CBCT? A Comparative Study of Detector Types and Metallic Object Configurations.'
