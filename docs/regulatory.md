@@ -98,18 +98,52 @@ Editions of a standard should be checked against FDA's [Recognized Consensus Sta
 
 ### Fetching the primary sources
 
-All three forms below were confirmed working on 2026-10-06. Every one needs a desktop `User-Agent`.
+All three forms below were re-confirmed working on 2026-10-08. **The `User-Agent` requirement is
+per-host, and for one host it is inverted** — there is no single header set that fetches all three.
+Sending a desktop `User-Agent` everywhere breaks the guidance PDFs; sending none breaks the FDA
+databases. Both failures look the same: an `apology_objects/abuse-detection-apology.html` page,
+served with a `404`, that reads like *the record does not exist* rather than like *you were blocked*.
 
-- **CFR section text.** The eCFR versioner API returns the authoritative XML and **does not block automated fetches**, contrary to the note in `CLAUDE.md`; it only requires that you accept compression, and fails with `supportCode 11` if you do not:
+- **CFR section text.** The eCFR versioner API returns the authoritative XML and **does not block
+  automated fetches**, contrary to the note in `CLAUDE.md`. It is indifferent to the `User-Agent`
+  (both forms returned `200` on 2026-10-08) but it does require that you accept compression, failing
+  `406` with `supportCode 11` if you do not:
 
   ```bash
-  curl -sL --compressed -A "$UA" \
+  curl -sL --compressed \
     "https://www.ecfr.gov/api/versioner/v1/full/<YYYY-MM-DD>/title-21.xml?section=872.NNNN&part=872"
   ```
 
   Prefer it over the law.cornell.edu mirror when quoting verbatim. The mirror's `<I>` tags render as stray spaces in most HTML-to-text converters, which silently corrupts a snippet into `eugenol —(1) Identification .` where the regulation reads `eugenol—(1) Identification.`
-- **Product codes.** Use `classification.cfm?id=<CODE>`, which returns one record reliably. The `start_search=1&regulationnumber=` form that `CLAUDE.md` recommends is throttled and fails by serving an `Accessdata Error` page that reads like *no such regulation* rather than like rate limiting.
-- **Guidance PDFs.** `fda.gov/media/<id>/download` is behind Akamai abuse detection and may return `302` to `/apology_objects/abuse-detection-apology.html` for `curl`. The `WebFetch` tool retrieves it; extract text with `pypdf` rather than trusting a summary. Note that the running footer `Contains Nonbinding Recommendations` and a bare page number interleave with the body text across page breaks, so strip those before matching a quote.
+- **Product codes** (`accessdata.fda.gov`) **need a desktop `User-Agent`**; without one, both URL
+  forms return the apology page. Earlier notes blamed the `start_search=1&regulationnumber=` form
+  itself for being throttled. That was wrong, and it was the missing header: on 2026-10-08 both
+  forms returned real records first try with `-A "$UA"`, and both returned the apology page without
+  it. Prefer whichever answers the question:
+
+  ```bash
+  # one record, by code
+  curl -sL --compressed -A "$UA" \
+    "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?id=<CODE>"
+  # every code under one regulation -- use this to justify which codes an entry omits
+  curl -sL --compressed -A "$UA" \
+    "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&regulationnumber=872.NNNN"
+  ```
+- **Guidance PDFs** (`fda.gov/media/<id>/download`) **must be fetched with no `-A` at all.** This is
+  the inverted case: curl's default `User-Agent` returned the PDF (`200`, 541 kB) on 3 of 3 tries,
+  while the desktop `User-Agent` that the databases require returned the apology page on 3 of 3.
+  `WebFetch` also works but is not needed, and a summary is not evidence — extract the text and
+  match the quote:
+
+  ```bash
+  curl -sL --compressed "https://www.fda.gov/media/<id>/download" -o guidance.pdf
+  uv run python -c "import pypdf; print('\n'.join(p.extract_text() for p in pypdf.PdfReader('guidance.pdf').pages))"
+  ```
+
+  Find `<id>` on the guidance's landing page. Before matching, strip the page furniture: the running
+  footer `Contains Nonbinding Recommendations` and a bare page number interleave with the body text
+  across page breaks, so a quote spanning a page break fails a naive substring check while being
+  perfectly verbatim.
 
 ## Other regulators
 
