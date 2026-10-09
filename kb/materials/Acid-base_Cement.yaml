@@ -4,10 +4,12 @@ curation_status: IN_PROGRESS
 description: A dental restoration material that sets by the neutralisation of an acidic
   liquid by a basic, acid-reactive powder, in water, to give a salt matrix binding the
   unreacted powder core. The class covers zinc phosphate, zinc polycarboxylate, zinc
-  oxide and glass polyalkenoate (glass ionomer) cements, and also the resin-modified
-  members, in which a polymerisation reaction accompanies the acid-base set; OHD places
-  resin-modified glass ionomer directly under this class. It is distinguished from the
-  resin cements, which set by polymerisation alone rather than by an acid-base reaction.
+  oxide and glass polyalkenoate (glass ionomer) cements, the metal-modified (cermet)
+  cements, and also the resin-modified members, in which a polymerisation reaction
+  accompanies the acid-base set; OHD places both metal modified glass ionomer and
+  resin-modified glass ionomer directly under this class, as siblings of glass ionomer
+  cement rather than as its subtypes. It is distinguished from the resin cements, which
+  set by polymerisation alone rather than by an acid-base reaction.
 material_term:
   preferred_term: Acid-base cement
   term:
