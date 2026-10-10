@@ -94,15 +94,22 @@ The guidance scopes each test item separately, and **not all items have the same
 
 Items 3 and 4 name "ISO 9917-1 **or** ISO 9917-2" as methodology, so their `test_method` should name both parts. Table 2's resin-modified row reads `tsetting ≤ 8 min` / `tsetting ≤ 6 min` — an upper bound with no lower bound, unlike the three powder/liquid rows. Quote Table 2 complete; a range such as `1.5-8 min` is the envelope of the stated limits, and its lower end is not a class-wide minimum.
 
-Editions of a standard should be checked against FDA's [Recognized Consensus Standards database](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/search.cfm), which is fetchable; the ISO catalogue blocks automated retrieval.
+Editions of a standard should be checked against FDA's [Recognized Consensus Standards database](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/search.cfm), which is fetchable by `POST` only — see the recipe below. The ISO catalogue blocks automated retrieval (`403` on 2026-10-10), so an ISO catalogue URL recorded on a `standards` row cannot be confirmed from the catalogue itself; confirm the edition here and the catalogue number through a reseller listing that quotes it.
 
 ### Fetching the primary sources
 
-All three forms below were re-confirmed working on 2026-10-08. **The `User-Agent` requirement is
-per-host, and for one host it is inverted** — there is no single header set that fetches all three.
+All four forms below were re-confirmed working on 2026-10-10. **The `User-Agent` requirement is
+per-host, and for one host it is inverted** — there is no single header set that fetches all of them.
 Sending a desktop `User-Agent` everywhere breaks the guidance PDFs; sending none breaks the FDA
 databases. Both failures look the same: an `apology_objects/abuse-detection-apology.html` page,
 served with a `404`, that reads like *the record does not exist* rather than like *you were blocked*.
+
+**Three outcomes, not two.** Every response from a source below is one of: the record; a block; or a
+page that is neither and still returns `200`. The third kind is the dangerous one, because a script
+that greps for a product code or an edition finds nothing and cannot tell "absent from the database"
+from "not in this response". Check that a fetch actually returned a record before concluding a value
+is absent. The two instances seen so far are the `accessdata.fda.gov` queue page and the Recognized
+Consensus Standards unfiltered listing, both described below.
 
 - **CFR section text.** The eCFR versioner API returns the authoritative XML and **does not block
   automated fetches**, contrary to the note in `CLAUDE.md`. It is indifferent to the `User-Agent`
@@ -113,6 +120,12 @@ served with a `404`, that reads like *the record does not exist* rather than lik
   curl -sL --compressed \
     "https://www.ecfr.gov/api/versioner/v1/full/<YYYY-MM-DD>/title-21.xml?section=872.NNNN&part=872"
   ```
+
+  `<YYYY-MM-DD>` cannot be today's date. The API serves issues, not a live view, and rejects any date
+  after the title's most recent issue with a JSON `error` and no XML — on 2026-10-10 the newest
+  title-21 issue was `2026-10-07`. Take the date from
+  `https://www.ecfr.gov/api/versioner/v1/titles` (field `latest_issue_date`) rather than guessing,
+  and record the issue date you quoted from.
 
   Prefer it over the law.cornell.edu mirror when quoting verbatim. The mirror's `<I>` tags render as stray spaces in most HTML-to-text converters, which silently corrupts a snippet into `eugenol —(1) Identification .` where the regulation reads `eugenol—(1) Identification.`
 - **Product codes** (`accessdata.fda.gov`) **need a desktop `User-Agent`**; without one, both URL
@@ -129,6 +142,37 @@ served with a `404`, that reads like *the record does not exist* rather than lik
   curl -sL --compressed -A "$UA" \
     "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&regulationnumber=872.NNNN"
   ```
+
+  With the header, a third response is possible and was seen on 2026-10-10: a ~2 kB **queue page**
+  reading *"Your request is being processed. Please be patient and wait for this page to refresh in a
+  few seconds"*, whose only logic is a 60-second `setInterval` countdown ending in
+  `window.location.reload()`. It carries no record and is **not** the apology page, so the inverted
+  `User-Agent` rule above has not changed when you see it. A plain retry of the same URL cleared it
+  first try, and it did not recur over 20 further requests. A cookie jar (`-c`/`-b`) makes no
+  difference — tested with and without, 7 requests, identical results; the one thing that still
+  matters is the `-A "$UA"`, which without it returns the `404` apology page every time.
+- **Recognized consensus standards** (`cfStandards`) **must be queried with `POST`, not a query
+  string.** `results.cfm` ignores unknown query parameters and silently serves the *unfiltered*
+  listing with a `200`. Guessed names such as `?standard_number=9917-2` or `?recognition_number=4-311`
+  are all ignored: on 2026-10-10 three different guessed queries each returned the identical 194,667-byte
+  default page. That page does contain real recognition rows, so it reads like a result set — the trap
+  is concluding that a standard is unrecognised because its row is absent from a page that was never
+  filtered, or reading a neighbouring standard's row as the answer. The form (`search.cfm`, `method="post"`)
+  posts to `results.cfm` with `referencenumber` (the ISO designation) and `recognitionnumber`:
+
+  ```bash
+  # by ISO designation -- note the field name has no underscores
+  curl -sL --compressed -A "$UA" -X POST -d "referencenumber=9917-2&s=s" \
+    "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/results.cfm"
+  # by recognition number
+  curl -sL --compressed -A "$UA" -X POST -d "recognitionnumber=4-311&s=s" \
+    "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/results.cfm"
+  ```
+
+  A filtered response is ~41 kB and says `1 result found`; check for that string. Other form fields
+  are `productcode`, `regulationnumber`, `title`, `organization`, `category`, `effectivedatefrom`
+  and `effectivedateto`. Each row gives recognition date, panel, recognition number, extent, and the
+  edition as recognised — which is the authoritative spelling of the edition for a `standards` row.
 - **Guidance PDFs** (`fda.gov/media/<id>/download`) **must be fetched with no `-A` at all.** This is
   the inverted case: curl's default `User-Agent` returned the PDF (`200`, 541 kB) on 3 of 3 tries,
   while the desktop `User-Agent` that the databases require returned the apology page on 3 of 3.

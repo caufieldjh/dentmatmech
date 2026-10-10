@@ -484,8 +484,11 @@ regulatory_status:
     supports: SUPPORT
     evidence_source: REGULATORY_DOCUMENT
     snippet: EMA cement, dental Dental cement 872.3275 2
-    explanation: Product code EMA, device class 2, retrieved 2026-09-05 (database page
-      last updated 08/31/2026).
+    explanation: >-
+      Product code EMA, device class 2, device name "cement, dental". Retrieved
+      2026-09-05 and re-verified 2026-10-10, when the listing carried a page-last-updated
+      date of 10/05/2026 — the record was republished after the first retrieval, and the
+      code and the class were unchanged across it.
 - agency: FDA
   jurisdiction: US
   status: EXEMPT
@@ -538,8 +541,11 @@ regulatory_status:
     supports: SUPPORT
     evidence_source: REGULATORY_DOCUMENT
     snippet: EMB zinc oxide eugenol Dental cement 872.3275 1
-    explanation: Product code EMB, device class 1, retrieved 2026-09-05 (database page
-      last updated 08/31/2026).
+    explanation: >-
+      Product code EMB, device class 1, device name "zinc oxide eugenol". Retrieved
+      2026-09-05 and re-verified 2026-10-10, when the listing carried a page-last-updated
+      date of 10/05/2026 — the record was republished after the first retrieval, and the
+      code and the class were unchanged across it.
 standards:
 - identifier: ISO 9917-1:2025
   title: Dentistry - Water-based cements - Part 1 - Acid-base cements
@@ -561,7 +567,14 @@ notes: >-
   2007-10-01, was recognised as 4-153 under the older title "Powder/liquid acid-base
   cements". ISO 9917-2 (third edition 2017-09, FDA recognition 4-311) covers the
   resin-modified cements, which sit inside this class rather than outside it: OHD:0001026
-  resin-modified glass ionomer is a direct is_a child of OHD:0001021. The two parts
+  resin-modified glass ionomer is a direct is_a child of OHD:0001021. All three recognition
+  numbers were re-verified on 2026-10-10 by POST query to the recognized-standards database,
+  which ignores query-string parameters and silently returns an unfiltered listing; 4-348
+  (recognised 12/22/2025, extent Complete) carries "9917-1 Third Edition 2025-05", 4-153
+  (01/30/2014, Complete) carries "9917-1 Second edition 2007-10-01", and 4-311 (12/18/2023,
+  Complete) carries "9917-2 Third edition 2017-09". The two ISO catalogue numbers on the
+  standards rows, 76037 and 69901, were confirmed against reseller listings that quote them,
+  the ISO catalogue itself still returning 403. The two parts
   therefore divide the class by setting chemistry; they do not bound it, and the FDA
   guidance cited throughout is explicit that "The performance criteria in this guidance
   are applicable to dental cements as defined in the FDA-recognized consensus standards"
@@ -569,8 +582,15 @@ notes: >-
   Standards database on 2026-09-05, not against the ISO catalogue, which blocks automated
   retrieval.
 
-  Regulatory. Both branches of 21 CFR 872.3275 were re-verified against the CFR text and
-  the FDA product classification database on 2026-09-05 and agree with docs/regulatory.md.
+  Regulatory. Both branches of 21 CFR 872.3275 were re-verified on 2026-10-10 and agree with
+  docs/regulatory.md. The two CFR snippets and both identification fields were checked
+  character for character against the authoritative eCFR versioner XML, title 21 issue of
+  2026-10-07, rather than against the law.cornell.edu mirror the reference URLs name, and
+  match it exactly, em dashes included. The product classification database was re-queried the
+  same day. EMA remains class 2 and EMB class 1, and the other two codes under this regulation
+  are still MZW (class 2, full device name "dental cement w/out zinc-oxide eugenol as an ulcer
+  covering for pain relief", truncated in the regulation-wide listing and read from the
+  single-code page) and NEA (class 2).
   Members of the class that are marketed as permanent tooth-coloured restoratives may
   instead be cleared under 872.3690 (tooth shade resin material, EBF/OFW); that route is
   recorded on the individual child entries rather than here, because the acid-base cement
