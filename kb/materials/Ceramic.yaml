@@ -574,6 +574,27 @@ clinical_performance:
     reference_title: "All-ceramic or metal-ceramic tooth-supported fixed dental prostheses (FDPs)? A systematic review of the survival and complication rates. Part I: Single crowns (SCs)."
     supports: SUPPORT
     evidence_source: SYSTEMATIC_REVIEW
+    snippet: "This was similar to the estimated 5-year survival rate of leucit or lithium-disilicate reinforced glass ceramic SCs (96.6%; 95% CI: 94.9-96.7%), of glass infiltrated alumina SCs (94.6%; 95% CI: 92.7-96%) and densely sintered alumina and zirconia SCs (96%; 95% CI: 93.8-97.5%; 92.1%; 95% CI: 82.8-95.6%)."
+    explanation: Source of the value range. The lowest figure the review reports for an all-ceramic
+      crown type is zirconia at 92.1 and the highest is leucite or lithium-disilicate glass ceramic
+      at 96.6, which are the bounds recorded in value.
+  - reference: PMID:25842099
+    reference_title: "All-ceramic or metal-ceramic tooth-supported fixed dental prostheses (FDPs)? A systematic review of the survival and complication rates. Part I: Single crowns (SCs)."
+    supports: SUPPORT
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: "Meta-analysis of the included studies indicated an estimated survival rate of metal-ceramic SCs of 94.7% (95% CI: 94.1-96.9%) after 5 years."
+    explanation: Source of the comparator figure.
+  - reference: PMID:25842099
+    reference_title: "All-ceramic or metal-ceramic tooth-supported fixed dental prostheses (FDPs)? A systematic review of the survival and complication rates. Part I: Single crowns (SCs)."
+    supports: SUPPORT
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: "Sixty-seven studies reporting on 4663 metal-ceramic and 9434 all-ceramic SCs fulfilled the inclusion criteria."
+    explanation: Source of the population counts. The study count is spelled out in the abstract,
+      which is why a numeric search of the snippets does not find it.
+  - reference: PMID:25842099
+    reference_title: "All-ceramic or metal-ceramic tooth-supported fixed dental prostheses (FDPs)? A systematic review of the survival and complication rates. Part I: Single crowns (SCs)."
+    supports: SUPPORT
+    evidence_source: SYSTEMATIC_REVIEW
     snippet: "Survival rates of most types of all-ceramic SCs were similar to those reported for metal-ceramic SCs, both in anterior and posterior regions."
     explanation: The headline conclusion at class level.
   - reference: PMID:25842099
