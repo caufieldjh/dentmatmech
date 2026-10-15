@@ -958,10 +958,16 @@ notes: >-
   beyond the cached records and no non-US regulator was verified.
 
 
-  How the snippets were checked. just validate-references reports "Total checks: 0" on this file
-  -- but it also reports 0 on kb/materials/Amalgam.yaml on main, so the machine check performs no
-  checks in this environment and its green result is not evidence of anything. Every snippet here
-  was instead verified by substring match against its own cached record (60 literature snippets)
-  and against the live CFR text (5 regulatory snippets), and then independently re-verified in a
-  fresh self-review. The validator being a no-op is a pre-existing tooling problem, out of scope
-  for this entry, and is reported on the pull request.
+  How the snippets were checked. just validate-references passes on this file. "Total checks: 0"
+  counts issues found, not checks performed, so zero is a clean result and not a no-op: the same
+  command reports "Total checks: 1" as soon as a single snippet is altered, which was confirmed
+  deliberately on a scratch copy. The check was also re-run against a fresh cache directory with
+  full-text fetching disabled, so that every record was a newly fetched PubMed abstract (21
+  records, all content_type abstract_only), and every snippet still matched. That second run
+  matters because linkml-reference-validator fetches full text by default and will rewrite an
+  abstract_only record into a full-text superset, which can let a snippet pass against publisher
+  text that the abstract does not contain. Seven of the cached records committed here are
+  full-text, and the abstract-only run is what establishes that no snippet in this entry depends
+  on any of them. The 60 literature snippets were additionally verified by substring match
+  against their own cached records and the 5 regulatory snippets against the live CFR text, then
+  independently re-verified in a fresh self-review.
