@@ -578,24 +578,26 @@ properties:
 - name: Plastic deformation rather than brittle fracture
   property_type: OTHER
   description: >-
-    The mechanical behaviour that separates this class from the ceramics. A metallic restoration
-    deforms and work-hardens under occlusal load instead of fracturing, which is why bulk fracture
-    of the metal is not a clinically relevant failure mode for the class. Recorded qualitatively
-    and deliberately without a number - strength, hardness, and modulus vary by more than an order
-    of magnitude across the families and belong on the children.
+    The failure behaviour that separates this class from the ceramics, recorded as the clinical
+    observation the cited abstracts carry rather than as a mechanism. Fracture of the restorative
+    material limits the ceramic comparator in long-term series and does not appear among the
+    complications recorded for the cast metal restorations, which is why bulk fracture of the metal
+    is not a clinically relevant failure mode for the class. Recorded qualitatively and deliberately
+    without a number - strength, hardness, and modulus vary by more than an order of magnitude
+    across the families and belong on the children.
   evidence:
   - reference: PMID:38702521
     reference_title: Long-term performance of ceramic in/-onlays vs. cast gold partial crowns - a retrospective clinical study.
     supports: SUPPORT
-    evidence_source: OTHER
-    snippet: 'Gold alloys are characterized by two substantial longevity-related dental material properties: the plastic deformation of its metallic microstructure and the effect of increased hardness after deformation.'
-    explanation: Introductory framing of a retrospective clinical study. Stated of gold alloys; the mechanism is a property of the metallic bond, but the source does not test it across the class.
+    evidence_source: HUMAN_CLINICAL
+    snippet: Complications in CIOs (n = 149) were ceramic fracture (6.7%), secondary caries (4.7%), endodontic complication (2.7%) and tooth fracture (1.3%) compared to CGPCs (n = 147) with endodontic complication (8.8%), secondary caries (4.8%) and decementation (2.0%).
+    explanation: The recorded complications of 147 cast gold partial crowns followed for a mean 14.5 years. Fracture of the metal does not appear in the list at all, while fracture of the restorative material is the leading complication of the ceramic comparator in the same cohort.
   - reference: PMID:38702521
     reference_title: Long-term performance of ceramic in/-onlays vs. cast gold partial crowns - a retrospective clinical study.
     supports: SUPPORT
-    evidence_source: OTHER
-    snippet: That is why the fracture of an alloy can be almost excluded as a complication of clinical relevance.
-    explanation: The clinical consequence the authors draw, and one their own results bear out - fracture of the metal does not appear among the recorded complications of the cast gold partial crowns.
+    evidence_source: HUMAN_CLINICAL
+    snippet: The clinical long-term performance was mostly limited by ceramic fractures in CIOs and endodontic complications in CGPCs.
+    explanation: The authors' own summary of what limits each material. What limits the metal restorations is biological rather than fracture of the restorative material, which is the contrast this row records.
   - reference: PMID:32490402
     reference_title: Ion release from three different dental alloys - effect of dynamic loading and
       toxicity of released elements.
@@ -611,19 +613,30 @@ properties:
   test_method: ISO 22674
   description: >-
     Why this entry records no class-level strength or modulus, stated positively. The governing
-    standard does not set one requirement for metallic restorative materials; it sorts them into
-    six types by measured mechanical performance, and an alloy is indicated for a given restoration
-    design only if it meets the requirement for that type. The type an alloy falls into, and its
-    measured values, belong on the children.
+    standard does not set one requirement for metallic restorative materials; it sets mechanical
+    requirements by numbered type, and an alloy is qualified for a given restoration design by
+    meeting the requirements of a type. The type an alloy falls into, and its measured values,
+    belong on the children. The numeric criteria that define the types are not quoted here because
+    ISO 22674 is not open access and no cached abstract states them.
   evidence:
   - reference: PMID:34204569
     reference_title: Mechanical Properties of Dental Alloys According to Manufacturing Process.
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: All test specimens complied with the requirements of the international standard ISO
+      22674 for dental alloys.
+    explanation: Establishes ISO 22674 as the standard whose requirements dental alloy specimens are
+      measured against. Recorded as PARTIAL because the abstract states conformity to the standard
+      without stating the type system itself.
+  - reference: PMID:40268421
+    reference_title: Accuracy and mechanical properties of denture clasps fabricated utilizing pre-sintered Co-Cr alloy discs.
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The international standard categorizes dental metal materials into six types based on
-      0.2% permanent set yield strength, elongation, and modulus of elasticity
-    explanation: States the classification scheme ISO 22674 applies across the class. Restated by an
-      in vitro study rather than quoted from the standard itself, which is not open access.
+    snippet: In terms of mechanical properties, the pre-sintered clasps exhibited the highest
+      elongation, meeting the standards for Type 4 metals as specified by ISO 22674:2022.
+    explanation: The type system in use. A Co-Cr alloy is qualified by being shown to meet the
+      requirements of one numbered type, which is the mechanism this row records; the type reached
+      depends on the fabrication route, so it belongs on the children rather than here.
 - name: Dependence of mechanical properties on fabrication route
   property_type: OTHER
   test_method: Tensile, 3-point bend, and microhardness testing
@@ -1111,8 +1124,8 @@ notes: >-
   fracture, which is what the metallic bond buys and what separates this class from the ceramics; the
   dependence of any measured property on the fabrication route, which is a caution that applies to every
   number recorded on the children; and the ISO 22674 type classification, which states the same point
-  positively - the governing standard sorts metallic restoratives into six types by measured performance
-  rather than setting one class-level requirement.
+  positively - the governing standard sets mechanical requirements by numbered type rather than one
+  class-level requirement, so an alloy is qualified against a type.
 
   Left out. Products, because brands belong on the children. Amalgam-associated oral lichenoid lesions,
   because that evidence base is amalgam-specific and belongs on the Amalgam entry; the class-level
@@ -1133,10 +1146,13 @@ notes: >-
   from the primary sources rather than from this file, always reaching the values recorded here. Two things
   future editors should know. A report of zero total checks from the reference validator means every
   snippet was checked and passed, not that nothing was checked; this was confirmed by running it against a
-  deliberately corrupted quote. And the two PMID:38702521 quotes differ from their source in whitespace
-  alone, because that abstract writes "14.9 years" and "n = 155" with a non-breaking and a thin space; the
-  validator normalises whitespace and passes them, and they were left as they are rather than reproducing
-  invisible characters in the file. The pass-by-pass account of the automation that produced this entry
-  lives in the git history and the pull request thread, not here.
+  deliberately corrupted quote. And every literature snippet in this entry has been checked against the
+  abstract as PubMed serves it, with the reference cache bypassed, not only against references_cache/.
+  That distinction matters here: linkml-reference-validator fetches article full text by default, so a
+  cached record can hold the publisher's rendition of the whole paper, and a quote taken from the body of
+  a paper passes the cached check while failing the abstract. Three snippets in earlier passes of this
+  entry were body text of that kind - two from PMID:38702521 and one from PMID:34204569 - and were
+  replaced with abstract-sourced quotes. The pass-by-pass account of the automation that produced this
+  entry lives in the git history and the pull request thread, not here.
 see_also:
 - https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=44253
