@@ -552,8 +552,11 @@ adverse_effects:
     reference_title: "2-Hydroxyethyl methacrylate (HEMA): A clinical review of contact allergy and allergic contact dermatitis-Part 1. Introduction, epidemiology, case series and case reports."
     supports: SUPPORT
     evidence_source: OTHER
-    snippet: "HEMA is an important cause of contact allergy/allergic contact dermatitis in North America and Europe with recent prevalences of >3% in the USA + Canada and 1.5%-3.7% in Europe."
-    explanation: Population prevalence of HEMA contact allergy among patch-tested patients; narrative review.
+    snippet: "HEMA is an important cause of contact allergy/allergic contact dermatitis in North America and Europe with recent prevalences of >3% in the USA + Canada and 1.5%-3.7% in Europe."
+    explanation: Population prevalence of HEMA contact allergy among patch-tested patients;
+      narrative review. Both spaces around the plus sign are U+2009 thin spaces, as in the
+      source abstract; ordinary spaces there still pass validation because the validator
+      normalizes whitespace, so the match has to be checked byte for byte.
   - reference: PMID:37752620
     reference_title: "2-Hydroxyethyl methacrylate (HEMA): A clinical review of contact allergy and allergic contact dermatitis-Part 1. Introduction, epidemiology, case series and case reports."
     supports: SUPPORT
