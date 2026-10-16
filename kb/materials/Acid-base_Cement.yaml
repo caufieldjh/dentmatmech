@@ -128,15 +128,19 @@ properties:
   conditions: FDA performance criteria for the Safety and Performance Based Pathway,
     covering all four families Table 2 lists, for luting and for base/lining applications.
     Net setting time is the one criterion in that guidance carrying no "as applicable"
-    restriction, and its methodology cites both parts of ISO 9917, so it applies
-    class-wide and not only to the powder/liquid members.
+    restriction, and its methodology cites both parts of ISO 9917, so it reaches the
+    resin-modified members and not only the powder/liquid ones. It does not reach every
+    member of the class, because the guidance's own scope section places the zinc
+    oxide-eugenol member outside the whole document, so the absence of a per-item
+    restriction extends these limits across Table 2's four families only.
   description: Luting applications allow up to 8 min; base/lining applications up to 6
-    min. These upper bounds hold for every member of the class. The lower bound applies
-    only to the powder/liquid families, 2.5 min for zinc phosphate and zinc
+    min. These upper bounds hold for the four families Table 2 names, which include the
+    resin-modified members but not the zinc oxide-eugenol member of the class. The lower
+    bound applies only to the powder/liquid families, 2.5 min for zinc phosphate and zinc
     polycarboxylate luting cements and 1.5 min for glass polyalkenoate; the
     resin-modified members, which sit inside this class, carry an upper bound alone and
     no lower bound. The recorded range is therefore the envelope of the stated numeric
-    limits, and its lower end is not a class-wide minimum.
+    limits, and its lower end is not a minimum for the four families either.
   evidence:
   - reference: url:https://www.fda.gov/regulatory-information/search-fda-guidance-documents/dental-cements-performance-criteria-safety-and-performance-based-pathway
     reference_title: 'FDA guidance, Dental Cements - Performance Criteria for Safety and
@@ -152,6 +156,20 @@ properties:
       row, because test item 4 is the only one in the guidance with no "as applicable"
       scoping and its methodology cites both ISO 9917-1 and ISO 9917-2. The
       resin-modified row states an upper bound only.
+  - reference: url:https://www.fda.gov/regulatory-information/search-fda-guidance-documents/dental-cements-performance-criteria-safety-and-performance-based-pathway
+    reference_title: 'FDA guidance, Dental Cements - Performance Criteria for Safety and
+      Performance Based Pathway (September 2024)'
+    supports: PARTIAL
+    evidence_source: REGULATORY_DOCUMENT
+    snippet: Zinc oxide-eugenol cements under 21 CFR 872.3275 (product code EMB)
+    explanation: >-
+      Section III, in the list the guidance introduces with "The following are outside
+      the scope of this guidance". This bounds every criterion the entry takes from this
+      document, test item 4 included: the lack of an "as applicable" restriction on net
+      setting time operates inside the document's scope, and that scope excludes the
+      zinc oxide-eugenol member of the class by product code. Zinc oxide eugenol cement
+      (OHD:0001007) reaches this class through Zinc oxide cement, so the criterion is
+      not class-wide. Recorded as PARTIAL because it limits the row it sits on.
 - name: Compressive strength
   property_type: COMPRESSIVE_STRENGTH
   value: '>=50'
@@ -168,10 +186,16 @@ properties:
     evidence_source: REGULATORY_DOCUMENT
     snippet: '· Zinc phosphate: ≥50 MPa · Zinc polycarboxylate: ≥50 MPa · Glass polyalkenoate:
       ≥50 MPa for luting and base/lining applications'
-    explanation: Compressive strength performance criteria, applicable to powder/liquid
-      acid-base cements only. All three compositional families carry the same ≥50 MPa
-      minimum; for glass polyalkenoate it is stated for the luting and base/lining
-      applications.
+    explanation: >-
+      Compressive strength performance criteria, applicable to powder/liquid acid-base
+      cements only. All three compositional families carry the same ≥50 MPa minimum; for
+      glass polyalkenoate it is stated for the luting and base/lining applications. The
+      three bullets are one list under one "Performance Criteria" heading, but a page
+      break falls between the second and the third, so the quote joins text from pages 7
+      and 8 and omits the running header and page number between them. It is therefore
+      verbatim in reading order rather than contiguous in a raw text extraction, and a
+      byte-for-byte search of extracted PDF text will not find it as one string. Zinc
+      oxide-eugenol is absent from this list, as it is from the guidance as a whole.
   - reference: PMID:11641841
     reference_title: Laboratory strength of glass ionomer and zinc phosphate cements.
     supports: PARTIAL
@@ -605,16 +629,31 @@ notes: >-
   reaction that defines the class; the polymerisation of the resin-modified members is a
   property of those members, not of the class.
 
-  Scope of the FDA criteria, property by property. The guidance scopes each test item
-  separately, and it does not scope them all the same way, so the recorded properties
-  divide. Compressive strength and acid erosion are marked "(as applicable, powder/liquid
-  acid-base cements only)" and are limited accordingly. Net setting time carries no "as
-  applicable" restriction at all, and film thickness is scoped by application ("as
-  applicable, luting cements only") rather than by setting chemistry; both name ISO 9917-1
-  or ISO 9917-2 as methodology, so both are class-wide and reach the resin-modified
-  members. The net setting time row therefore quotes all four rows of Table 2, including
-  the resin-modified one, and records that the lower bound binds the powder/liquid
-  families only, the resin-modified members having an upper bound alone.
+  Scope of the FDA criteria, the document first. Every criterion taken from the guidance
+  sits inside the guidance's own section III scope, and that scope is narrower than this
+  class. Section III admits only three class II product codes - EMA under 872.3275, KLE
+  under 872.3200 and DYH under 872.3750 - and then names "Zinc oxide-eugenol cements
+  under 21 CFR 872.3275 (product code EMB)" among the things outside the scope of this
+  guidance. Zinc oxide eugenol cement (OHD:0001007) is inside this class, reaching it
+  through Zinc oxide cement (OHD:0001022), so no property row sourced from this guidance
+  can be stated for every member of the class, however the individual test item is
+  scoped. This is also why the second regulatory_status row, the 510(k)-exempt class I
+  EMB branch of 872.3275, carries no performance criteria. The same exclusion is recorded
+  in docs/regulatory.md.
+
+  Scope of the FDA criteria, property by property. Within that document scope the
+  guidance scopes each test item separately, and it does not scope them all the same way,
+  so the recorded properties divide. Compressive strength and acid erosion are marked
+  "(as applicable, powder/liquid acid-base cements only)" and are limited accordingly;
+  their criteria name the three powder/liquid families one by one, and zinc oxide-eugenol
+  is not among them. Net setting time carries no "as applicable" restriction at all, and
+  film thickness is scoped by application ("as applicable, luting cements only") rather
+  than by setting chemistry; both name ISO 9917-1 or ISO 9917-2 as methodology, so both
+  reach the resin-modified members rather than the powder/liquid ones alone. The net
+  setting time row therefore quotes all four rows of Table 2, including the resin-modified
+  one, and records that the lower bound binds the powder/liquid families only, the
+  resin-modified members having an upper bound alone. Table 2's four families are the
+  reach of that row, not the class.
 
   Provenance. The deep research step of the curate-material skill could not be run: the
   claude_code provider was unauthenticated in this environment and no other provider key
