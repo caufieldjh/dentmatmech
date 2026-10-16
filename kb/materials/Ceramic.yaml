@@ -966,8 +966,12 @@ notes: >-
   records, all content_type abstract_only), and every snippet still matched. That second run
   matters because linkml-reference-validator fetches full text by default and will rewrite an
   abstract_only record into a full-text superset, which can let a snippet pass against publisher
-  text that the abstract does not contain. Seven of the cached records committed here are
-  full-text, and the abstract-only run is what establishes that no snippet in this entry depends
-  on any of them. The 60 literature snippets were additionally verified by substring match
-  against their own cached records and the 5 regulatory snippets against the live CFR text, then
-  independently re-verified in a fresh self-review.
+  text that the abstract does not contain. Seven records cached for this entry had been rewritten
+  that way; all seven are now replaced by freshly fetched abstracts, so every one of the 21
+  records committed here is content_type abstract_only and no snippet can pass against publisher
+  text. The rewrite was not harmless furniture: the discarded "full text" of PMID:40738693 was an
+  Anubis anti-scraping challenge page, not the article. Re-running just validate-references
+  without --no-full-text will rewrite them again, because --full-text is that tool's default; the
+  durable fix is outside this entry. The 63 literature snippets were additionally verified by
+  substring match against their own cached records and the 5 regulatory snippets against the live
+  CFR text, then independently re-verified in a fresh self-review.
