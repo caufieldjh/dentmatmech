@@ -590,8 +590,12 @@ properties:
     reference_title: Long-term performance of ceramic in/-onlays vs. cast gold partial crowns - a retrospective clinical study.
     supports: SUPPORT
     evidence_source: HUMAN_CLINICAL
-    snippet: Complications in CIOs (n = 149) were ceramic fracture (6.7%), secondary caries (4.7%), endodontic complication (2.7%) and tooth fracture (1.3%) compared to CGPCs (n = 147) with endodontic complication (8.8%), secondary caries (4.8%) and decementation (2.0%).
-    explanation: The recorded complications of 147 cast gold partial crowns followed for a mean 14.5 years. Fracture of the metal does not appear in the list at all, while fracture of the restorative material is the leading complication of the ceramic comparator in the same cohort.
+    snippet: "Complications in CIOs (n = 149) were ceramic fracture (6.7%), secondary caries (4.7%), endodontic complication (2.7%) and tooth fracture (1.3%) compared to CGPCs (n = 147) with endodontic complication (8.8%), secondary caries (4.8%) and decementation (2.0%)."
+    explanation: The recorded complications of 147 cast gold partial crowns followed for a mean 14.5 years.
+      Fracture of the metal does not appear in the list at all, while fracture of the restorative material is
+      the leading complication of the ceramic comparator in the same cohort. All four spaces around the two
+      equals signs are U+2009 thin spaces, as in the source abstract; ordinary spaces there still pass
+      validation because the validator normalizes whitespace, so the match has to be checked byte for byte.
   - reference: PMID:38702521
     reference_title: Long-term performance of ceramic in/-onlays vs. cast gold partial crowns - a retrospective clinical study.
     supports: SUPPORT
