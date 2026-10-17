@@ -285,7 +285,7 @@ clinical_uses:
     reference_title: "Surface Properties, Biocompatibility, and Bacterial Adherence of Four Zirconia Variants for Aesthetic Zone Abutments."
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: "Within the limitations of this in vitro study, ultra-translucent zirconia appears to be a suitable alternative to conventional zirconia for aesthetic zone implant abutments."
+    snippet: "Within the limitations of this in vitro study, ultra-translucent zirconia appears to be a suitable alternative to conventional zirconia for aesthetic zone implant abutments."
     explanation: Supports the abutment use for zirconia, at in-vitro strength only.
 regulatory_status:
 - agency: FDA
@@ -366,13 +366,13 @@ properties:
     reference_title: "Evaluating the fracture toughness and flexural strength of pressable dental ceramics: an in vitro study."
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: "Core material Performance Plus had the lowest biaxial strength of 124.89 MPa, Cergo had strength of 152.22 MPa and the highest value of 163.95 was reported for Esthetic Empress."
+    snippet: "Core material Performance Plus had the lowest biaxial strength of 124.89 MPa, Cergo had strength of 152.22 MPa and the highest value of 163.95 was reported for Esthetic Empress."
     explanation: Gives the three values the range is taken from.
   - reference: PMID:25489158
     reference_title: "Evaluating the fracture toughness and flexural strength of pressable dental ceramics: an in vitro study."
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: "For samples treated 9 % HF, Performance Plus had the lowest biaxial strength of 98.37 MPa, Cergo had strength of 117.42 MPa and the highest value of 143.74 was reported for Esthetic Empress."
+    snippet: "For samples treated 9 % HF, Performance Plus had the lowest biaxial strength of 98.37 MPa, Cergo had strength of 117.42 MPa and the highest value of 143.74 was reported for Esthetic Empress."
     explanation: Supports the etched values in the description.
 - name: Flexural strength, translucent zirconia
   property_type: FLEXURAL_STRENGTH
@@ -434,7 +434,7 @@ properties:
     reference_title: "Evaluating the fracture toughness and flexural strength of pressable dental ceramics: an in vitro study."
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: "Core material Performance Plus had the lowest fracture toughness of 1.063 MPa, Cergo had strength of 1.112 MPa and the highest value of 1.225 was reported for Esthetic Empress."
+    snippet: "Core material Performance Plus had the lowest fracture toughness of 1.063 MPa, Cergo had strength of 1.112 MPa and the highest value of 1.225 was reported for Esthetic Empress."
     explanation: Source of the range, and of the unit discrepancy noted in the description.
 - name: Translucency relative to glass-ceramics
   property_type: TRANSLUCENCY
@@ -621,13 +621,13 @@ clinical_performance:
     reference_title: A systematic review of the survival and complication rates of zirconia-ceramic and metal-ceramic single crowns.
     supports: SUPPORT
     evidence_source: SYSTEMATIC_REVIEW
-    snippet: "Meta-analysis revealed an estimated 5-year survival rate of 98.3% (95% CI: 96.8-99.1) for metal-ceramic implant supported SCs (n = 4,363) compared to 97.6% (95% CI: 94.3-99.0) for zirconia implant supported SCs (n = 912)."
+    snippet: "Meta-analysis revealed an estimated 5-year survival rate of 98.3% (95% CI: 96.8-99.1) for metal-ceramic implant supported SCs (n = 4,363) compared to 97.6% (95% CI: 94.3-99.0) for zirconia implant supported SCs (n = 912)."
     explanation: Source of both figures.
   - reference: PMID:30328190
     reference_title: A systematic review of the survival and complication rates of zirconia-ceramic and metal-ceramic single crowns.
     supports: PARTIAL
     evidence_source: SYSTEMATIC_REVIEW
-    snippet: "Significantly (p = 0.001), more zirconia-ceramic implant SCs failed due to material fractures (2.1% vs. 0.2% metal-ceramic implant SCs)."
+    snippet: "Significantly (p = 0.001), more zirconia-ceramic implant SCs failed due to material fractures (2.1% vs. 0.2% metal-ceramic implant SCs)."
     explanation: The failure mode that the survival figure alone hides.
 - name: Survival of inlays, onlays and overlays
   measure_type: SURVIVAL_RATE
@@ -663,13 +663,13 @@ clinical_performance:
     reference_title: "Survival and Complication Rates of Feldspathic, Leucite-Reinforced, Lithium Disilicate and Zirconia Ceramic Laminate Veneers: A Systematic Review and Meta-Analysis."
     supports: SUPPORT
     evidence_source: SYSTEMATIC_REVIEW
-    snippet: "Meta-analysis revealed a pooled survival-rate of 96.13% for feldspathic, 93.70% for LRGC and 96.81% for LDS at 10.4 years. No difference was found between materials."
+    snippet: "Meta-analysis revealed a pooled survival-rate of 96.13% for feldspathic, 93.70% for LRGC and 96.81% for LDS at 10.4 years. No difference was found between materials."
     explanation: Source of all three figures and of the no-difference finding.
   - reference: PMID:39523553
     reference_title: "Survival and Complication Rates of Feldspathic, Leucite-Reinforced, Lithium Disilicate and Zirconia Ceramic Laminate Veneers: A Systematic Review and Meta-Analysis."
     supports: SUPPORT
     evidence_source: SYSTEMATIC_REVIEW
-    snippet: "Zirconia showed a 100% survival-rate with no complications at 2.6 years. No long-term data was available for zirconia."
+    snippet: "Zirconia showed a 100% survival-rate with no complications at 2.6 years. No long-term data was available for zirconia."
     explanation: Records the gap rather than letting the 100% figure stand unqualified.
 - name: Survival of ceramic partial coverage restorations
   measure_type: SURVIVAL_RATE
@@ -972,6 +972,20 @@ notes: >-
   text. The rewrite was not harmless furniture: the discarded "full text" of PMID:40738693 was an
   Anubis anti-scraping challenge page, not the article. Re-running just validate-references
   without --no-full-text will rewrite them again, because --full-text is that tool's default; the
-  durable fix is outside this entry. The 63 literature snippets were additionally verified by
-  substring match against their own cached records and the 5 regulatory snippets against the live
-  CFR text, then independently re-verified in a fresh self-review.
+  durable fix is outside this entry. All 63 literature snippets are byte-exact substrings of
+  their own cached records and of abstracts refetched live from PubMed efetch with the repo cache
+  bypassed, and all 63 lie inside the abstract, so no snippet depends on full text; the 5
+  regulatory snippets were checked against the live CFR text.
+
+
+  Why this file contains non-ASCII spaces. Byte-exactness has to be asserted separately from just
+  validate-references, which normalizes whitespace before matching and therefore accepts an
+  ordinary space where the source serves U+00A0 or U+2009. Eight snippets passed that way until
+  they were corrected, and the earlier claim here that all 63 matched their cached records by
+  substring was wrong for exactly those eight: PubMed serves a no-break space before MPa and
+  before the percent sign in PMID:25489158, before "vitro" in PMID:40551320, around the equals
+  signs in PMID:30328190, and a thin space before "years" in PMID:39523553. Those characters are
+  now
+  embedded as the sources serve them. A whitespace-insensitive check cannot see this defect
+  class, so a byte-level comparison against freshly fetched abstracts is the only check that
+  catches it.
