@@ -441,11 +441,11 @@ regulatory_status:
   - name: Functional restoration for a badly decayed deciduous tooth until the adult tooth erupts
     use_context: TEMPORARY
   source_url: https://www.ecfr.gov/current/title-21/section-872.3330
-  notes: The route by which the stainless steel child reaches the market, since austenitic alloys are
-    the stainless steels. The only class I device type of the four, and the only one that is not confined
-    to metals - the identification also covers plastic preformed crowns - so it is recorded as a device
-    type the class spans rather than a device type of the class. ELZ is the only product code under the
-    regulation.
+  notes: The route by which the stainless steel child reaches the market, since austenitic alloys are the
+    stainless steels. The first of the two class I device types the class spans, and the only one of the
+    five not confined to metals - the identification also covers plastic preformed crowns - so it is
+    recorded as a device type the class spans rather than a device type of the class. ELZ is the only
+    product code under the regulation.
   evidence:
   - reference: url:https://www.law.cornell.edu/cfr/text/21/872.3330
     reference_title: 21 CFR 872.3330 Preformed crown
