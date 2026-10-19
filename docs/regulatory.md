@@ -59,6 +59,28 @@ products:
 
 The product example above is illustrative; check the record before curating it.
 
+## Fetching the primary sources
+
+Every regulation number, class, and product code is re-verified from the CFR text *and* the
+classification database on each curation run, so the fetch route is part of the method. Routes
+tested from CI on 2026-10-19:
+
+| Source | Route | Result |
+|---|---|---|
+| CFR text | `curl https://www.law.cornell.edu/cfr/text/21/872.NNNN` | works |
+| CFR text, character-exact | `curl --compressed 'https://www.ecfr.gov/api/versioner/v1/full/YYYY-MM-DD/title-21.xml?part=872&section=872.NNNN'` | works, but **only with compression** - without `--compressed` it answers `406` and tells you so |
+| eCFR section HTML | `curl https://www.ecfr.gov/current/title-21/section-872.NNNN` | blocked, `302` |
+| Product classification | `curl '…/cfpcd/classification.cfm?start_search=1&regulationnumber=872.NNNN'` | blocked, `302` to a bot-detection challenge |
+| Product classification | the agent's `WebFetch` tool on the same URL | works, returns the result rows |
+| Product classification | `curl 'https://api.fda.gov/device/classification.json?search=regulation_number:"872.NNNN"&limit=50'` | works |
+
+The `classification.cfm` refusal is not rate limiting: it persists after a pause and with a browser
+`User-Agent`. Use `WebFetch` or openFDA to read the database, and still cite the `classification.cfm`
+URL, which is the human-readable record. openFDA serves the same database as JSON with
+`product_code`, `device_name`, `device_class`, and `submission_type_id`; across the eight codes in
+this file `submission_type_id` is `1` for the 510(k) codes and `4` for the `510(K) Exempt` ones.
+Reading both routes is the cheapest way to cross-check a product code that is new to the KB.
+
 ## Mapping OHD materials to FDA regulations
 
 The two systems cut the world differently. OHD classifies by *what the material is*; FDA classifies by *what the device is for*. So one OHD material can fall under several regulations (a resin composite used as a core build-up, a luting cement, or a pit and fissure sealant), and one regulation can cover several OHD materials (`872.3275` dental cement spans glass ionomer, zinc phosphate, zinc polycarboxylate, and resin cements). Record one `regulatory_status` entry per applicable regulation, and use `approved_uses` to say which use each one governs.
@@ -79,7 +101,7 @@ Regulations verified against the CFR text and the FDA product classification dat
 | 872.3710 | Base metal alloy | II (special controls) | EJH | 510(k)-exempt subject to 872.9 |
 | 872.3920 | Porcelain tooth | II | ELL | |
 
-872.3060, 872.3070, and 872.3710 were re-verified from the same two primary sources on 2026-09-06 while curating `Metal`. `872.3330` was verified from the same two sources on 2026-09-09, also while curating `Metal`; it is the route by which preformed stainless steel crowns reach the market. `872.3350` was verified from the same two sources on 2026-09-10, also while curating `Metal`. The regulation titles, identification paragraphs, classes, and product codes were unchanged. All five regulations, all eight product codes, and all five identification paragraphs were re-verified from the same two primary sources on 2026-10-01, again while curating `Metal`; nothing had changed. Submission type in the classification database is `510(K) Exempt` for EJS, EJT, EJH, ELZ, and ELO, and `510(k)` for EJJ, ELY, and OIV. Re-verified once more on 2026-10-12: the five identification paragraphs and five classification paragraphs were diffed character for character against the eCFR versioner XML for the 2026-10-06 issue of title 21, and all eight product codes against the classification database; nothing had changed.
+872.3060, 872.3070, and 872.3710 were re-verified from the same two primary sources on 2026-09-06 while curating `Metal`. `872.3330` was verified from the same two sources on 2026-09-09, also while curating `Metal`; it is the route by which preformed stainless steel crowns reach the market. `872.3350` was verified from the same two sources on 2026-09-10, also while curating `Metal`. The regulation titles, identification paragraphs, classes, and product codes were unchanged. All five regulations, all eight product codes, and all five identification paragraphs were re-verified from the same two primary sources on 2026-10-01, again while curating `Metal`; nothing had changed. Submission type in the classification database is `510(K) Exempt` for EJS, EJT, EJH, ELZ, and ELO, and `510(k)` for EJJ, ELY, and OIV. Re-verified once more on 2026-10-12: the five identification paragraphs and five classification paragraphs were diffed character for character against the eCFR versioner XML for the 2026-10-06 issue of title 21, and all eight product codes against the classification database; nothing had changed. Re-verified again on 2026-10-19 while tending `Metal`: the five identification and classification paragraphs against the CFR text, and all eight product codes against the classification database through both routes above. Nothing had changed, including the exclusion of EIT from 872.3060.
 
 ## A note on `872.9` exemptions
 
