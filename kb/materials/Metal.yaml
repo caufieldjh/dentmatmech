@@ -656,7 +656,10 @@ properties:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The mechanical properties and microstructures of Co-Cr dental alloys were significantly influenced by the fabrication method used.
-    explanation: Establishes that fabrication route, not composition alone, determines the mechanical properties of a dental alloy. Matches the three routes recorded in setting_mechanisms.
+    explanation: Establishes that fabrication route, not composition alone, determines the mechanical
+      properties of a dental alloy. The three routes it compares - casting, CNC milling and direct
+      laser metal sintering - are the CASTING, MILLING and ADDITIVE_MANUFACTURING members of the five
+      mechanisms recorded in setting_mechanisms; AMALGAMATION and COLD_WORKING are not in its scope.
 clinical_performance:
 - name: Five-year survival of metal-ceramic tooth-supported fixed dental prostheses
   measure_type: SURVIVAL_RATE
