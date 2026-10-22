@@ -63,23 +63,35 @@ The product example above is illustrative; check the record before curating it.
 
 Every regulation number, class, and product code is re-verified from the CFR text *and* the
 classification database on each curation run, so the fetch route is part of the method. Routes
-tested from CI on 2026-10-19:
+tested from CI on 2026-10-22:
 
 | Source | Route | Result |
 |---|---|---|
 | CFR text | `curl https://www.law.cornell.edu/cfr/text/21/872.NNNN` | works |
 | CFR text, character-exact | `curl --compressed 'https://www.ecfr.gov/api/versioner/v1/full/YYYY-MM-DD/title-21.xml?part=872&section=872.NNNN'` | works, but **only with compression** - without `--compressed` it answers `406` and tells you so |
 | eCFR section HTML | `curl https://www.ecfr.gov/current/title-21/section-872.NNNN` | blocked, `302` |
-| Product classification | `curl '…/cfpcd/classification.cfm?start_search=1&regulationnumber=872.NNNN'` | blocked, `302` to a bot-detection challenge |
+| Product classification | `curl -L -H 'User-Agent: Mozilla/5.0' '…/cfpcd/classification.cfm?start_search=1&productcode=CODE'` | works, returns the record page |
+| Product classification | the same URL with curl's default `User-Agent` | blocked, `302` to `abuse-detection-apology.html` |
+| Product classification | a browser `User-Agent` but no `-L` | useless: `302` to a 215-byte `Object Moved` stub |
 | Product classification | the agent's `WebFetch` tool on the same URL | works, returns the result rows |
 | Product classification | `curl 'https://api.fda.gov/device/classification.json?search=regulation_number:"872.NNNN"&limit=50'` | works |
 
-The `classification.cfm` refusal is not rate limiting: it persists after a pause and with a browser
-`User-Agent`. Use `WebFetch` or openFDA to read the database, and still cite the `classification.cfm`
-URL, which is the human-readable record. openFDA serves the same database as JSON with
-`product_code`, `device_name`, `device_class`, and `submission_type_id`; across the eight codes in
-this file `submission_type_id` is `1` for the 510(k) codes and `4` for the `510(K) Exempt` ones.
-Reading both routes is the cheapest way to cross-check a product code that is new to the KB.
+`classification.cfm` is reachable from plain `curl`, but it needs **both** a browser `User-Agent`
+**and** `-L`, and each missing piece fails in a different way. Earlier runs of this file recorded the
+page as blocked outright; that was an artefact of testing the two halves separately. With curl's
+default `User-Agent` the site really does refuse, redirecting to an abuse-detection page. With a
+browser `User-Agent` and no `-L` you get a 215-byte `Object Moved` stub, which looks like a block but
+is only an unfollowed redirect. Supply both and the full record page comes back; `Mozilla/5.0` on its
+own is a sufficient `User-Agent`. Cite the `classification.cfm` URL either way - it is the
+human-readable record, and it renders device names in lower case, which is what a `snippet` quoting it
+has to match.
+
+openFDA serves the same database as JSON with `product_code`, `device_name`, `device_class`, and
+`submission_type_id`; across the eight codes in this file `submission_type_id` is `1` for the 510(k)
+codes and `4` for the `510(K) Exempt` ones. It title-cases `device_name`, so quote it only when it is
+the URL you cite. Reading both routes is the cheapest way to cross-check a product code that is new
+to the KB, and openFDA additionally reports how many codes a regulation carries in total, which is
+how the completeness claims in the table below were checked.
 
 ## Mapping OHD materials to FDA regulations
 
@@ -101,7 +113,7 @@ Regulations verified against the CFR text and the FDA product classification dat
 | 872.3710 | Base metal alloy | II (special controls) | EJH | 510(k)-exempt subject to 872.9 |
 | 872.3920 | Porcelain tooth | II | ELL | |
 
-872.3060, 872.3070, and 872.3710 were re-verified from the same two primary sources on 2026-09-06 while curating `Metal`. `872.3330` was verified from the same two sources on 2026-09-09, also while curating `Metal`; it is the route by which preformed stainless steel crowns reach the market. `872.3350` was verified from the same two sources on 2026-09-10, also while curating `Metal`. The regulation titles, identification paragraphs, classes, and product codes were unchanged. All five regulations, all eight product codes, and all five identification paragraphs were re-verified from the same two primary sources on 2026-10-01, again while curating `Metal`; nothing had changed. Submission type in the classification database is `510(K) Exempt` for EJS, EJT, EJH, ELZ, and ELO, and `510(k)` for EJJ, ELY, and OIV. Re-verified once more on 2026-10-12: the five identification paragraphs and five classification paragraphs were diffed character for character against the eCFR versioner XML for the 2026-10-06 issue of title 21, and all eight product codes against the classification database; nothing had changed. Re-verified again on 2026-10-19 while tending `Metal`: the five identification and classification paragraphs against the CFR text, and all eight product codes against the classification database through both routes above. Nothing had changed, including the exclusion of EIT from 872.3060.
+872.3060, 872.3070, and 872.3710 were re-verified from the same two primary sources on 2026-09-06 while curating `Metal`. `872.3330` was verified from the same two sources on 2026-09-09, also while curating `Metal`; it is the route by which preformed stainless steel crowns reach the market. `872.3350` was verified from the same two sources on 2026-09-10, also while curating `Metal`. The regulation titles, identification paragraphs, classes, and product codes were unchanged. All five regulations, all eight product codes, and all five identification paragraphs were re-verified from the same two primary sources on 2026-10-01, again while curating `Metal`; nothing had changed. Submission type in the classification database is `510(K) Exempt` for EJS, EJT, EJH, ELZ, and ELO, and `510(k)` for EJJ, ELY, and OIV. Re-verified once more on 2026-10-12: the five identification paragraphs and five classification paragraphs were diffed character for character against the eCFR versioner XML for the 2026-10-06 issue of title 21, and all eight product codes against the classification database; nothing had changed. Re-verified again on 2026-10-19 while tending `Metal`: the five identification and classification paragraphs against the CFR text, and all eight product codes against the classification database through both routes above. Nothing had changed, including the exclusion of EIT from 872.3060. Re-verified on 2026-10-22 when `Metal` was opened as a pull request, this time with the per-regulation code counts read from openFDA rather than assumed: 872.3060 returns three codes (EJS, EJT, and the excluded EIT), 872.3070 three, and 872.3330, 872.3350, and 872.3710 one each, so the "only product code under the regulation" claims on the last three are complete and not merely unrefuted. Nothing had changed.
 
 ## A note on `872.9` exemptions
 
