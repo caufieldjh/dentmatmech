@@ -568,7 +568,12 @@ clinical_performance:
     abstract gives no figure for them, so the range understates the spread of the class. Retained
     deliberately alongside the 2026 review to record that the verdict on zirconia has moved.
     This round advised against zirconia as a primary option on the strength of technical
-    complications; the later round, with monolithic designs in the pool, does not.
+    complications; the later round, with monolithic designs in the pool, does not. Every figure
+    in this row is pre-corrigendum, because the review carries a published corrigendum (PMID:27726969,
+    Dent Mater 32(12):e389-e390, 2016, doi:10.1016/j.dental.2016.09.032), recorded as ErratumIn
+    by PubMed on the 2015 record and as an erratum update by Crossref, and the cached 2015
+    abstract these snippets are quoted from carries no notice of it. The corrigendum text is
+    paywalled and was not obtained, so what it revises is deliberately not recorded here.
   evidence:
   - reference: PMID:25842099
     reference_title: "All-ceramic or metal-ceramic tooth-supported fixed dental prostheses (FDPs)? A systematic review of the survival and complication rates. Part I: Single crowns (SCs)."
