@@ -572,8 +572,23 @@ clinical_performance:
     in this row is pre-corrigendum, because the review carries a published corrigendum (PMID:27726969,
     Dent Mater 32(12):e389-e390, 2016, doi:10.1016/j.dental.2016.09.032), recorded as ErratumIn
     by PubMed on the 2015 record and as an erratum update by Crossref, and the cached 2015
-    abstract these snippets are quoted from carries no notice of it. The corrigendum text is
-    paywalled and was not obtained, so what it revises is deliberately not recorded here.
+    abstract these snippets are quoted from carries no notice of it. The corrigendum text was
+    obtained in October 2026 from the publisher abstract mirrored by the Iceland Research
+    Information System; PubMed holds no abstract for it and the green open-access copy is behind
+    a bot wall. It revises the lower bound of this row. Passia et al., counted in the densely
+    sintered zirconia group, used ZrSiO4 rather than densely sintered zirconia crowns; excluding
+    it raises the 5-year zirconia survival estimate to 93.8% (95% CI 90.3-96.1) and drops the
+    annual failure rate from 1.84% to 1.28%. The gap to metal-ceramic then falls to 1.9% and
+    stops being significant (p=0.174, against 4.5% and p=0.055 as published), which is the
+    statistical basis of the zirconia recommendation quoted below. value is left at the figures
+    the review published, because this row exists to record that earlier round as it stood; the
+    corrected lower bound is 93.8, not 92.1. The corrigendum also fixes a Table 3 misfiling of 50
+    feldspathic crowns under glass-infiltrated alumina, which it states left the meta-analysis
+    unchanged and which no row here quotes. Two of its figures are transposed against the 2015
+    abstract, with identical confidence intervals on both sides, so they are the same estimates.
+    zirconia 91.2 in the corrigendum against 92.1 in the abstract (both 82.8-95.6), and
+    metal-ceramic 95.7 against 94.7 (both 94.1-96.9). The snippets below quote the abstract, so
+    they keep the abstract's figures.
   evidence:
   - reference: PMID:25842099
     reference_title: "All-ceramic or metal-ceramic tooth-supported fixed dental prostheses (FDPs)? A systematic review of the survival and complication rates. Part I: Single crowns (SCs)."
@@ -582,7 +597,8 @@ clinical_performance:
     snippet: "This was similar to the estimated 5-year survival rate of leucit or lithium-disilicate reinforced glass ceramic SCs (96.6%; 95% CI: 94.9-96.7%), of glass infiltrated alumina SCs (94.6%; 95% CI: 92.7-96%) and densely sintered alumina and zirconia SCs (96%; 95% CI: 93.8-97.5%; 92.1%; 95% CI: 82.8-95.6%)."
     explanation: Source of the value range. The lowest figure the review reports for an all-ceramic
       crown type is zirconia at 92.1 and the highest is leucite or lithium-disilicate glass ceramic
-      at 96.6, which are the bounds recorded in value.
+      at 96.6, which are the bounds recorded in value. The 92.1 lower bound is superseded by the
+      corrigendum quoted below, which puts the corrected estimate at 93.8.
   - reference: PMID:25842099
     reference_title: "All-ceramic or metal-ceramic tooth-supported fixed dental prostheses (FDPs)? A systematic review of the survival and complication rates. Part I: Single crowns (SCs)."
     supports: SUPPORT
@@ -613,7 +629,27 @@ clinical_performance:
     supports: PARTIAL
     evidence_source: SYSTEMATIC_REVIEW
     snippet: "Zirconia-based SCs should not be considered as primary option due to their high incidence of technical problems."
-    explanation: The superseded recommendation, recorded so the change over time is visible.
+    explanation: The superseded recommendation, recorded so the change over time is visible. The
+      corrigendum quoted below removes its statistical basis. With the ZrSiO4 outlier excluded,
+      the zirconia deficit against metal-ceramic is 1.9% and does not reach significance.
+  - reference: url:https://iris.landsbokasafn.is/en/publications/corrigendum-to-all-ceramic-or-metal-ceramic-tooth-supported-fixed/
+    reference_title: "Corrigendum to \"All-ceramic or metal-ceramic tooth- supported fixed dental prostheses (FDPs)? A systematic review of the survival and complication rates. Part I: Single crowns (SCs)\" [Dental Materials 31 (6) (2015) 603-623]."
+    supports: WRONG_STATEMENT
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: "When this outlier study is excluded from the analysis the annual failure rate of densely sintered zirconia crowns decreases from 1.84% to 1.28% and the estimated 5-year survival rates increases from 91.2% (95% C.I.: 82.8–95.6%) to 93.8% (95% C.I.: 90.3–96.1%)."
+    explanation: The authors' own correction of the figure this row's lower bound rests on. Cited
+      by url because PubMed holds no abstract for the corrigendum (PMID:27726969) and its
+      open-access copy is behind a bot wall, so no fetcher can reach it; the quote is verbatim
+      from the publisher abstract on the cited page, en dashes included. The 91.2 here and the
+      92.1 in the abstract carry the same confidence interval and are the same estimate.
+  - reference: url:https://iris.landsbokasafn.is/en/publications/corrigendum-to-all-ceramic-or-metal-ceramic-tooth-supported-fixed/
+    reference_title: "Corrigendum to \"All-ceramic or metal-ceramic tooth- supported fixed dental prostheses (FDPs)? A systematic review of the survival and complication rates. Part I: Single crowns (SCs)\" [Dental Materials 31 (6) (2015) 603-623]."
+    supports: WRONG_STATEMENT
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: "Comparing this to the 5-year survival rate of metal-ceramic crowns of a 95.7% (95% C.I.: 94.1–96.9%) the difference decreases to 1.9%. This difference does not reach statistical significance (p = 0.174)."
+    explanation: Withdraws the significant zirconia deficit that the recommendation above rests
+      on. Both spaces around the equals sign are U+00A0 no-break spaces and the interval uses an
+      en dash, as on the cited page; replacing them would break the verbatim match.
 - name: Five-year survival of implant-supported single crowns
   measure_type: SURVIVAL_RATE
   value: '97.6'
