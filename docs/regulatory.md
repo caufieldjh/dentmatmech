@@ -125,7 +125,42 @@ Regulations verified against the CFR text and the FDA product classification dat
 | 872.3710 | Base metal alloy | II (special controls) | EJH | 510(k)-exempt subject to 872.9 |
 | 872.3920 | Porcelain tooth | II | ELL | |
 
-872.3060, 872.3070, and 872.3710 were re-verified from the same two primary sources on 2026-09-06 while curating `Metal`. `872.3330` was verified from the same two sources on 2026-09-09, also while curating `Metal`; it is the route by which preformed stainless steel crowns reach the market. `872.3350` was verified from the same two sources on 2026-09-10, also while curating `Metal`. The regulation titles, identification paragraphs, classes, and product codes were unchanged. All five regulations, all eight product codes, and all five identification paragraphs were re-verified from the same two primary sources on 2026-10-01, again while curating `Metal`; nothing had changed. Submission type in the classification database is `510(K) Exempt` for EJS, EJT, EJH, ELZ, and ELO, and `510(k)` for EJJ, ELY, and OIV. Re-verified once more on 2026-10-12: the five identification paragraphs and five classification paragraphs were diffed character for character against the eCFR versioner XML for the 2026-10-06 issue of title 21, and all eight product codes against the classification database; nothing had changed. Re-verified again on 2026-10-19 while tending `Metal`: the five identification and classification paragraphs against the CFR text, and all eight product codes against the classification database through both routes above. Nothing had changed, including the exclusion of EIT from 872.3060. Re-verified on 2026-10-22 while tending `Metal`, this time with the per-regulation code counts read from openFDA rather than assumed: 872.3060 returns three codes (EJS, EJT, and the excluded EIT), 872.3070 three, and 872.3330, 872.3350, and 872.3710 one each, so the "only product code under the regulation" claims on the last three are complete and not merely unrefuted. Nothing had changed. Re-verified once more on 2026-10-23: all five identification paragraphs diffed against the eCFR versioner XML for the 2026-10-06 issue of title 21, all five regulation titles against the section heads, and all eight product codes against both `classification.cfm` and openFDA, including the submission type on each (`510(K) Exempt` for EJS, EJT, EJH, ELZ, ELO; `510(k)` for EJJ, ELY, OIV) and the per-regulation code counts. Nothing had changed. (The claim that a pull request accompanied that run was wrong, as was the same claim for 2026-10-22: no pull request existed on `curate/metal` on either date, and `gh pr list --head curate/metal --state all` was still empty on 2026-10-24. Only the dating clause was wrong; the verifications happened.) Re-verified on 2026-10-24: all five regulation numbers, titles, classes, special-controls clauses, and 510(k)-exemption clauses against the CFR text at law.cornell.edu, with all five identification paragraphs and all five classification-paragraph snippets confirmed verbatim; all eight product codes against openFDA only, because `classification.cfm` was returning HTTP 503 through every route (see the outage note above), checking `device_name`, `device_class`, `submission_type_id`, `medical_specialty_description`, and `regulation_number` on each. Nothing had changed, including the exclusion of EIT from 872.3060. Re-verified on 2026-10-25 from both primary sources, `classification.cfm` having recovered: all five regulation numbers, titles, classes, and exemption clauses against the CFR text, and all eight product codes against the classification database, including the submission type on EJS (`510(K) Exempt`) and EJJ (`510(k)`). Nothing had changed.
+All five of the regulations curated for `Metal` - 872.3060, 872.3070, 872.3330, 872.3350, and
+872.3710 - have been re-verified from the CFR text and the product classification database on every
+run that has tended the entry, and **nothing has changed since 2026-09-06**. The facts worth reading
+off that history instead of re-deriving them:
+
+- Submission type in the classification database is `510(K) Exempt` for EJS, EJT, EJH, ELZ, and ELO,
+  and `510(k)` for EJJ, ELY, and OIV.
+- Per-regulation code counts, from openFDA: 872.3060 three (EJS, EJT, and the excluded EIT),
+  872.3070 three, and 872.3330, 872.3350, and 872.3710 one each. The "only product code under the
+  regulation" claims on the last three are therefore complete, not merely unrefuted.
+- EIT stays excluded from 872.3060: it is a rapid wax applicator, a laboratory accessory rather than
+  an alloy.
+- `872.3330` is the route by which preformed stainless steel crowns reach the market, since
+  austenitic alloys are the stainless steels.
+
+The audit trail below has one row per run that verified these rows, oldest first. The verdict on
+every row is the same - nothing had changed - so only the scope and the route differ.
+
+| Date | Scope checked | Route |
+|---|---|---|
+| 2026-09-06 | 872.3060, 872.3070, 872.3710: titles, identification paragraphs, classes, product codes | CFR text + classification database |
+| 2026-09-09 | adds 872.3330 | same two |
+| 2026-09-10 | adds 872.3350 | same two |
+| 2026-10-01 | all five regulations, all eight product codes, all five identification paragraphs | same two |
+| 2026-10-12 | five identification and five classification paragraphs, diffed character for character; eight product codes | eCFR versioner XML (2026-10-06 issue of title 21) + classification database |
+| 2026-10-19 | five identification and classification paragraphs; eight product codes through both routes; the EIT exclusion | CFR text + `classification.cfm` + openFDA |
+| 2026-10-22 | as above, plus the per-regulation code counts read rather than assumed | openFDA |
+| 2026-10-23 | five identification paragraphs diffed character for character; five regulation titles against the section heads; eight product codes with submission type and code counts on each | eCFR versioner XML + `classification.cfm` + openFDA |
+| 2026-10-24 | five regulation numbers, titles, classes, special-controls clauses and 510(k)-exemption clauses; five identification and five classification snippets confirmed verbatim; eight product codes on `device_name`, `device_class`, `submission_type_id`, `medical_specialty_description`, `regulation_number` | CFR text + openFDA only, `classification.cfm` returning HTTP 503 through every route (see the outage note above) |
+| 2026-10-25 | five regulation numbers, titles, classes and exemption clauses; eight product codes including submission type on EJS and EJJ | CFR text + `classification.cfm`, recovered |
+| 2026-10-26 | five regulation titles, identification paragraphs and classification clauses confirmed verbatim; eight product codes on device name, class, regulation number and submission type, plus the per-regulation code counts | CFR text + `classification.cfm` + openFDA |
+
+One correction to the record: the 2026-10-22 and 2026-10-23 rows were originally written as though a
+pull request accompanied those runs. No pull request existed on `curate/metal` on either date, and
+`gh pr list --head curate/metal --state all` was still empty on 2026-10-24. Only the dating clause
+was wrong; the verifications happened.
 
 ## A note on `872.9` exemptions
 
