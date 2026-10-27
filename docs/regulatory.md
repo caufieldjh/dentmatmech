@@ -63,6 +63,32 @@ The product example above is illustrative; check the record before curating it.
 
 The two systems cut the world differently. OHD classifies by *what the material is*; FDA classifies by *what the device is for*. So one OHD material can fall under several regulations (a resin composite used as a core build-up, a luting cement, or a pit and fissure sealant), and one regulation can cover several OHD materials (`872.3275` dental cement spans glass ionomer, zinc phosphate, zinc polycarboxylate, and resin cements). Record one `regulatory_status` entry per applicable regulation, and use `approved_uses` to say which use each one governs.
 
+### `regulation_title` is the device name, not the section heading
+
+The schema defines `regulation_title` as the *device name as given in the classification regulation*. The two differ whenever one section classifies more than one device type, and then only the device name carries the class.
+
+`872.3275` is the case in this KB. Its heading is `§ 872.3275 Dental cement.`, but it names two devices with two different classes:
+
+| CFR paragraph | Device name as the regulation gives it | Class | Product code |
+|---|---|---|---|
+| `(a)` | Zinc oxide-eugenol | I (general controls), exempt subject to 872.9 | EMB |
+| `(b)` | Dental cement other than zinc oxide-eugenol | II | EMA |
+
+So an entry asserting `device_class: CLASS_II` under this regulation carries `regulation_title: Dental cement other than zinc oxide-eugenol`. Using the section heading would drop the distinction the class depends on. The table below has one row per section, so it prints the heading; material entries use the device name.
+
+### Looking up a product code
+
+Both URL forms work. The `?id=<CODE>` form returns that one record; the `?start_search=1&regulationnumber=NNNN` form returns every code under one regulation, which is what justifies the codes an entry omits.
+
+```
+https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?id=KLE
+https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&regulationnumber=872.3200
+```
+
+A desktop browser `User-Agent` is the only variable that matters, and it is required. With one, both forms above returned the KLE record on 2026-10-27 (`200`, ~9 kB); with none, both return an abuse-detection apology page served as `404`, which reads like *no such record* rather than like a block. So confirm a response actually contains a record before concluding that a product code is absent from the database.
+
+Verified against the product classification database on 2026-10-27: `KLE` -> 872.3200, class 2, 510(k), "agent, tooth bonding, resin"; `EMA` -> 872.3275, class 2, 510(k), "cement, dental"; `EMB` -> 872.3275, class 1, 510(k) exempt, "zinc oxide eugenol". The `872.3200` and `872.3275` rows below were re-confirmed the same day.
+
 Regulations verified against the CFR text and the FDA product classification database on 2026-09-04:
 
 | Regulation | Device name | Class | Product codes | Notes |
@@ -76,31 +102,6 @@ Regulations verified against the CFR text and the FDA product classification dat
 | 872.3690 | Tooth shade resin material | II | EBF, OFW | |
 | 872.3710 | Base metal alloy | II (special controls) | EJH | 510(k)-exempt subject to 872.9 |
 | 872.3920 | Porcelain tooth | II | ELL | |
-
-### `regulation_title` is the device name, not the section heading
-
-The schema defines `regulation_title` as the *device name as given in the classification regulation*. The two differ whenever one section classifies more than one device type, and then only the device name carries the class.
-
-`872.3275` is the case in this KB. Its heading is `§ 872.3275 Dental cement.`, but it names two devices with two different classes:
-
-| CFR paragraph | Device name as the regulation gives it | Class | Product code |
-|---|---|---|---|
-| `(a)` | Zinc oxide-eugenol | I (general controls), exempt subject to 872.9 | EMB |
-| `(b)` | Dental cement other than zinc oxide-eugenol | II | EMA |
-
-So an entry asserting `device_class: CLASS_II` under this regulation carries `regulation_title: Dental cement other than zinc oxide-eugenol`. Using the section heading would drop the distinction the class depends on. The table above has one row per section, so it prints the heading; material entries use the device name.
-
-### Looking up a product code
-
-Query by product code, not by regulation number:
-
-```
-https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?id=KLE
-```
-
-The `?id=<CODE>` form returns that one record and is reliable. The `?start_search=1&regulationnumber=NNNN` search form is often rate-limited, and it fails by returning an `Accessdata Error` page that reads like *no such regulation* rather than like throttling. The `results.cfm` search endpoint ignores its query parameters. All forms need a desktop browser `User-Agent`; without one FDA serves an apology page.
-
-Verified against the CFR text and the product classification database on 2026-10-03: `KLE` -> 872.3200, class 2, 510(k), "agent, tooth bonding, resin"; `EMA` -> 872.3275, class 2, 510(k), "cement, dental"; `EMB` -> 872.3275, class 1, 510(k) exempt, "zinc oxide eugenol". The `872.3200` and `872.3275` rows above were re-confirmed the same day.
 
 ## Other regulators
 
