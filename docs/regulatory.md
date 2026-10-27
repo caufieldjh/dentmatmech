@@ -74,6 +74,8 @@ tested from CI on 2026-10-22:
 | Product classification | the same URL with curl's default `User-Agent` | blocked, `302` to `abuse-detection-apology.html` |
 | Product classification | a browser `User-Agent` but no `-L` | useless: `302` to a 215-byte `Object Moved` stub |
 | Product classification | the agent's `WebFetch` tool on the same URL | works, returns the result rows |
+| Product classification, by regulation | `curl -L -H 'User-Agent: Mozilla/5.0' '…/cfpcd/classification.cfm?start_search=1&regulationnumber=872.NNNN'` | works, and is the route that proves code *completeness*; but a regulation carrying a single code answers `302` to `classification.cfm?id=NNNN` - a successful single-match redirect, **not** the abuse block the rows above describe |
+| Product classification | any of its routes, intermittently | a ~2 kB "Your request is being processed. Please be patient…" queue page whose only logic is a 60-second `setInterval` reload, served with `HTTP 400` as readily as `200`. It contains no record, so a grep for your product code returns nothing: read as *no answer yet*, never as *the value is absent*. Sleep a few seconds and refetch |
 | Product classification | `curl 'https://api.fda.gov/device/classification.json?search=regulation_number:"872.NNNN"&limit=50'` | works |
 
 `classification.cfm` is reachable from plain `curl`, but it needs **both** a browser `User-Agent`
@@ -156,6 +158,7 @@ every row is the same - nothing had changed - so only the scope and the route di
 | 2026-10-24 | five regulation numbers, titles, classes, special-controls clauses and 510(k)-exemption clauses; five identification and five classification snippets confirmed verbatim; eight product codes on `device_name`, `device_class`, `submission_type_id`, `medical_specialty_description`, `regulation_number` | CFR text + openFDA only, `classification.cfm` returning HTTP 503 through every route (see the outage note above) |
 | 2026-10-25 | five regulation numbers, titles, classes and exemption clauses; eight product codes including submission type on EJS and EJJ | CFR text + `classification.cfm`, recovered |
 | 2026-10-26 | five regulation titles, identification paragraphs and classification clauses confirmed verbatim; eight product codes on device name, class, regulation number and submission type, plus the per-regulation code counts | CFR text + `classification.cfm` + openFDA |
+| 2026-10-27 | five regulation numbers, titles, classes, identification paragraphs and 510(k)-exemption clauses re-read from the CFR text and diffed against the entry; eight product codes on device name, class, regulation number and submission type; per-regulation code completeness read from the `regulationnumber` result tables, including the EIT exclusion | CFR text + `classification.cfm` (both the `id` and `regulationnumber` routes) |
 
 One correction to the record: the 2026-10-22 and 2026-10-23 rows were originally written as though a
 pull request accompanied those runs. No pull request existed on `curate/metal` on either date, and
