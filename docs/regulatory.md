@@ -107,26 +107,6 @@ the URL you cite. Reading both routes is the cheapest way to cross-check a produ
 to the KB, and openFDA additionally reports how many codes a regulation carries in total, which is
 how the completeness claims in the table below were checked.
 
-## Mapping OHD materials to FDA regulations
-
-The two systems cut the world differently. OHD classifies by *what the material is*; FDA classifies by *what the device is for*. So one OHD material can fall under several regulations (a resin composite used as a core build-up, a luting cement, or a pit and fissure sealant), and one regulation can cover several OHD materials (`872.3275` dental cement spans glass ionomer, zinc phosphate, zinc polycarboxylate, and resin cements). Record one `regulatory_status` entry per applicable regulation, and use `approved_uses` to say which use each one governs.
-
-Regulations verified against the CFR text and the FDA product classification database on 2026-09-04:
-
-| Regulation | Device name | Class | Product codes | Notes |
-|---|---|---|---|---|
-| 872.3060 | Noble metal alloy | II (special controls) | EJS, EJT | 510(k)-exempt subject to 872.9. The database also returns EIT (applicator, rapid wax, dental) under this regulation; it is a laboratory accessory, not an alloy |
-| 872.3070 | Dental amalgam, mercury, and amalgam alloy | II (special controls) | EJJ, ELY, OIV | Special controls guidance named in the regulation |
-| 872.3200 | Resin tooth bonding agent | II | | |
-| 872.3250 | Calcium hydroxide cavity liner | II | | |
-| 872.3275 | Dental cement | I (zinc oxide-eugenol, EMB, 510(k)-exempt); II (others, EMA) | EMA, EMB | |
-| 872.3330 | Preformed crown | I | ELZ | 510(k)-exempt subject to 872.9. Covers plastic and austenitic (stainless steel) preformed crowns, so it is not a metal-only device type |
-| 872.3350 | Gold or stainless steel cusp | I | ELO | 510(k)-exempt subject to 872.9. The only device type in subpart D naming both gold and stainless steel; prosthodontic (permanent cusp against a removable denture), not restorative |
-| 872.3640 | Endosseous dental implant | II (special controls) | DZE, NRQ, OAT | Root-form and blade-form |
-| 872.3690 | Tooth shade resin material | II | EBF, OFW | |
-| 872.3710 | Base metal alloy | II (special controls) | EJH | 510(k)-exempt subject to 872.9 |
-| 872.3920 | Porcelain tooth | II | ELL | |
-
 All five of the regulations curated for `Metal` - 872.3060, 872.3070, 872.3330, 872.3350, and
 872.3710 - have been re-verified from the CFR text and the product classification database on every
 run that has tended the entry, and **nothing has changed since 2026-09-06**. The facts worth reading
@@ -142,8 +122,9 @@ off that history instead of re-deriving them:
 - `872.3330` is the route by which preformed stainless steel crowns reach the market, since
   austenitic alloys are the stainless steels.
 
-The audit trail below has one row per run that verified these rows, oldest first. The verdict on
-every row is the same - nothing had changed - so only the scope and the route differ.
+The audit trail below has one row per run that verified the mapping-table rows that follow it,
+oldest first. The verdict on every row is the same - nothing had changed - so only the scope and
+the route differ.
 
 | Date | Scope checked | Route |
 |---|---|---|
@@ -159,6 +140,14 @@ every row is the same - nothing had changed - so only the scope and the route di
 | 2026-10-25 | five regulation numbers, titles, classes and exemption clauses; eight product codes including submission type on EJS and EJJ | CFR text + `classification.cfm`, recovered |
 | 2026-10-26 | five regulation titles, identification paragraphs and classification clauses confirmed verbatim; eight product codes on device name, class, regulation number and submission type, plus the per-regulation code counts | CFR text + `classification.cfm` + openFDA |
 | 2026-10-27 | five regulation numbers, titles, classes, identification paragraphs and 510(k)-exemption clauses re-read from the CFR text and diffed against the entry; eight product codes on device name, class, regulation number and submission type; per-regulation code completeness read from the `regulationnumber` result tables, including the EIT exclusion | CFR text + `classification.cfm` (both the `id` and `regulationnumber` routes) |
+| 2026-10-28 | 872.3275, 872.3330 and 872.3350 titles, identification paragraphs and classification clauses re-read from the CFR text; the code sets and submission types under 872.3060, 872.3275, 872.3330 and 872.3350 read from openFDA, including the per-regulation code counts behind the EIT exclusion and the four codes under 872.3275 | CFR text + openFDA only, `classification.cfm` serving the queue page through every route (see below) |
+
+**`classification.cfm` answered nothing but the queue page on 2026-10-28.** Both the `id=CODE` and
+the `start_search=1&regulationnumber=` routes returned the same 1,986-byte "Your request is being
+processed" page described above, on six consecutive attempts per route and across all six codes
+tried. This is the third-outcome trap, not the 503 outage of 2026-10-24 and not the `User-Agent`
+pitfall: the header was correct and the status was `200`. Treat it as *no answer yet*. openFDA
+answered normally throughout and was used to cross-check the codes instead.
 
 One correction to the record: the 2026-10-22 and 2026-10-23 rows were originally written as though a
 pull request accompanied those runs. No pull request existed on `curate/metal` on either date, and
@@ -184,6 +173,26 @@ Recognitions verified on 2026-09-08 while curating `Metal`:
 | ISO 7405 | Third edition 2018-10 Corrected version 2018-12 | 4-261 | Complete | 872.3060, 872.3070, 872.3710 and others |
 
 ISO 22674 excludes amalgam alloys by its own scope, which is why a metal entry needs ISO 24234 alongside it. ISO 10271 and ISO 7405 were verified on 2026-09-09; ISO 7405 is the one of the five recognised across the amalgam codes as well as the cast-alloy codes.
+
+## Mapping OHD materials to FDA regulations
+
+The two systems cut the world differently. OHD classifies by *what the material is*; FDA classifies by *what the device is for*. So one OHD material can fall under several regulations (a resin composite used as a core build-up, a luting cement, or a pit and fissure sealant), and one regulation can cover several OHD materials (`872.3275` dental cement spans glass ionomer, zinc phosphate, zinc polycarboxylate, and resin cements). Record one `regulatory_status` entry per applicable regulation, and use `approved_uses` to say which use each one governs.
+
+Regulations verified against the CFR text and the FDA product classification database on 2026-09-04:
+
+| Regulation | Device name | Class | Product codes | Notes |
+|---|---|---|---|---|
+| 872.3060 | Noble metal alloy | II (special controls) | EJS, EJT | 510(k)-exempt subject to 872.9. The database also returns EIT (applicator, rapid wax, dental) under this regulation; it is a laboratory accessory, not an alloy |
+| 872.3070 | Dental amalgam, mercury, and amalgam alloy | II (special controls) | EJJ, ELY, OIV | Special controls guidance named in the regulation |
+| 872.3200 | Resin tooth bonding agent | II | | |
+| 872.3250 | Calcium hydroxide cavity liner | II | | |
+| 872.3275 | Dental cement | I (zinc oxide-eugenol, EMB, 510(k)-exempt); II (others, EMA) | EMA, EMB, MZW, NEA | Re-verified 2026-09-05. MZW (dental cement w/out zinc-oxide eugenol as an ulcer covering, class II) and NEA (cement, ear, nose and throat, class II) also sit under this regulation but are not dental restorative uses |
+| 872.3330 | Preformed crown | I | ELZ | 510(k)-exempt subject to 872.9. Covers plastic and austenitic (stainless steel) preformed crowns, so it is not a metal-only device type |
+| 872.3350 | Gold or stainless steel cusp | I | ELO | 510(k)-exempt subject to 872.9. The only device type in subpart D naming both gold and stainless steel; prosthodontic (permanent cusp against a removable denture), not restorative |
+| 872.3640 | Endosseous dental implant | II (special controls) | DZE, NRQ, OAT | Root-form and blade-form |
+| 872.3690 | Tooth shade resin material | II | EBF, OFW | |
+| 872.3710 | Base metal alloy | II (special controls) | EJH | 510(k)-exempt subject to 872.9 |
+| 872.3920 | Porcelain tooth | II | ELL | |
 
 ## Other regulators
 
