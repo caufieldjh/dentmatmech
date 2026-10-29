@@ -98,7 +98,7 @@ Items 3 and 4 name "ISO 9917-1 **or** ISO 9917-2" as methodology, so their `test
 
 Editions of a standard should be checked against FDA's [Recognized Consensus Standards database](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/search.cfm), which is fetchable by `POST` only — see the recipe below. The ISO catalogue blocks automated retrieval (`403` on 2026-10-10), so an ISO catalogue URL recorded on a `standards` row cannot be confirmed from the catalogue itself; confirm the edition here and the catalogue number through a reseller listing that quotes it.
 
-### Fetching the primary sources
+## Fetching the primary sources
 
 All four forms below were re-confirmed working on 2026-10-10. **The `User-Agent` requirement is
 per-host, and for one host it is inverted** — there is no single header set that fetches all of them.
