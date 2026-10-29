@@ -1120,9 +1120,11 @@ notes: >-
   Standard No. 38-2020, which covers the metal-ceramic use this entry records. ISO 24234, Third edition
   2021-08, recognition number 4-315, extent Complete, which covers the amalgam member. Three are needed
   rather than one because ISO 22674 states that it "does not apply to alloys for dental amalgam (see ISO
-  24234)", so no single standard spans the class. ISO 10271 and ISO 7405, added in the fourth pass, cover
-  the corrosion and biocompatibility test methods respectively. The Standard class has no slot for edition
-  or recognition number, so they are recorded here.
+  24234)", so no single standard spans the class. ISO 10271, Third edition 2020-08, recognition number
+  4-265, extent Complete, identically adopted as ANSI ADA Standard No. 97-2022, and ISO 7405, Third
+  edition 2018-10 Corrected version 2018-12, recognition number 4-261, extent Complete, were added in the
+  fourth pass and cover the corrosion and biocompatibility test methods respectively. The Standard class
+  has no slot for edition or recognition number, so they are recorded here.
 
   Properties. Deliberately no numbers. Strength, hardness, elastic modulus, melting range, and density are
   all real for a given alloy but vary by more than an order of magnitude across the families, so a class-

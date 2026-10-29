@@ -174,6 +174,8 @@ Recognitions verified on 2026-09-08 while curating `Metal`:
 
 ISO 22674 excludes amalgam alloys by its own scope, which is why a metal entry needs ISO 24234 alongside it. ISO 10271 and ISO 7405 were verified on 2026-09-09; ISO 7405 is the one of the five recognised across the amalgam codes as well as the cast-alloy codes.
 
+All five rows above - edition, recognition number, extent, and the regulation and product codes each standard is recognised against - were re-read from `detail.cfm` on 2026-10-29 and are unchanged. The audit trail above this section covers the regulations only, so standards recognitions need their own date: FDA re-recognises editions and retires them independently of the CFR, and a `standards` row can go stale while every regulation on the same entry stays correct.
+
 ## Mapping OHD materials to FDA regulations
 
 The two systems cut the world differently. OHD classifies by *what the material is*; FDA classifies by *what the device is for*. So one OHD material can fall under several regulations (a resin composite used as a core build-up, a luting cement, or a pit and fissure sealant), and one regulation can cover several OHD materials (`872.3275` dental cement spans glass ionomer, zinc phosphate, zinc polycarboxylate, and resin cements). Record one `regulatory_status` entry per applicable regulation, and use `approved_uses` to say which use each one governs.
