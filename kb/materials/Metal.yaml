@@ -660,6 +660,51 @@ properties:
       properties of a dental alloy. The three routes it compares - casting, CNC milling and direct
       laser metal sintering - are the CASTING, MILLING and ADDITIVE_MANUFACTURING members of the five
       mechanisms recorded in setting_mechanisms; AMALGAMATION and COLD_WORKING are not in its scope.
+- name: Marginal and internal fit of additively manufactured restorations
+  property_type: OTHER
+  test_method: Marginal and internal gap measurement on SLM-fabricated tooth-supported fixed dental prostheses
+  description: >-
+    The companion to the fabrication-route row above, and the only evidence on this entry for the
+    ADDITIVE_MANUFACTURING member of setting_mechanisms, which was otherwise declared without
+    support. Recorded because fit is the property the additive route actually puts at risk: it is
+    governed by build parameters - printing orientation, layer thickness, laser settings - and by
+    the preparation design, while the effect of the alloy itself is inconsistent across studies.
+    That is the same pattern the corrosion row records for element release, and it is why this row
+    is class-level and carries no value. The one parameter window the review does give is specific
+    to cobalt-chromium and belongs on the Cobalt chromium metal entry.
+  evidence:
+  - reference: PMID:41206334
+    reference_title: 'Factors affecting the fit of metal-based restorations fabricated by selective
+      laser melting: A systematic review.'
+    supports: SUPPORT
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: Key factors influencing the fit of SLM-fabricated FDPs included tooth finish line and
+      preparation design, printing orientation, and printing parameters such as lamination layer
+      thickness and laser settings.
+    explanation: Systematic review of 16 studies on tooth-supported metal-based FDPs. Names the
+      determinants of fit for the additive route; all are process or design variables rather than
+      properties of the metal.
+  - reference: PMID:41206334
+    reference_title: 'Factors affecting the fit of metal-based restorations fabricated by selective
+      laser melting: A systematic review.'
+    supports: SUPPORT
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: Evidence regarding the effects of alloy type and postprocessing steps, including heat
+      treatment and ceramic veneering, remained inconsistent.
+    explanation: The class-level finding. Fit does not track the alloy, which is what keeps this row
+      on the parent rather than distributing it to the families, and mirrors the corrosion row's
+      point that element release is not directly related to composition.
+  - reference: PMID:41206334
+    reference_title: 'Factors affecting the fit of metal-based restorations fabricated by selective
+      laser melting: A systematic review.'
+    supports: PARTIAL
+    evidence_source: SYSTEMATIC_REVIEW
+    snippet: "Within the limitations of current evidence, clinically acceptable fit was associated\
+      \ with cobalt chromium alloys printed at 0 or 30 degrees with a 25- to 50-\xB5m layer thickness\
+      \ and optimized laser parameters."
+    explanation: The review's own parameter window, recorded as partial support because it is
+      cobalt-chromium specific and because the review states it only within the limits of the
+      current evidence. The numbers belong on the Cobalt chromium metal entry, not here.
 clinical_performance:
 - name: Five-year survival of metal-ceramic tooth-supported fixed dental prostheses
   measure_type: SURVIVAL_RATE
@@ -1128,13 +1173,13 @@ notes: >-
 
   Properties. Deliberately no numbers. Strength, hardness, elastic modulus, melting range, and density are
   all real for a given alloy but vary by more than an order of magnitude across the families, so a class-
-  level number would be an invention. The four rows that are here carry no value: corrosion, which the
+  level number would be an invention. The five rows that are here carry no value: corrosion, which the
   literature treats as the property governing the whole class; plastic deformation rather than brittle
   fracture, which is what the metallic bond buys and what separates this class from the ceramics; the
   dependence of any measured property on the fabrication route, which is a caution that applies to every
   number recorded on the children; and the ISO 22674 type classification, which states the same point
   positively - the governing standard sets mechanical requirements by numbered type rather than one
-  class-level requirement, so an alloy is qualified against a type.
+  class-level requirement, so an alloy is qualified against a type. The fifth, added in a later pass, is the marginal and internal fit of additively manufactured restorations, which is governed by build parameters and preparation design rather than by the alloy, and which is the only evidence on this entry for the ADDITIVE_MANUFACTURING setting mechanism.
 
   Left out. Products, because brands belong on the children. Amalgam-associated oral lichenoid lesions,
   because that evidence base is amalgam-specific and belongs on the Amalgam entry; the class-level
