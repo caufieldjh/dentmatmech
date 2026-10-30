@@ -85,9 +85,25 @@ https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?id=K
 https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/classification.cfm?start_search=1&regulationnumber=872.3200
 ```
 
-A desktop browser `User-Agent` is the only variable that matters, and it is required. With one, both forms above returned the KLE record on 2026-10-27 (`200`, ~9 kB); with none, both return an abuse-detection apology page served as `404`, which reads like *no such record* rather than like a block. So confirm a response actually contains a record before concluding that a product code is absent from the database.
+The block is a `User-Agent` *blocklist on automated clients*, not a desktop-browser requirement. Sending **no** `User-Agent` header works; sending a recognisable tool's own header does not. Measured on 2026-10-30, `?id=KLE` with `-L`:
 
-Verified against the product classification database on 2026-10-27: `KLE` -> 872.3200, class 2, 510(k), "agent, tooth bonding, resin"; `EMA` -> 872.3275, class 2, 510(k), "cement, dental"; `EMB` -> 872.3275, class 1, 510(k) exempt, "zinc oxide eugenol". The `872.3200` and `872.3275` rows below were re-confirmed the same day.
+| `User-Agent` sent | Result |
+|---|---|
+| none (`-A ''`) | `200`, the real KLE record (5 of 5 attempts) |
+| a desktop browser string | `200`, the real KLE record (5 of 5) |
+| `curl/8.18.0` (curl's default, i.e. no `-A` flag) | `404` abuse-detection apology (11 of 11) |
+| `Wget/1.21.3`, `python-urllib3/2.0.7` | `404` abuse-detection apology |
+
+The distinction matters because **"no `User-Agent`" and "no `-A` flag" are opposites here**: plain `curl` without `-A` still sends `User-Agent: curl/8.18.0`, which is exactly what is refused. Earlier versions of this note read that failure as "a desktop `User-Agent` is required"; it is not required, it is merely one string that is not on the blocklist. Either `-A ''` or a browser string works.
+
+Two further pitfalls, so do not treat the header as the only variable:
+
+- Without `-L` you see only the `302` redirect stub, not the apology page it leads to. The `404` above is the followed redirect.
+- Intermittently, and *with* an accepted header, the site answers a ~2 kB queue page reading *"Your request is being processed. Please be patient and wait for this page to refresh in a few seconds"*, served as readily with `400` as with `200`. It carries no record and is not the apology page. Read it as *no answer yet*, never as *the value is absent*, and retry.
+
+So confirm a response actually contains a record before concluding that a product code is absent from the database.
+
+Verified against the product classification database on 2026-10-27 and re-read unchanged on 2026-10-30: `KLE` -> 872.3200, class 2, 510(k), "agent, tooth bonding, resin"; `EMA` -> 872.3275, class 2, 510(k), "cement, dental"; `EMB` -> 872.3275, class 1, 510(k) exempt, "zinc oxide eugenol". The `872.3200` and `872.3275` rows below were re-confirmed on both dates. `872.3275` carries four codes in total (`EMA`, `MZW`, `NEA`, `EMB`); an entry citing only `EMA` is scoping to "cement, dental", not overlooking the others.
 
 Regulations verified against the CFR text and the FDA product classification database on 2026-09-04:
 
