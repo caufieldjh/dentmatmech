@@ -101,10 +101,26 @@ Editions of a standard should be checked against FDA's [Recognized Consensus Sta
 ## Fetching the primary sources
 
 All four forms below were re-confirmed working on 2026-10-10. **The `User-Agent` requirement is
-per-host, and for one host it is inverted** — there is no single header set that fetches all of them.
-Sending a desktop `User-Agent` everywhere breaks the guidance PDFs; sending none breaks the FDA
-databases. Both failures look the same: an `apology_objects/abuse-detection-apology.html` page,
-served with a `404`, that reads like *the record does not exist* rather than like *you were blocked*.
+per-host, and the two FDA hosts are exact opposites** — there is no single header set that fetches
+all of them. Measured on 2026-10-31, three attempts per cell:
+
+| Header | `accessdata.fda.gov` (the databases) | `www.fda.gov` (guidance pages and PDFs) |
+|---|---|---|
+| no `-A` flag, i.e. `User-Agent: curl/8.x` | `404` apology page (3/3) | the PDF, `200`, 541 kB (3/3) |
+| no header at all (`-A ''`) | the record, `200` (3/3) | `404`, 10-byte body (3/3) |
+| a desktop browser string | the record, `200` (3/3) | `404`, 10-byte body (3/3) |
+
+Two distinctions the obvious shorthand gets wrong, both of which have been written into this file
+before:
+
+- **"No `-A` flag" and "no `User-Agent`" are opposites, not synonyms.** Plain `curl` without `-A`
+  still sends `User-Agent: curl/8.x`, which is exactly what `accessdata` refuses; `-A ''` sends no
+  header and is served. So a desktop string is *sufficient* for the databases but never *required* —
+  what they refuse is a recognisable tool's own header, not the absence of a browser's.
+- **The two hosts fail differently, so do not pattern-match one on the other.** Only `accessdata`
+  serves the `apology_objects/abuse-detection-apology.html` page, which reads like *the record does
+  not exist* rather than like *you were blocked*. `www.fda.gov` just returns a bare `404` with a
+  10-byte body and no page at all.
 
 **Three outcomes, not two.** Every response from a source below is one of: the record; a block; or a
 page that is neither and still returns `200`. The third kind is the dangerous one, because a script
@@ -130,11 +146,12 @@ Consensus Standards unfiltered listing, both described below.
   and record the issue date you quoted from.
 
   Prefer it over the law.cornell.edu mirror when quoting verbatim. The mirror's `<I>` tags render as stray spaces in most HTML-to-text converters, which silently corrupts a snippet into `eugenol —(1) Identification .` where the regulation reads `eugenol—(1) Identification.`
-- **Product codes** (`accessdata.fda.gov`) **need a desktop `User-Agent`**; without one, both URL
-  forms return the apology page. Earlier notes blamed the `start_search=1&regulationnumber=` form
-  itself for being throttled. That was wrong, and it was the missing header: on 2026-10-08 both
-  forms returned real records first try with `-A "$UA"`, and both returned the apology page without
-  it. Prefer whichever answers the question:
+- **Product codes** (`accessdata.fda.gov`) **must not be fetched with curl's default header**; with
+  no `-A` flag, both URL forms return the apology page. Either `-A ''` or a desktop string works —
+  the recipes below use `-A "$UA"`, but that string is not special. Earlier notes blamed the
+  `start_search=1&regulationnumber=` form itself for being throttled. That was wrong, and it was the
+  header: on 2026-10-08 both forms returned real records first try with `-A "$UA"`, and both
+  returned the apology page with no `-A` at all. Prefer whichever answers the question:
 
   ```bash
   # one record, by code
@@ -148,11 +165,12 @@ Consensus Standards unfiltered listing, both described below.
   With the header, a third response is possible and was seen on 2026-10-10: a ~2 kB **queue page**
   reading *"Your request is being processed. Please be patient and wait for this page to refresh in a
   few seconds"*, whose only logic is a 60-second `setInterval` countdown ending in
-  `window.location.reload()`. It carries no record and is **not** the apology page, so the inverted
+  `window.location.reload()`. It carries no record and is **not** the apology page, so the per-host
   `User-Agent` rule above has not changed when you see it. A plain retry of the same URL cleared it
   first try, and it did not recur over 20 further requests. A cookie jar (`-c`/`-b`) makes no
   difference — tested with and without, 7 requests, identical results; the one thing that still
-  matters is the `-A "$UA"`, which without it returns the `404` apology page every time.
+  matters is sending something other than curl's default header, without which the host returns the
+  `404` apology page every time.
 - **Recognized consensus standards** (`cfStandards`) **must be queried with `POST`, not a query
   string.** `results.cfm` ignores unknown query parameters and silently serves the *unfiltered*
   listing with a `200`. Guessed names such as `?standard_number=9917-2` or `?recognition_number=4-311`
@@ -177,7 +195,9 @@ Consensus Standards unfiltered listing, both described below.
   edition as recognised — which is the authoritative spelling of the edition for a `standards` row.
 - **Guidance PDFs** (`fda.gov/media/<id>/download`) **must be fetched with no `-A` at all.** This is
   the inverted case: curl's default `User-Agent` returned the PDF (`200`, 541 kB) on 3 of 3 tries,
-  while the desktop `User-Agent` that the databases require returned the apology page on 3 of 3.
+  while both `-A ''` and a desktop string returned a bare `404` with a 10-byte body on 3 of 3 —
+  no apology page, no record, nothing to grep. The same split applies to the guidance *landing*
+  page, so take `<id>` from a fetch made with curl's default header too.
   `WebFetch` also works but is not needed, and a summary is not evidence — extract the text and
   match the quote:
 
